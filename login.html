@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#070A10" />
+
+  <title>Login — JOYET</title>
+  <meta
+    name="description"
+    content="Log in to your JOYET account and manage your crypto-funded balance, transfers, airtime, data and digital services."
+  />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            joyet: "#3B82F6",
+            joyetLight: "#60A5FA",
+            joyetSky: "#38BDF8",
+            ink: "#070A10",
+            ink2: "#0A0F17",
+            panel: "#0E141D"
+          },
+          boxShadow: {
+            glow: "0 0 70px rgba(59,130,246,.16)",
+            soft: "0 30px 100px rgba(0,0,0,.45)"
+          }
+        }
+      }
+    };
+  </script>
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  />
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Inter", sans-serif;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(59,130,246,.13), transparent 30%),
+        radial-gradient(circle at 80% 80%, rgba(56,189,248,.08), transparent 28%),
+        #070A10;
+      color: #F8FAFC;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .noise {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .025;
+      z-index: 0;
+      background-image:
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.95' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
+    }
+
+    .orb {
+      position: fixed;
+      width: 420px;
+      height: 420px;
+      border-radius: 999px;
+      filter: blur(90px);
+      pointer-events: none;
+      z-index: 0;
+      opacity: .22;
+    }
+
+    .orb.one {
+      top: -180px;
+      left: -120px;
+      background: rgba(59,130,246,.35);
+    }
+
+    .orb.two {
+      right: -160px;
+      bottom: -170px;
+      background: rgba(56,189,248,.22);
+    }
+
+    .glass {
+      background: rgba(14, 20, 29, .78);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      box-shadow:
+        0 35px 90px rgba(0,0,0,.38),
+        inset 0 1px 0 rgba(255,255,255,.025);
+    }
+
+    .input-wrap {
+      position: relative;
+    }
+
+    .input-icon {
+      position: absolute;
+      left: 17px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #64748B;
+      pointer-events: none;
+    }
+
+    .field {
+      width: 100%;
+      height: 56px;
+      border-radius: 16px;
+      background: rgba(255,255,255,.035);
+      border: 1px solid rgba(255,255,255,.055);
+      color: #F8FAFC;
+      outline: none;
+      padding: 0 18px 0 48px;
+      font-size: 15px;
+      transition: .2s ease;
+    }
+
+    .field:focus {
+      border-color: rgba(59,130,246,.6);
+      background: rgba(59,130,246,.055);
+      box-shadow: 0 0 0 4px rgba(59,130,246,.10);
+    }
+
+    .field::placeholder {
+      color: #64748B;
+    }
+
+    .password-field {
+      padding-right: 52px;
+    }
+
+    .password-toggle {
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      border: none;
+      background: transparent;
+      color: #64748B;
+      cursor: pointer;
+      padding: 8px;
+    }
+
+    .password-toggle:hover {
+      color: #CBD5E1;
+    }
+
+    .login-btn {
+      position: relative;
+      width: 100%;
+      height: 56px;
+      border: 0;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #3B82F6, #2563EB);
+      color: white;
+      font-weight: 700;
+      font-size: 15px;
+      cursor: pointer;
+      box-shadow: 0 18px 40px rgba(37,99,235,.22);
+      transition: .2s ease;
+      overflow: hidden;
+    }
+
+    .login-btn::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        110deg,
+        transparent 20%,
+        rgba(255,255,255,.18) 45%,
+        transparent 70%
+      );
+      transform: translateX(-120%);
+      transition: .55s ease;
+    }
+
+    .login-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 22px 48px rgba(37,99,235,.28);
+    }
+
+    .login-btn:hover::before {
+      transform: translateX(120%);
+    }
+
+    .login-btn:disabled {
+      opacity: .65;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .status {
+      display: none;
+      border-radius: 14px;
+      padding: 13px 15px;
+      margin-bottom: 16px;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .status.show {
+      display: block;
+    }
+
+    .status.error {
+      background: rgba(239,68,68,.08);
+      color: #FCA5A5;
+      border: 1px solid rgba(239,68,68,.12);
+    }
+
+    .status.success {
+      background: rgba(59,130,246,.08);
+      color: #93C5FD;
+      border: 1px solid rgba(59,130,246,.12);
+    }
+
+    .mini-card {
+      background: rgba(255,255,255,.026);
+      border: 1px solid rgba(255,255,255,.04);
+      border-radius: 18px;
+    }
+
+    .dot-grid {
+      background-image: radial-gradient(
+        rgba(148,163,184,.16) 1px,
+        transparent 1px
+      );
+      background-size: 20px 20px;
+    }
+
+    @media (max-width: 768px) {
+      .orb {
+        width: 260px;
+        height: 260px;
+        filter: blur(70px);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="noise"></div>
+  <div class="orb one"></div>
+  <div class="orb two"></div>
+
+  <main class="relative z-10 min-h-screen flex items-center justify-center px-5 py-10">
+
+    <div class="w-full max-w-6xl grid lg:grid-cols-[1fr_460px] gap-10 lg:gap-16 items-center">
+
+      <!-- LEFT SIDE -->
+      <section class="hidden lg:block">
+        <a
+          href="index.html"
+          class="inline-flex items-center gap-3 mb-12"
+        >
+          <div
+            class="w-10 h-10 rounded-xl flex items-center justify-center"
+            style="background:linear-gradient(135deg,#3B82F6,#60A5FA); box-shadow:0 10px 30px rgba(59,130,246,.22);"
+          >
+            <span class="text-white font-black text-lg">J</span>
+          </div>
+
+          <span class="text-2xl font-black tracking-[-.05em]">
+            JOYET
+          </span>
+        </a>
+
+        <div class="max-w-xl">
+          <div
+            class="inline-flex items-center gap-2 px-3 py-2 rounded-full mb-7"
+            style="background:rgba(59,130,246,.07); color:#93C5FD;"
+          >
+            <span class="w-1.5 h-1.5 rounded-full bg-blue-400"></span>
+            Your digital balance, simplified
+          </div>
+
+          <h1 class="text-5xl xl:text-6xl font-black leading-[1.03] tracking-[-.055em]">
+            Welcome back to
+            <span
+              class="block mt-2 text-transparent bg-clip-text"
+              style="background-image:linear-gradient(90deg,#60A5FA,#38BDF8);"
+            >
+              JOYET.
+            </span>
+          </h1>
+
+          <p class="mt-7 text-lg text-slate-400 max-w-lg leading-8">
+            Deposit crypto, keep your balance in JOYET, and use it for
+            transfers, airtime, mobile data, bills and more.
+          </p>
+
+          <div class="grid sm:grid-cols-2 gap-4 mt-10 max-w-xl">
+
+            <div class="mini-card p-5">
+              <div class="w-10 h-10 rounded-xl flex items-center justify-center bg-blue-500/10 text-blue-300 mb-4">
+                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                  <path d="M12 3v18M3 12h18"/>
+                </svg>
+              </div>
+
+              <div class="font-semibold mb-1">
+                One balance
+              </div>
+
+              <div class="text-sm text-slate-500 leading-6">
+                Keep your digital value in one place.
+              </div>
+            </div>
+
+            <div class="mini-card p-5">
+              <div class="w-10 h-10 rounded-xl flex items-center justify-center bg-sky-500/10 text-sky-300 mb-4">
+                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                  <rect x="3" y="5" width="18" height="14" rx="3"/>
+                  <path d="M3 10h18"/>
+                </svg>
+              </div>
+
+              <div class="font-semibold mb-1">
+                Everyday services
+              </div>
+
+              <div class="text-sm text-slate-500 leading-6">
+                Turn your balance into useful payments.
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+
+      <!-- LOGIN CARD -->
+      <section class="w-full">
+
+        <div class="lg:hidden text-center mb-8">
+          <a
+            href="index.html"
+            class="inline-block text-3xl font-black tracking-[-.06em]"
+          >
+            JOYET
+          </a>
+
+          <p class="text-sm text-slate-500 mt-3">
+            Your digital balance, simplified.
+          </p>
+        </div>
+
+        <div class="glass rounded-[30px] p-6 sm:p-8 md:p-10">
+
+          <div class="mb-8">
+            <p class="text-xs uppercase tracking-[.18em] text-blue-400 font-semibold mb-3">
+              Account access
+            </p>
+
+            <h2 class="text-3xl font-bold tracking-tight">
+              Log in
+            </h2>
+
+            <p class="text-slate-500 mt-2 text-sm leading-6">
+              Enter your details to access your JOYET account.
+            </p>
+          </div>
+
+
+          <!-- STATUS -->
+          <div id="statusMessage" class="status"></div>
+
+
+          <!-- FORM -->
+          <form id="loginForm" class="space-y-5">
+
+            <div>
+              <label class="block text-sm font-medium text-slate-300 mb-2">
+                Email address
+              </label>
+
+              <div class="input-wrap">
+                <div class="input-icon">
+                  <svg width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                    <rect x="3" y="5" width="18" height="14" rx="3"></rect>
+                    <path d="m4 7 8 6 8-6"></path>
+                  </svg>
+                </div>
+
+                <input
+                  id="email"
+                  type="email"
+                  class="field"
+                  placeholder="you@example.com"
+                  autocomplete="email"
+                  required
+                />
+              </div>
+            </div>
+
+
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <label class="text-sm font-medium text-slate-300">
+                  Password
+                </label>
+
+                <a
+                  href="#"
+                  id="forgotPassword"
+                  class="text-xs font-medium text-blue-400 hover:text-blue-300 transition"
+                >
+                  Forgot password?
+                </a>
+              </div>
+
+              <div class="input-wrap">
+                <div class="input-icon">
+                  <svg width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                    <rect x="4" y="10" width="16" height="10" rx="2"></rect>
+                    <path d="M8 10V7a4 4 0 0 1 8 0v3"></path>
+                  </svg>
+                </div>
+
+                <input
+                  id="password"
+                  type="password"
+                  class="field password-field"
+                  placeholder="Enter your password"
+                  autocomplete="current-password"
+                  required
+                />
+
+                <button
+                  type="button"
+                  class="password-toggle"
+                  id="togglePassword"
+                  aria-label="Show password"
+                >
+                  <svg id="eyeOpen" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                    <path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z"/>
+                    <circle cx="12" cy="12" r="2.5"/>
+                  </svg>
+
+                  <svg id="eyeClosed" class="hidden" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                    <path d="m3 3 18 18"/>
+                    <path d="M10.6 10.6a2 2 0 0 0 2.8 2.8"/>
+                    <path d="M9.9 5.2A10.4 10.4 0 0 1 12 5c6 0 9.5 7 9.5 7a17.4 17.4 0 0 1-3 3.8"/>
+                    <path d="M6.4 6.4C3.8 8.2 2.5 12 2.5 12s3.5 6 9.5 6c1.6 0 3-.4 4.2-1"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+
+            <div class="flex items-center gap-3 pt-1">
+              <input
+                id="remember"
+                type="checkbox"
+                class="w-4 h-4 accent-blue-500 rounded"
+              />
+
+              <label
+                for="remember"
+                class="text-sm text-slate-500 cursor-pointer"
+              >
+                Remember me
+              </label>
+            </div>
+
+
+            <button
+              id="loginButton"
+              type="submit"
+              class="login-btn"
+            >
+              <span id="loginButtonText">Log in to JOYET</span>
+            </button>
+
+          </form>
+
+
+          <div class="flex items-center gap-4 my-8">
+            <div class="h-px flex-1 bg-white/[.045]"></div>
+            <span class="text-xs text-slate-600">
+              Secure access
+            </span>
+            <div class="h-px flex-1 bg-white/[.045]"></div>
+          </div>
+
+
+          <p class="text-center text-sm text-slate-500">
+            Don't have a JOYET account?
+            <a
+              href="register.html"
+              class="font-semibold text-blue-400 hover:text-blue-300 transition"
+            >
+              Create one
+            </a>
+          </p>
+
+        </div>
+
+
+        <div class="flex items-center justify-center gap-6 mt-6 text-xs text-slate-600">
+          <a href="index.html" class="hover:text-slate-400 transition">
+            Home
+          </a>
+
+          <span>•</span>
+
+          <a href="#" class="hover:text-slate-400 transition">
+            Privacy
+          </a>
+
+          <span>•</span>
+
+          <a href="#" class="hover:text-slate-400 transition">
+            Terms
+          </a>
+        </div>
+
+      </section>
+
+    </div>
+  </main>
+
+
+  <script type="module">
+    /*
+      Firebase Authentication can be connected here.
+
+      Example structure:
+
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/...";
+      import {
+        getAuth,
+        signInWithEmailAndPassword,
+        sendPasswordResetEmail
+      } from "https://www.gstatic.com/firebasejs/...";
+
+      const firebaseConfig = {
+        ...
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const auth = getAuth(app);
+
+      Then replace the demo submit section below with:
+      await signInWithEmailAndPassword(auth, email, password);
+    */
+
+
+    const loginForm = document.getElementById("loginForm");
+    const loginButton = document.getElementById("loginButton");
+    const loginButtonText = document.getElementById("loginButtonText");
+
+    const passwordInput = document.getElementById("password");
+    const togglePassword = document.getElementById("togglePassword");
+    const eyeOpen = document.getElementById("eyeOpen");
+    const eyeClosed = document.getElementById("eyeClosed");
+
+    const statusMessage = document.getElementById("statusMessage");
+    const forgotPassword = document.getElementById("forgotPassword");
+
+
+    function showStatus(message, type = "error") {
+      statusMessage.textContent = message;
+      statusMessage.className = `status show ${type}`;
+    }
+
+
+    function clearStatus() {
+      statusMessage.textContent = "";
+      statusMessage.className = "status";
+    }
+
+
+    togglePassword.addEventListener("click", () => {
+      const isPassword = passwordInput.type === "password";
+
+      passwordInput.type = isPassword ? "text" : "password";
+
+      eyeOpen.classList.toggle("hidden", isPassword);
+      eyeClosed.classList.toggle("hidden", !isPassword);
+
+      togglePassword.setAttribute(
+        "aria-label",
+        isPassword ? "Hide password" : "Show password"
+      );
+    });
+
+
+    forgotPassword.addEventListener("click", (event) => {
+      event.preventDefault();
+
+      const email = document.getElementById("email").value.trim();
+
+      if (!email) {
+        showStatus(
+          "Enter your email address first, then we can start the password reset process.",
+          "error"
+        );
+        return;
+      }
+
+      showStatus(
+        "Password reset is ready to be connected to Firebase Authentication.",
+        "success"
+      );
+    });
+
+
+    loginForm.addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      clearStatus();
+
+      const email = document.getElementById("email").value.trim();
+      const password = passwordInput.value.trim();
+
+      if (!email || !password) {
+        showStatus("Please enter your email and password.");
+        return;
+      }
+
+      loginButton.disabled = true;
+      loginButtonText.textContent = "Signing you in…";
+
+      /*
+        TEMPORARY UI FLOW
+
+        Connect Firebase Authentication here.
+
+        Example:
+
+        try {
+          await signInWithEmailAndPassword(auth, email, password);
+          window.location.href = "dashboard.html";
+        } catch (error) {
+          showStatus(error.message);
+        }
+      */
+
+      setTimeout(() => {
+        loginButton.disabled = false;
+        loginButtonText.textContent = "Log in to JOYET";
+
+        showStatus(
+          "The login interface is ready. Connect this form to your Firebase Authentication setup.",
+          "success"
+        );
+      }, 700);
+    });
+  </script>
+
+</body>
+</html>
