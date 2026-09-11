@@ -1,0 +1,2255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#070A10" />
+
+  <title>Dashboard — JOYET</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            joyet: "#3B82F6",
+            joyetLight: "#60A5FA",
+            joyetSky: "#38BDF8",
+            ink: "#070A10",
+            ink2: "#0A0F17",
+            panel: "#0E141D"
+          }
+        }
+      }
+    };
+  </script>
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  />
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Inter", sans-serif;
+      background:
+        radial-gradient(
+          circle at 5% 0%,
+          rgba(59,130,246,.09),
+          transparent 25%
+        ),
+        #070A10;
+      color: #F8FAFC;
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(
+          180deg,
+          rgba(255,255,255,.012),
+          transparent 20%
+        );
+      z-index: 0;
+    }
+
+    .app-shell {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+    }
+
+    .sidebar {
+      background: rgba(9,14,22,.72);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      box-shadow:
+        1px 0 0 rgba(255,255,255,.025);
+    }
+
+    .surface {
+      background: rgba(14,20,29,.74);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      box-shadow:
+        0 20px 60px rgba(0,0,0,.18),
+        inset 0 1px rgba(255,255,255,.02);
+    }
+
+    .surface-soft {
+      background: rgba(255,255,255,.025);
+    }
+
+    .nav-item {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+
+      width: 100%;
+
+      padding: 12px 14px;
+
+      border-radius: 14px;
+
+      color: #7F8B9B;
+
+      font-size: 14px;
+      font-weight: 600;
+
+      transition: .2s ease;
+    }
+
+    .nav-item:hover {
+      color: #E2E8F0;
+      background: rgba(255,255,255,.035);
+    }
+
+    .nav-item.active {
+      color: #F8FAFC;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(59,130,246,.13),
+          rgba(59,130,246,.045)
+        );
+
+      box-shadow:
+        inset 0 0 0 1px rgba(59,130,246,.08);
+    }
+
+    .balance-card {
+      position: relative;
+      overflow: hidden;
+
+      background:
+        radial-gradient(
+          circle at 85% 15%,
+          rgba(96,165,250,.26),
+          transparent 24%
+        ),
+        radial-gradient(
+          circle at 20% 100%,
+          rgba(56,189,248,.12),
+          transparent 32%
+        ),
+        linear-gradient(
+          135deg,
+          #0D1929,
+          #0A111C
+        );
+
+      box-shadow:
+        0 30px 70px rgba(0,0,0,.28),
+        inset 0 1px rgba(255,255,255,.035);
+    }
+
+    .balance-card::before {
+      content: "";
+
+      position: absolute;
+
+      width: 240px;
+      height: 240px;
+
+      border-radius: 999px;
+
+      top: -140px;
+      right: -90px;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(59,130,246,.26),
+          transparent 68%
+        );
+
+      pointer-events: none;
+    }
+
+    .balance-card::after {
+      content: "";
+
+      position: absolute;
+
+      width: 160px;
+      height: 160px;
+
+      border-radius: 999px;
+
+      bottom: -110px;
+      left: 35%;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(56,189,248,.12),
+          transparent 70%
+        );
+    }
+
+    .quick-card {
+      background:
+        rgba(14,20,29,.72);
+
+      transition:
+        transform .2s ease,
+        background .2s ease,
+        box-shadow .2s ease;
+    }
+
+    .quick-card:hover {
+      transform: translateY(-3px);
+
+      background:
+        rgba(20,29,42,.82);
+
+      box-shadow:
+        0 18px 45px rgba(0,0,0,.22);
+    }
+
+    .service-icon {
+      width: 46px;
+      height: 46px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 15px;
+
+      background:
+        rgba(59,130,246,.08);
+
+      color: #60A5FA;
+    }
+
+    .transaction-row {
+      transition: .18s ease;
+    }
+
+    .transaction-row:hover {
+      background:
+        rgba(255,255,255,.023);
+    }
+
+    .avatar {
+      background:
+        linear-gradient(
+          135deg,
+          rgba(59,130,246,.22),
+          rgba(56,189,248,.10)
+        );
+
+      color: #93C5FD;
+    }
+
+    .mobile-header {
+      background:
+        rgba(7,10,16,.78);
+
+      backdrop-filter:
+        blur(22px);
+
+      -webkit-backdrop-filter:
+        blur(22px);
+
+      border-bottom:
+        1px solid
+        rgba(255,255,255,.035);
+    }
+
+    .mobile-nav {
+      background:
+        rgba(8,12,18,.92);
+
+      backdrop-filter:
+        blur(25px);
+
+      -webkit-backdrop-filter:
+        blur(25px);
+
+      box-shadow:
+        0 -15px 40px rgba(0,0,0,.30);
+    }
+
+    .toast {
+      position: fixed;
+
+      right: 24px;
+      bottom: 24px;
+
+      transform:
+        translateY(25px);
+
+      opacity: 0;
+
+      pointer-events: none;
+
+      background:
+        rgba(17,25,37,.95);
+
+      backdrop-filter:
+        blur(18px);
+
+      color: #E2E8F0;
+
+      padding: 13px 16px;
+
+      border-radius: 14px;
+
+      box-shadow:
+        0 20px 50px rgba(0,0,0,.3);
+
+      transition:
+        .25s ease;
+
+      z-index: 100;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .scrollbar-hidden {
+      scrollbar-width: none;
+    }
+
+    .scrollbar-hidden::-webkit-scrollbar {
+      display: none;
+    }
+
+    @media(max-width:1023px) {
+
+      .desktop-sidebar {
+        display: none;
+      }
+
+      .main-content {
+        padding-bottom: 96px;
+      }
+
+    }
+
+    @media(min-width:1024px) {
+
+      .mobile-header {
+        display: none;
+      }
+
+      .mobile-nav {
+        display: none;
+      }
+
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="app-shell">
+
+  <!-- =====================================================
+       DESKTOP SIDEBAR
+  ====================================================== -->
+
+  <aside
+    class="desktop-sidebar sidebar fixed left-0 top-0 bottom-0 w-[245px] px-5 py-7 hidden lg:flex flex-col"
+  >
+
+    <!-- LOGO -->
+
+    <a
+      href="dashboard.html"
+      class="px-3 mb-10 text-3xl font-black tracking-[-.06em]"
+    >
+      JOYET
+    </a>
+
+
+    <!-- MAIN NAVIGATION -->
+
+    <nav class="space-y-1">
+
+      <a
+        href="dashboard.html"
+        class="nav-item active"
+      >
+
+        <svg
+          width="19"
+          height="19"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          viewBox="0 0 24 24"
+        >
+          <rect
+            x="3"
+            y="3"
+            width="7"
+            height="7"
+            rx="1.5"
+          />
+
+          <rect
+            x="14"
+            y="3"
+            width="7"
+            height="7"
+            rx="1.5"
+          />
+
+          <rect
+            x="3"
+            y="14"
+            width="7"
+            height="7"
+            rx="1.5"
+          />
+
+          <rect
+            x="14"
+            y="14"
+            width="7"
+            height="7"
+            rx="1.5"
+          />
+        </svg>
+
+        Dashboard
+
+      </a>
+
+
+      <a
+        href="wallet.html"
+        class="nav-item"
+      >
+
+        <svg
+          width="19"
+          height="19"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          viewBox="0 0 24 24"
+        >
+          <rect
+            x="3"
+            y="5"
+            width="18"
+            height="14"
+            rx="3"
+          />
+
+          <path d="M3 9h18"/>
+
+          <path d="M16 14h2"/>
+        </svg>
+
+        Balance
+
+      </a>
+
+
+      <a
+        href="send.html"
+        class="nav-item"
+      >
+
+        <svg
+          width="19"
+          height="19"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M21 3 10 14"
+          />
+
+          <path
+            d="m21 3-7 18-4-7-7-4 18-7Z"
+          />
+        </svg>
+
+        Send money
+
+      </a>
+
+
+      <div class="pt-7 pb-3 px-3">
+
+        <p
+          class="text-[10px] uppercase tracking-[.18em] text-slate-600 font-bold"
+        >
+          Services
+        </p>
+
+      </div>
+
+
+      <a
+        href="airtime.html"
+        class="nav-item"
+      >
+
+        <svg
+          width="19"
+          height="19"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          viewBox="0 0 24 24"
+        >
+
+          <rect
+            x="7"
+            y="2.5"
+            width="10"
+            height="19"
+            rx="2"
+          />
+
+          <path d="M10 18h4"/>
+
+        </svg>
+
+        Airtime
+
+      </a>
+
+
+      <a
+        href="data.html"
+        class="nav-item"
+      >
+
+        <svg
+          width="19"
+          height="19"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          viewBox="0 0 24 24"
+        >
+
+          <path d="M4 8h16"/>
+
+          <path d="M7 5h10"/>
+
+          <path d="M6 8v11h12V8"/>
+
+          <path d="M9 12h6M9 15h4"/>
+
+        </svg>
+
+        Mobile data
+
+      </a>
+
+
+      <a
+        href="electricity.html"
+        class="nav-item"
+      >
+
+        <svg
+          width="19"
+          height="19"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          viewBox="0 0 24 24"
+        >
+
+          <path
+            d="m13 2-8 12h7l-1 8 8-12h-7l1-8Z"
+          />
+
+        </svg>
+
+        Electricity
+
+      </a>
+
+
+      <a
+        href="cable.html"
+        class="nav-item"
+      >
+
+        <svg
+          width="19"
+          height="19"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          viewBox="0 0 24 24"
+        >
+
+          <rect
+            x="3"
+            y="5"
+            width="18"
+            height="14"
+            rx="3"
+          />
+
+          <path d="M8 9h8M8 13h4"/>
+
+        </svg>
+
+        Cable TV
+
+      </a>
+
+    </nav>
+
+
+    <!-- BOTTOM -->
+
+    <div class="mt-auto">
+
+      <a
+        href="settings.html"
+        class="nav-item mb-1"
+      >
+
+        <svg
+          width="19"
+          height="19"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          viewBox="0 0 24 24"
+        >
+
+          <circle
+            cx="12"
+            cy="12"
+            r="3"
+          />
+
+          <path
+            d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1-1.9 1.9-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.5v.1h-2.7V20a1.7 1.7 0 0 0-1-1.5 1.7 1.7 0 0 0-1.9.3l-.1.1-1.9-1.9.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.5-1H6.1v-2.7h.1a1.7 1.7 0 0 0 1.5-1 1.7 1.7 0 0 0-.3-1.9l-.1-.1 1.9-1.9.1.1a1.7 1.7 0 0 0 1.9.3 1.7 1.7 0 0 0 1-1.5V5h2.7v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.9-.3l.1-.1 1.9 1.9-.1.1a1.7 1.7 0 0 0-.3 1.9 1.7 1.7 0 0 0 1.5 1h.1v2.7h-.1a1.7 1.7 0 0 0-1.5 1Z"
+          />
+
+        </svg>
+
+        Settings
+
+      </a>
+
+
+      <button
+        id="logoutButton"
+        class="nav-item"
+      >
+
+        <svg
+          width="19"
+          height="19"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          viewBox="0 0 24 24"
+        >
+          <path d="M10 17l5-5-5-5"/>
+          <path d="M15 12H3"/>
+          <path d="M21 4v16"/>
+        </svg>
+
+        Log out
+
+      </button>
+
+    </div>
+
+  </aside>
+
+
+  <!-- =====================================================
+       MOBILE HEADER
+  ====================================================== -->
+
+  <header
+    class="mobile-header fixed top-0 left-0 right-0 z-40 lg:hidden h-[72px] flex items-center justify-between px-5"
+  >
+
+    <a
+      href="dashboard.html"
+      class="text-2xl font-black tracking-[-.06em]"
+    >
+      JOYET
+    </a>
+
+
+    <div class="flex items-center gap-3">
+
+      <button
+        id="notificationButton"
+        class="w-10 h-10 rounded-xl bg-white/[.035] flex items-center justify-center text-slate-400"
+      >
+
+        <svg
+          width="19"
+          height="19"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          viewBox="0 0 24 24"
+        >
+
+          <path
+            d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"
+          />
+
+          <path d="M10 21h4"/>
+
+        </svg>
+
+      </button>
+
+
+      <div
+        class="avatar w-10 h-10 rounded-xl flex items-center justify-center font-bold text-sm"
+      >
+        J
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <!-- =====================================================
+       MAIN CONTENT
+  ====================================================== -->
+
+  <main
+    class="main-content lg:ml-[245px] min-h-screen px-5 sm:px-8 lg:px-10 pt-24 lg:pt-10 pb-10"
+  >
+
+    <div class="max-w-[1400px] mx-auto">
+
+
+      <!-- TOP BAR -->
+
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-5 mb-8">
+
+        <div>
+
+          <p
+            class="text-sm text-slate-500 mb-1"
+          >
+            Friday, September 11
+          </p>
+
+          <h1
+            class="text-2xl sm:text-3xl font-bold tracking-tight"
+          >
+            Welcome back, <span id="userName">Jordan</span>.
+          </h1>
+
+        </div>
+
+
+        <div
+          class="hidden lg:flex items-center gap-3"
+        >
+
+          <button
+            id="desktopNotification"
+            class="w-11 h-11 rounded-xl bg-white/[.025] flex items-center justify-center text-slate-400 hover:text-white transition"
+          >
+
+            <svg
+              width="19"
+              height="19"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              viewBox="0 0 24 24"
+            >
+
+              <path
+                d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"
+              />
+
+              <path d="M10 21h4"/>
+
+            </svg>
+
+          </button>
+
+
+          <button
+            class="avatar w-11 h-11 rounded-xl flex items-center justify-center font-bold"
+          >
+            J
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <!-- =================================================
+           BALANCE / DEPOSIT
+      ================================================== -->
+
+      <section
+        class="grid xl:grid-cols-[1fr_340px] gap-5 mb-7"
+      >
+
+        <!-- BALANCE CARD -->
+
+        <div
+          class="balance-card rounded-[26px] p-6 sm:p-8 min-h-[260px]"
+        >
+
+          <div class="relative z-10">
+
+            <div
+              class="flex items-center justify-between"
+            >
+
+              <div
+                class="flex items-center gap-2"
+              >
+
+                <span
+                  class="text-sm text-slate-400"
+                >
+                  JOYET balance
+                </span>
+
+                <button
+                  id="toggleBalance"
+                  class="text-slate-500 hover:text-slate-300"
+                >
+
+                  <svg
+                    id="eyeIcon"
+                    width="17"
+                    height="17"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.7"
+                    viewBox="0 0 24 24"
+                  >
+
+                    <path
+                      d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z"
+                    />
+
+                    <circle
+                      cx="12"
+                      cy="12"
+                      r="2.5"
+                    />
+
+                  </svg>
+
+                </button>
+
+              </div>
+
+
+              <span
+                class="px-3 py-1.5 rounded-full text-[11px] font-semibold"
+                style="
+                  background:rgba(96,165,250,.09);
+                  color:#93C5FD;
+                "
+              >
+                Available
+              </span>
+
+            </div>
+
+
+            <div class="mt-4">
+
+              <div
+                id="balanceAmount"
+                class="text-4xl sm:text-5xl font-black tracking-[-.045em]"
+              >
+                ₦0.00
+              </div>
+
+              <div
+                class="text-sm text-slate-500 mt-2"
+              >
+                Your balance is ready for everyday services.
+              </div>
+
+            </div>
+
+
+            <div
+              class="flex flex-wrap gap-3 mt-8"
+            >
+
+              <a
+                href="deposit.html"
+                class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-blue-500 hover:bg-blue-400 text-white text-sm font-semibold transition"
+              >
+
+                <svg
+                  width="17"
+                  height="17"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.9"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M12 5v14"/>
+                  <path d="m6 13 6 6 6-6"/>
+                </svg>
+
+                Deposit crypto
+
+              </a>
+
+
+              <a
+                href="send.html"
+                class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white/[.045] hover:bg-white/[.07] text-slate-200 text-sm font-semibold transition"
+              >
+
+                <svg
+                  width="17"
+                  height="17"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.9"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M21 3 10 14"/>
+                  <path d="m21 3-7 18-4-7-7-4 18-7Z"/>
+                </svg>
+
+                Send
+
+              </a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- ACTIVITY CARD -->
+
+        <div
+          class="surface rounded-[26px] p-6"
+        >
+
+          <div class="flex items-center justify-between">
+
+            <div>
+
+              <p
+                class="text-xs uppercase tracking-[.16em] text-slate-600 font-semibold"
+              >
+                This month
+              </p>
+
+              <h3
+                class="text-xl font-bold mt-2"
+              >
+                Balance activity
+              </h3>
+
+            </div>
+
+
+            <div
+              class="w-11 h-11 rounded-xl flex items-center justify-center"
+              style="
+                background:rgba(59,130,246,.08);
+                color:#60A5FA;
+              "
+            >
+
+              <svg
+                width="21"
+                height="21"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                viewBox="0 0 24 24"
+              >
+
+                <path d="M3 20h18"/>
+
+                <path d="M5 17V9"/>
+                <path d="M10 17V5"/>
+                <path d="M15 17v-7"/>
+                <path d="M20 17V3"/>
+
+              </svg>
+
+            </div>
+
+          </div>
+
+
+          <div class="mt-8">
+
+            <div class="flex items-end justify-between">
+
+              <div>
+
+                <p class="text-xs text-slate-600">
+                  Total movement
+                </p>
+
+                <p class="text-2xl font-bold mt-1">
+                  ₦0.00
+                </p>
+
+              </div>
+
+              <span
+                class="text-xs text-slate-600"
+              >
+                This month
+              </span>
+
+            </div>
+
+
+            <!-- SIMPLE GRAPH -->
+
+            <div
+              class="h-[78px] mt-6 relative"
+            >
+
+              <svg
+                width="100%"
+                height="78"
+                viewBox="0 0 400 78"
+                preserveAspectRatio="none"
+              >
+
+                <defs>
+
+                  <linearGradient
+                    id="chartGradient"
+                    x1="0"
+                    y1="0"
+                    x2="0"
+                    y2="1"
+                  >
+
+                    <stop
+                      offset="0%"
+                      stop-color="#3B82F6"
+                      stop-opacity=".22"
+                    />
+
+                    <stop
+                      offset="100%"
+                      stop-color="#3B82F6"
+                      stop-opacity="0"
+                    />
+
+                  </linearGradient>
+
+                </defs>
+
+                <path
+                  d="M0 60 C35 57 42 48 74 52 C112 57 131 30 160 36 C193 42 199 17 231 27 C258 35 278 13 305 23 C333 34 351 15 400 8 L400 78 L0 78 Z"
+                  fill="url(#chartGradient)"
+                />
+
+                <path
+                  d="M0 60 C35 57 42 48 74 52 C112 57 131 30 160 36 C193 42 199 17 231 27 C258 35 278 13 305 23 C333 34 351 15 400 8"
+                  fill="none"
+                  stroke="#60A5FA"
+                  stroke-width="2"
+                />
+
+              </svg>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =================================================
+           QUICK ACTIONS
+      ================================================== -->
+
+      <section class="mb-8">
+
+        <div class="flex items-end justify-between mb-4">
+
+          <div>
+
+            <p
+              class="text-xs uppercase tracking-[.16em] text-slate-600 font-semibold"
+            >
+              Quick actions
+            </p>
+
+            <h2 class="text-xl font-bold mt-1">
+              What do you need?
+            </h2>
+
+          </div>
+
+        </div>
+
+
+        <div
+          class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3"
+        >
+
+          <!-- SEND -->
+
+          <a
+            href="send.html"
+            class="quick-card rounded-2xl p-4"
+          >
+
+            <div class="service-icon">
+
+              <svg
+                width="21"
+                height="21"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                viewBox="0 0 24 24"
+              >
+                <path d="M21 3 10 14"/>
+                <path d="m21 3-7 18-4-7-7-4 18-7Z"/>
+              </svg>
+
+            </div>
+
+            <div class="mt-4">
+
+              <div class="font-semibold text-sm">
+                Send
+              </div>
+
+              <div class="text-xs text-slate-600 mt-1">
+                Money
+              </div>
+
+            </div>
+
+          </a>
+
+
+          <!-- AIRTIME -->
+
+          <a
+            href="airtime.html"
+            class="quick-card rounded-2xl p-4"
+          >
+
+            <div class="service-icon">
+
+              <svg
+                width="21"
+                height="21"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                viewBox="0 0 24 24"
+              >
+
+                <rect
+                  x="7"
+                  y="2.5"
+                  width="10"
+                  height="19"
+                  rx="2"
+                />
+
+                <path d="M10 18h4"/>
+
+              </svg>
+
+            </div>
+
+            <div class="mt-4">
+
+              <div class="font-semibold text-sm">
+                Airtime
+              </div>
+
+              <div class="text-xs text-slate-600 mt-1">
+                Top up
+              </div>
+
+            </div>
+
+          </a>
+
+
+          <!-- DATA -->
+
+          <a
+            href="data.html"
+            class="quick-card rounded-2xl p-4"
+          >
+
+            <div class="service-icon">
+
+              <svg
+                width="21"
+                height="21"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                viewBox="0 0 24 24"
+              >
+
+                <path d="M4 8h16"/>
+                <path d="M7 5h10"/>
+                <path d="M6 8v11h12V8"/>
+                <path d="M9 12h6M9 15h4"/>
+
+              </svg>
+
+            </div>
+
+            <div class="mt-4">
+
+              <div class="font-semibold text-sm">
+                Data
+              </div>
+
+              <div class="text-xs text-slate-600 mt-1">
+                Bundles
+              </div>
+
+            </div>
+
+          </a>
+
+
+          <!-- ELECTRICITY -->
+
+          <a
+            href="electricity.html"
+            class="quick-card rounded-2xl p-4"
+          >
+
+            <div class="service-icon">
+
+              <svg
+                width="21"
+                height="21"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                viewBox="0 0 24 24"
+              >
+
+                <path
+                  d="m13 2-8 12h7l-1 8 8-12h-7l1-8Z"
+                />
+
+              </svg>
+
+            </div>
+
+            <div class="mt-4">
+
+              <div class="font-semibold text-sm">
+                Electricity
+              </div>
+
+              <div class="text-xs text-slate-600 mt-1">
+                Pay bill
+              </div>
+
+            </div>
+
+          </a>
+
+
+          <!-- CABLE -->
+
+          <a
+            href="cable.html"
+            class="quick-card rounded-2xl p-4"
+          >
+
+            <div class="service-icon">
+
+              <svg
+                width="21"
+                height="21"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                viewBox="0 0 24 24"
+              >
+
+                <rect
+                  x="3"
+                  y="5"
+                  width="18"
+                  height="14"
+                  rx="3"
+                />
+
+                <path d="M8 9h8M8 13h4"/>
+
+              </svg>
+
+            </div>
+
+            <div class="mt-4">
+
+              <div class="font-semibold text-sm">
+                Cable TV
+              </div>
+
+              <div class="text-xs text-slate-600 mt-1">
+                Subscribe
+              </div>
+
+            </div>
+
+          </a>
+
+
+          <!-- DEPOSIT -->
+
+          <a
+            href="deposit.html"
+            class="quick-card rounded-2xl p-4"
+          >
+
+            <div
+              class="service-icon"
+              style="
+                background:rgba(56,189,248,.08);
+                color:#38BDF8;
+              "
+            >
+
+              <svg
+                width="21"
+                height="21"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                viewBox="0 0 24 24"
+              >
+
+                <path d="M12 5v14"/>
+                <path d="m6 13 6 6 6-6"/>
+
+              </svg>
+
+            </div>
+
+            <div class="mt-4">
+
+              <div class="font-semibold text-sm">
+                Deposit
+              </div>
+
+              <div class="text-xs text-slate-600 mt-1">
+                Crypto
+              </div>
+
+            </div>
+
+          </a>
+
+        </div>
+
+      </section>
+
+
+      <!-- =================================================
+           MAIN LOWER GRID
+      ================================================== -->
+
+      <section
+        class="grid xl:grid-cols-[1fr_360px] gap-5"
+      >
+
+
+        <!-- TRANSACTIONS -->
+
+        <div class="surface rounded-[26px] overflow-hidden">
+
+          <div
+            class="px-6 py-5 flex items-center justify-between"
+          >
+
+            <div>
+
+              <p
+                class="text-xs uppercase tracking-[.16em] text-slate-600 font-semibold"
+              >
+                Activity
+              </p>
+
+              <h2
+                class="text-xl font-bold mt-1"
+              >
+                Recent transactions
+              </h2>
+
+            </div>
+
+
+            <a
+              href="transactions.html"
+              class="text-xs text-blue-400 hover:text-blue-300 font-semibold"
+            >
+              View all
+            </a>
+
+          </div>
+
+
+          <div id="transactionList">
+
+            <!-- TRANSACTION -->
+
+            <div
+              class="transaction-row px-6 py-4 flex items-center gap-4"
+            >
+
+              <div
+                class="avatar w-11 h-11 rounded-xl shrink-0 flex items-center justify-center"
+              >
+
+                <svg
+                  width="19"
+                  height="19"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  viewBox="0 0 24 24"
+                >
+
+                  <path d="M12 5v14"/>
+                  <path d="m6 11 6-6 6 6"/>
+
+                </svg>
+
+              </div>
+
+
+              <div class="min-w-0 flex-1">
+
+                <div class="font-medium text-sm">
+                  Crypto deposit
+                </div>
+
+                <div class="text-xs text-slate-600 mt-1">
+                  Today · 09:42 AM
+                </div>
+
+              </div>
+
+
+              <div class="text-right">
+
+                <div
+                  class="text-sm font-semibold text-blue-300"
+                >
+                  +₦0.00
+                </div>
+
+                <div
+                  class="text-[11px] text-slate-600 mt-1"
+                >
+                  Completed
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <div
+              class="transaction-row px-6 py-4 flex items-center gap-4"
+            >
+
+              <div
+                class="avatar w-11 h-11 rounded-xl shrink-0 flex items-center justify-center"
+              >
+
+                <svg
+                  width="19"
+                  height="19"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  viewBox="0 0 24 24"
+                >
+
+                  <path d="M5 12h14"/>
+                  <path d="m13 6 6 6-6 6"/>
+
+                </svg>
+
+              </div>
+
+
+              <div class="min-w-0 flex-1">
+
+                <div class="font-medium text-sm">
+                  Money transfer
+                </div>
+
+                <div class="text-xs text-slate-600 mt-1">
+                  Yesterday · 04:18 PM
+                </div>
+
+              </div>
+
+
+              <div class="text-right">
+
+                <div class="text-sm font-semibold">
+                  -₦0.00
+                </div>
+
+                <div class="text-[11px] text-slate-600 mt-1">
+                  Completed
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <div
+              class="transaction-row px-6 py-4 flex items-center gap-4"
+            >
+
+              <div
+                class="avatar w-11 h-11 rounded-xl shrink-0 flex items-center justify-center"
+              >
+
+                <svg
+                  width="19"
+                  height="19"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  viewBox="0 0 24 24"
+                >
+
+                  <path
+                    d="M7 4v16"
+                  />
+
+                  <path
+                    d="M17 4v16"
+                  />
+
+                  <path
+                    d="M4 8h16"
+                  />
+
+                  <path
+                    d="M4 16h16"
+                  />
+
+                </svg>
+
+              </div>
+
+
+              <div class="min-w-0 flex-1">
+
+                <div class="font-medium text-sm">
+                  Airtime purchase
+                </div>
+
+                <div class="text-xs text-slate-600 mt-1">
+                  Yesterday · 11:07 AM
+                </div>
+
+              </div>
+
+
+              <div class="text-right">
+
+                <div class="text-sm font-semibold">
+                  -₦0.00
+                </div>
+
+                <div class="text-[11px] text-slate-600 mt-1">
+                  Completed
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <!-- EMPTY-STYLE ROW -->
+
+            <div
+              class="px-6 py-7 text-center border-t border-white/[.025]"
+            >
+
+              <p class="text-xs text-slate-600">
+                Your latest JOYET activity will appear here.
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- RIGHT COLUMN -->
+
+        <div class="space-y-5">
+
+
+          <!-- PROFILE CARD -->
+
+          <div
+            class="surface rounded-[26px] p-6"
+          >
+
+            <div
+              class="flex items-center gap-4"
+            >
+
+              <div
+                class="avatar w-14 h-14 rounded-2xl flex items-center justify-center text-xl font-bold"
+              >
+                J
+              </div>
+
+
+              <div>
+
+                <div
+                  class="font-semibold"
+                  id="profileName"
+                >
+                  Jordan
+                </div>
+
+                <div
+                  class="text-xs text-slate-600 mt-1"
+                >
+                  JOYET account
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <div
+              class="h-px bg-white/[.035] my-5"
+            ></div>
+
+
+            <div
+              class="flex items-center justify-between"
+            >
+
+              <span
+                class="text-sm text-slate-500"
+              >
+                Account status
+              </span>
+
+              <span
+                class="text-xs font-semibold text-blue-300 px-2.5 py-1.5 rounded-full bg-blue-500/10"
+              >
+                Active
+              </span>
+
+            </div>
+
+
+            <a
+              href="settings.html"
+              class="mt-5 w-full h-11 rounded-xl bg-white/[.03] hover:bg-white/[.05] flex items-center justify-center text-sm font-semibold text-slate-300 transition"
+            >
+              Account settings
+            </a>
+
+          </div>
+
+
+          <!-- INFO CARD -->
+
+          <div
+            class="surface rounded-[26px] p-6"
+          >
+
+            <div
+              class="w-10 h-10 rounded-xl flex items-center justify-center mb-4"
+              style="
+                background:rgba(56,189,248,.08);
+                color:#38BDF8;
+              "
+            >
+
+              <svg
+                width="20"
+                height="20"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                viewBox="0 0 24 24"
+              >
+
+                <circle
+                  cx="12"
+                  cy="12"
+                  r="9"
+                />
+
+                <path d="M12 11v5"/>
+
+                <path
+                  d="M12 8h.01"
+                  stroke-width="3"
+                />
+
+              </svg>
+
+            </div>
+
+
+            <h3
+              class="font-semibold"
+            >
+              How JOYET works
+            </h3>
+
+
+            <p
+              class="text-sm text-slate-500 leading-6 mt-2"
+            >
+              Deposit supported crypto into JOYET, then use your
+              available balance for transfers and everyday digital
+              services.
+            </p>
+
+
+            <a
+              href="index.html#how-it-works"
+              class="inline-flex items-center gap-2 mt-5 text-xs font-semibold text-blue-400 hover:text-blue-300"
+            >
+              Learn more
+
+              <svg
+                width="14"
+                height="14"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                viewBox="0 0 24 24"
+              >
+                <path d="M5 12h14"/>
+                <path d="m13 6 6 6-6 6"/>
+              </svg>
+
+            </a>
+
+          </div>
+
+
+          <!-- SUPPORT -->
+
+          <div
+            class="surface rounded-[26px] p-6"
+          >
+
+            <div
+              class="flex items-center justify-between"
+            >
+
+              <div>
+
+                <div class="font-semibold">
+                  Need help?
+                </div>
+
+                <div class="text-xs text-slate-600 mt-1">
+                  Our support team is here.
+                </div>
+
+              </div>
+
+
+              <div
+                class="w-10 h-10 rounded-xl bg-white/[.035] flex items-center justify-center text-slate-400"
+              >
+
+                <svg
+                  width="19"
+                  height="19"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  viewBox="0 0 24 24"
+                >
+
+                  <path
+                    d="M21 11.5a8.5 8.5 0 0 1-9 8.5 9.5 9.5 0 0 1-3.8-.8L3 21l1.8-4.1A8.5 8.5 0 1 1 21 11.5Z"
+                  />
+
+                </svg>
+
+              </div>
+
+            </div>
+
+
+            <a
+              href="support.html"
+              class="inline-block mt-5 text-xs font-semibold text-blue-400 hover:text-blue-300"
+            >
+              Contact support →
+            </a>
+
+          </div>
+
+        </div>
+
+      </section>
+
+    </div>
+
+  </main>
+
+
+  <!-- =====================================================
+       MOBILE BOTTOM NAV
+  ====================================================== -->
+
+  <nav
+    class="mobile-nav fixed bottom-0 left-0 right-0 z-50 lg:hidden"
+  >
+
+    <div
+      class="grid grid-cols-5 px-2 py-2"
+    >
+
+      <a
+        href="dashboard.html"
+        class="flex flex-col items-center gap-1.5 py-2 text-blue-400"
+      >
+
+        <svg
+          width="19"
+          height="19"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          viewBox="0 0 24 24"
+        >
+
+          <rect
+            x="3"
+            y="3"
+            width="7"
+            height="7"
+            rx="1.5"
+          />
+
+          <rect
+            x="14"
+            y="3"
+            width="7"
+            height="7"
+            rx="1.5"
+          />
+
+          <rect
+            x="3"
+            y="14"
+            width="7"
+            height="7"
+            rx="1.5"
+          />
+
+          <rect
+            x="14"
+            y="14"
+            width="7"
+            height="7"
+            rx="1.5"
+          />
+
+        </svg>
+
+        <span class="text-[10px] font-semibold">
+          Home
+        </span>
+
+      </a>
+
+
+      <a
+        href="wallet.html"
+        class="flex flex-col items-center gap-1.5 py-2 text-slate-600"
+      >
+
+        <svg
+          width="19"
+          height="19"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          viewBox="0 0 24 24"
+        >
+
+          <rect
+            x="3"
+            y="5"
+            width="18"
+            height="14"
+            rx="3"
+          />
+
+          <path d="M3 9h18"/>
+
+          <path d="M16 14h2"/>
+
+        </svg>
+
+        <span class="text-[10px] font-semibold">
+          Balance
+        </span>
+
+      </a>
+
+
+      <a
+        href="deposit.html"
+        class="flex flex-col items-center justify-center"
+      >
+
+        <div
+          class="w-12 h-12 -mt-6 rounded-2xl flex items-center justify-center text-white"
+          style="
+            background:linear-gradient(
+              135deg,
+              #3B82F6,
+              #2563EB
+            );
+            box-shadow:
+              0 12px 30px
+              rgba(37,99,235,.30);
+          "
+        >
+
+          <svg
+            width="21"
+            height="21"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.9"
+            viewBox="0 0 24 24"
+          >
+
+            <path d="M12 5v14"/>
+            <path d="m6 13 6 6 6-6"/>
+
+          </svg>
+
+        </div>
+
+        <span class="text-[10px] font-semibold text-slate-600 mt-1">
+          Deposit
+        </span>
+
+      </a>
+
+
+      <a
+        href="transactions.html"
+        class="flex flex-col items-center gap-1.5 py-2 text-slate-600"
+      >
+
+        <svg
+          width="19"
+          height="19"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          viewBox="0 0 24 24"
+        >
+
+          <path d="M4 19V5"/>
+          <path d="M4 19h16"/>
+
+          <path d="M8 16v-4"/>
+          <path d="M12 16V8"/>
+          <path d="M16 16v-6"/>
+
+        </svg>
+
+        <span class="text-[10px] font-semibold">
+          Activity
+        </span>
+
+      </a>
+
+
+      <a
+        href="settings.html"
+        class="flex flex-col items-center gap-1.5 py-2 text-slate-600"
+      >
+
+        <svg
+          width="19"
+          height="19"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          viewBox="0 0 24 24"
+        >
+
+          <circle
+            cx="12"
+            cy="12"
+            r="3"
+          />
+
+          <path
+            d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1-1.9 1.9-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.5v.1h-2.7V20a1.7 1.7 0 0 0-1-1.5 1.7 1.7 0 0 0-1.9.3l-.1.1-1.9-1.9.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.5-1H6.1v-2.7h.1a1.7 1.7 0 0 0 1.5-1 1.7 1.7 0 0 0-.3-1.9l-.1-.1 1.9-1.9.1.1a1.7 1.7 0 0 0 1.9.3 1.7 1.7 0 0 0 1-1.5V5h2.7v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.9-.3l.1-.1 1.9 1.9-.1.1a1.7 1.7 0 0 0-.3 1.9 1.7 1.7 0 0 0 1.5 1h.1v2.7h-.1a1.7 1.7 0 0 0-1.5 1Z"
+          />
+
+        </svg>
+
+        <span class="text-[10px] font-semibold">
+          Settings
+        </span>
+
+      </a>
+
+    </div>
+
+  </nav>
+
+
+  <!-- TOAST -->
+
+  <div
+    id="toast"
+    class="toast"
+  >
+    <span id="toastText">
+      Done
+    </span>
+  </div>
+
+
+  <script>
+
+    /*
+      FRONTEND DASHBOARD ONLY
+
+      No Firebase.
+      No API.
+      No backend.
+
+      The numbers and profile are demo data.
+    */
+
+
+    const state = {
+      balance: "₦0.00",
+      name: "Jordan",
+      balanceVisible: true
+    };
+
+
+    /*
+      USER NAME
+    */
+
+    document.getElementById(
+      "userName"
+    ).textContent = state.name;
+
+    document.getElementById(
+      "profileName"
+    ).textContent = state.name;
+
+
+    /*
+      BALANCE VISIBILITY
+    */
+
+    const toggleBalance =
+      document.getElementById(
+        "toggleBalance"
+      );
+
+    const balanceAmount =
+      document.getElementById(
+        "balanceAmount"
+      );
+
+
+    toggleBalance.addEventListener(
+      "click",
+      () => {
+
+        state.balanceVisible =
+          !state.balanceVisible;
+
+
+        balanceAmount.textContent =
+          state.balanceVisible
+            ? state.balance
+            : "••••••";
+
+
+        toggleBalance.style.opacity =
+          state.balanceVisible
+            ? "1"
+            : ".55";
+
+      }
+    );
+
+
+    /*
+      TOAST
+    */
+
+    const toast =
+      document.getElementById("toast");
+
+    const toastText =
+      document.getElementById("toastText");
+
+    let toastTimer;
+
+
+    function showToast(message) {
+
+      toastText.textContent =
+        message;
+
+      toast.classList.add("show");
+
+      clearTimeout(toastTimer);
+
+      toastTimer =
+        setTimeout(() => {
+
+          toast.classList.remove("show");
+
+        }, 2500);
+
+    }
+
+
+    /*
+      NOTIFICATIONS
+    */
+
+    document
+      .getElementById("notificationButton")
+      ?.addEventListener(
+        "click",
+        () => {
+          showToast(
+            "No new notifications."
+          );
+        }
+      );
+
+
+    document
+      .getElementById("desktopNotification")
+      ?.addEventListener(
+        "click",
+        () => {
+          showToast(
+            "No new notifications."
+          );
+        }
+      );
+
+
+    /*
+      LOGOUT
+    */
+
+    document
+      .getElementById("logoutButton")
+      ?.addEventListener(
+        "click",
+        () => {
+
+          showToast(
+            "Logged out successfully."
+          );
+
+
+          setTimeout(() => {
+
+            window.location.href =
+              "login.html";
+
+          }, 700);
+
+        }
+      );
+
+  </script>
+
+</body>
+</html>
