@@ -1,0 +1,1608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="theme-color"
+    content="#070A10"
+  >
+
+  <title>Terms of Service — JOYET</title>
+
+  <meta
+    name="description"
+    content="Read the JOYET Terms of Service covering accounts, crypto deposits, balances, transfers, digital services, fees, security and acceptable use."
+  >
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            joyet: "#3B82F6",
+            joyetLight: "#60A5FA",
+            joyetSky: "#38BDF8",
+            ink: "#070A10",
+            ink2: "#0A0F17",
+            panel: "#0E141D"
+          }
+        }
+      }
+    };
+  </script>
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+
+  <style>
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+
+      font-family: "Inter", sans-serif;
+
+      color: #F8FAFC;
+
+      background:
+        radial-gradient(
+          circle at 10% 0%,
+          rgba(59,130,246,.10),
+          transparent 28%
+        ),
+        #070A10;
+
+      overflow-x: hidden;
+    }
+
+
+    .navbar {
+
+      background:
+        rgba(7,10,16,.78);
+
+      backdrop-filter:
+        blur(22px);
+
+      -webkit-backdrop-filter:
+        blur(22px);
+
+      border-bottom:
+        1px solid
+        rgba(255,255,255,.035);
+
+    }
+
+
+    .glass {
+
+      background:
+        rgba(14,20,29,.72);
+
+      backdrop-filter:
+        blur(24px);
+
+      -webkit-backdrop-filter:
+        blur(24px);
+
+      box-shadow:
+        0 25px 80px rgba(0,0,0,.22),
+        inset 0 1px rgba(255,255,255,.018);
+
+    }
+
+
+    .blue-text {
+
+      background:
+        linear-gradient(
+          90deg,
+          #60A5FA,
+          #38BDF8
+        );
+
+      -webkit-background-clip:
+        text;
+
+      background-clip:
+        text;
+
+      color:
+        transparent;
+
+    }
+
+
+    .primary-btn {
+
+      display:
+        inline-flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      height:
+        48px;
+
+      padding:
+        0 19px;
+
+      border-radius:
+        14px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #3B82F6,
+          #2563EB
+        );
+
+      color:
+        white;
+
+      font-size:
+        14px;
+
+      font-weight:
+        700;
+
+      box-shadow:
+        0 16px 36px
+        rgba(37,99,235,.21);
+
+      transition:
+        .2s ease;
+
+    }
+
+
+    .primary-btn:hover {
+
+      transform:
+        translateY(-2px);
+
+    }
+
+
+    .secondary-btn {
+
+      display:
+        inline-flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      height:
+        48px;
+
+      padding:
+        0 19px;
+
+      border-radius:
+        14px;
+
+      background:
+        rgba(255,255,255,.035);
+
+      color:
+        #CBD5E1;
+
+      font-size:
+        14px;
+
+      font-weight:
+        600;
+
+      transition:
+        .2s ease;
+
+    }
+
+
+    .secondary-btn:hover {
+
+      background:
+        rgba(255,255,255,.06);
+
+      color:
+        white;
+
+    }
+
+
+    .article {
+
+      color:
+        #94A3B8;
+
+      font-size:
+        15px;
+
+      line-height:
+        1.9;
+
+    }
+
+
+    .article h2 {
+
+      color:
+        #F8FAFC;
+
+      font-size:
+        22px;
+
+      line-height:
+        1.35;
+
+      font-weight:
+        700;
+
+      letter-spacing:
+        -.025em;
+
+      margin:
+        52px 0 14px;
+
+      scroll-margin-top:
+        100px;
+
+    }
+
+
+    .article h3 {
+
+      color:
+        #E2E8F0;
+
+      font-size:
+        16px;
+
+      line-height:
+        1.5;
+
+      font-weight:
+        650;
+
+      margin:
+        28px 0 10px;
+
+    }
+
+
+    .article p {
+
+      margin:
+        0 0 18px;
+
+    }
+
+
+    .article ul {
+
+      margin:
+        0 0 22px;
+
+      padding-left:
+        24px;
+
+    }
+
+
+    .article li {
+
+      margin-bottom:
+        9px;
+
+    }
+
+
+    .article strong {
+
+      color:
+        #CBD5E1;
+
+      font-weight:
+        650;
+
+    }
+
+
+    .toc-link {
+
+      display:
+        block;
+
+      padding:
+        9px 12px;
+
+      border-radius:
+        10px;
+
+      color:
+        #64748B;
+
+      font-size:
+        12px;
+
+      transition:
+        .2s ease;
+
+    }
+
+
+    .toc-link:hover {
+
+      color:
+        #CBD5E1;
+
+      background:
+        rgba(255,255,255,.025);
+
+    }
+
+
+    .notice {
+
+      background:
+        rgba(59,130,246,.055);
+
+      border:
+        1px solid
+        rgba(59,130,246,.09);
+
+      border-radius:
+        18px;
+
+    }
+
+
+    .mobile-menu {
+
+      display:
+        none;
+
+    }
+
+
+    .mobile-menu.open {
+
+      display:
+        block;
+
+    }
+
+
+    @media(max-width:768px) {
+
+      .desktop-links {
+        display:
+          none;
+      }
+
+      .mobile-menu-btn {
+        display:
+          flex;
+      }
+
+    }
+
+
+    @media(min-width:769px) {
+
+      .mobile-menu-btn {
+        display:
+          none;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+  <!-- ==================================================
+       NAVBAR
+  =================================================== -->
+
+  <header
+    class="navbar fixed top-0 left-0 right-0 z-50"
+  >
+
+    <div
+      class="max-w-7xl mx-auto px-5 sm:px-7 lg:px-8"
+    >
+
+      <div
+        class="h-[76px] flex items-center justify-between"
+      >
+
+        <a
+          href="index.html"
+          class="text-3xl font-black tracking-[-.06em]"
+        >
+          JOYET
+        </a>
+
+
+        <nav
+          class="desktop-links flex items-center gap-8"
+        >
+
+          <a
+            href="index.html#how-it-works"
+            class="text-sm text-slate-400 hover:text-white transition"
+          >
+            How it works
+          </a>
+
+          <a
+            href="services.html"
+            class="text-sm text-slate-400 hover:text-white transition"
+          >
+            Services
+          </a>
+
+          <a
+            href="security.html"
+            class="text-sm text-slate-400 hover:text-white transition"
+          >
+            Security
+          </a>
+
+          <a
+            href="faq.html"
+            class="text-sm text-slate-400 hover:text-white transition"
+          >
+            FAQ
+          </a>
+
+        </nav>
+
+
+        <div class="flex items-center gap-3">
+
+          <a
+            href="download.html"
+            class="primary-btn"
+          >
+            Get the app
+          </a>
+
+
+          <button
+            id="menuButton"
+            class="mobile-menu-btn w-11 h-11 rounded-xl bg-white/[.035] items-center justify-center text-slate-300"
+            aria-label="Open menu"
+          >
+
+            <svg
+              width="20"
+              height="20"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              viewBox="0 0 24 24"
+            >
+
+              <path d="M4 7h16"/>
+              <path d="M4 12h16"/>
+              <path d="M4 17h16"/>
+
+            </svg>
+
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <!-- MOBILE MENU -->
+
+      <div
+        id="mobileMenu"
+        class="mobile-menu pb-5"
+      >
+
+        <div
+          class="glass rounded-2xl p-3"
+        >
+
+          <a
+            href="index.html#how-it-works"
+            class="block px-4 py-3 text-sm text-slate-400"
+          >
+            How it works
+          </a>
+
+          <a
+            href="services.html"
+            class="block px-4 py-3 text-sm text-slate-400"
+          >
+            Services
+          </a>
+
+          <a
+            href="security.html"
+            class="block px-4 py-3 text-sm text-slate-400"
+          >
+            Security
+          </a>
+
+          <a
+            href="faq.html"
+            class="block px-4 py-3 text-sm text-slate-400"
+          >
+            FAQ
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <!-- ==================================================
+       PAGE HEADER
+  =================================================== -->
+
+  <main class="pt-32 pb-20">
+
+    <section
+      class="max-w-7xl mx-auto px-5 sm:px-7 lg:px-8"
+    >
+
+      <div
+        class="max-w-4xl"
+      >
+
+        <p
+          class="text-xs uppercase tracking-[.18em] text-blue-400 font-semibold"
+        >
+          Legal
+        </p>
+
+
+        <h1
+          class="text-4xl sm:text-5xl md:text-6xl font-black tracking-[-.05em] mt-4"
+        >
+          Terms of
+          <span class="blue-text">
+            Service.
+          </span>
+        </h1>
+
+
+        <p
+          class="text-lg text-slate-500 leading-8 mt-6 max-w-3xl"
+        >
+          These Terms of Service describe the rules and conditions
+          that apply when you access or use JOYET, including the
+          JOYET application, website, payment functionality and
+          supported digital services.
+        </p>
+
+
+        <div
+          class="flex flex-wrap gap-x-6 gap-y-2 mt-6 text-xs text-slate-600"
+        >
+
+          <span>
+            Last updated: September 11, 2026
+          </span>
+
+          <span>
+            Version 1.0
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <!-- IMPORTANT NOTICE -->
+
+      <div
+        class="notice p-5 sm:p-6 mt-10 max-w-5xl"
+      >
+
+        <div class="flex gap-4">
+
+          <div
+            class="w-10 h-10 shrink-0 rounded-xl flex items-center justify-center bg-blue-500/10 text-blue-300"
+          >
+
+            <svg
+              width="20"
+              height="20"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              viewBox="0 0 24 24"
+            >
+
+              <circle
+                cx="12"
+                cy="12"
+                r="9"
+              />
+
+              <path d="M12 11v5"/>
+
+              <path
+                d="M12 8h.01"
+                stroke-width="3"
+              />
+
+            </svg>
+
+          </div>
+
+
+          <div>
+
+            <h2
+              class="text-sm font-semibold text-blue-200"
+            >
+              Important
+            </h2>
+
+            <p
+              class="text-sm text-slate-500 leading-6 mt-1"
+            >
+              JOYET is intended to provide payment and digital-service
+              functionality. It is not presented as an investment product,
+              does not promise investment returns, and does not guarantee
+              the value of any cryptocurrency or digital asset.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ==================================================
+         TERMS CONTENT
+    =================================================== -->
+
+    <section
+      class="max-w-7xl mx-auto px-5 sm:px-7 lg:px-8 mt-12"
+    >
+
+      <div
+        class="grid lg:grid-cols-[220px_1fr] gap-10"
+      >
+
+
+        <!-- TOC -->
+
+        <aside
+          class="hidden lg:block"
+        >
+
+          <div
+            class="sticky top-28"
+          >
+
+            <p
+              class="text-[10px] uppercase tracking-[.17em] text-slate-600 font-bold px-3 mb-3"
+            >
+              On this page
+            </p>
+
+
+            <nav class="space-y-1">
+
+              <a
+                href="#acceptance"
+                class="toc-link"
+              >
+                Acceptance
+              </a>
+
+              <a
+                href="#eligibility"
+                class="toc-link"
+              >
+                Eligibility
+              </a>
+
+              <a
+                href="#account"
+                class="toc-link"
+              >
+                Accounts
+              </a>
+
+              <a
+                href="#deposits"
+                class="toc-link"
+              >
+                Crypto deposits
+              </a>
+
+              <a
+                href="#balance"
+                class="toc-link"
+              >
+                JOYET balance
+              </a>
+
+              <a
+                href="#transfers"
+                class="toc-link"
+              >
+                Transfers
+              </a>
+
+              <a
+                href="#services"
+                class="toc-link"
+              >
+                Digital services
+              </a>
+
+              <a
+                href="#fees"
+                class="toc-link"
+              >
+                Fees
+              </a>
+
+              <a
+                href="#security"
+                class="toc-link"
+              >
+                Security
+              </a>
+
+              <a
+                href="#prohibited"
+                class="toc-link"
+              >
+                Prohibited use
+              </a>
+
+              <a
+                href="#availability"
+                class="toc-link"
+              >
+                Availability
+              </a>
+
+              <a
+                href="#liability"
+                class="toc-link"
+              >
+                Liability
+              </a>
+
+              <a
+                href="#termination"
+                class="toc-link"
+              >
+                Termination
+              </a>
+
+              <a
+                href="#changes"
+                class="toc-link"
+              >
+                Changes
+              </a>
+
+              <a
+                href="#contact"
+                class="toc-link"
+              >
+                Contact
+              </a>
+
+            </nav>
+
+          </div>
+
+        </aside>
+
+
+        <!-- ARTICLE -->
+
+        <article class="article max-w-4xl">
+
+
+          <p>
+            By accessing or using JOYET, you acknowledge that you have
+            read, understood and agree to be bound by these Terms of
+            Service. If you do not agree with these Terms, you should
+            not use JOYET.
+          </p>
+
+
+          <h2 id="acceptance">
+            1. Acceptance of these Terms
+          </h2>
+
+          <p>
+            These Terms of Service constitute an agreement between you
+            and the entity that operates JOYET ("JOYET", "we", "us" or
+            "our") regarding your use of the JOYET website, mobile
+            application and related services.
+          </p>
+
+          <p>
+            By creating an account, accessing the application or using
+            any JOYET service, you agree to comply with these Terms and
+            any additional terms that may apply to a particular service.
+          </p>
+
+
+          <h2 id="eligibility">
+            2. Eligibility
+          </h2>
+
+          <p>
+            You may use JOYET only if you are legally permitted to use
+            the services in your jurisdiction and satisfy any applicable
+            age, identity, verification or regulatory requirements.
+          </p>
+
+          <p>
+            Certain services may not be available in every country,
+            territory or location. We may restrict access to particular
+            products or services where required by law, regulation,
+            provider requirements or our internal policies.
+          </p>
+
+
+          <h2 id="account">
+            3. Your JOYET Account
+          </h2>
+
+          <p>
+            Some JOYET features require you to create and maintain an
+            account. You are responsible for providing information that
+            is accurate, complete and current.
+          </p>
+
+          <p>
+            You are responsible for keeping your account credentials,
+            authentication methods and other security information
+            confidential. You should notify JOYET promptly if you believe
+            your account has been compromised or used without your
+            authorization.
+          </p>
+
+          <p>
+            You may not create an account using false information,
+            impersonate another person or attempt to access an account
+            that does not belong to you.
+          </p>
+
+
+          <h2 id="deposits">
+            4. Crypto Deposits
+          </h2>
+
+          <p>
+            JOYET may allow users to deposit supported cryptocurrency
+            assets into designated deposit addresses or through other
+            supported crypto-deposit mechanisms.
+          </p>
+
+          <p>
+            <strong>You are solely responsible for selecting the correct
+            asset, network and destination address before initiating a
+            crypto transfer.</strong>
+          </p>
+
+          <p>
+            Sending an unsupported asset, using an unsupported blockchain
+            network, entering an incorrect address or otherwise providing
+            incorrect deposit information may result in delayed, failed,
+            or potentially unrecoverable funds.
+          </p>
+
+          <p>
+            Blockchain transactions can take time to receive network
+            confirmations. A cryptocurrency transfer is not necessarily
+            credited to your JOYET balance immediately after it is
+            broadcast.
+          </p>
+
+          <p>
+            JOYET may require a deposit to receive a specified number of
+            network confirmations before the corresponding balance is
+            made available for use.
+          </p>
+
+
+          <h3>
+            Crypto volatility
+          </h3>
+
+          <p>
+            Cryptocurrency prices can change significantly. JOYET does
+            not guarantee the value of any cryptocurrency deposited by a
+            user.
+          </p>
+
+
+          <h2 id="balance">
+            5. JOYET Balance
+          </h2>
+
+          <p>
+            When a supported deposit is credited, JOYET may display a
+            corresponding balance within your account. Your JOYET balance
+            represents the value made available to you for supported
+            JOYET services, subject to applicable rules, processing
+            requirements, limits and fees.
+          </p>
+
+          <p>
+            Your displayed balance may be subject to pending deposits,
+            transaction reviews, reversals, service restrictions or other
+            adjustments where permitted by applicable law and the
+            relevant service terms.
+          </p>
+
+          <p>
+            JOYET is not an investment product. We do not guarantee
+            returns, profits, appreciation or any minimum value from
+            assets deposited into the platform.
+          </p>
+
+
+          <h2 id="transfers">
+            6. Money Transfers
+          </h2>
+
+          <p>
+            JOYET may allow you to send funds from your available balance
+            to supported bank accounts or other JOYET users.
+          </p>
+
+          <p>
+            Before confirming a transfer, you are responsible for
+            checking the recipient information, amount and other
+            transaction details.
+          </p>
+
+          <p>
+            Depending on the service, transfers may be subject to
+            processing times, transaction limits, verification procedures,
+            provider requirements and applicable fees.
+          </p>
+
+          <p>
+            Once a transfer has been submitted, JOYET may not be able to
+            reverse, cancel or recover the transaction, particularly where
+            the transaction has already been processed by a third-party
+            financial or payment provider.
+          </p>
+
+
+          <h2 id="services">
+            7. Digital and VTU Services
+          </h2>
+
+          <p>
+            JOYET may provide access to digital services such as:
+          </p>
+
+          <ul>
+
+            <li>
+              Mobile airtime purchases
+            </li>
+
+            <li>
+              Mobile data purchases
+            </li>
+
+            <li>
+              Electricity payments
+            </li>
+
+            <li>
+              Cable or television subscriptions
+            </li>
+
+            <li>
+              Other supported digital or utility services
+            </li>
+
+          </ul>
+
+          <p>
+            These services may be fulfilled through third-party providers.
+            Provider availability, pricing, service areas and processing
+            times may vary.
+          </p>
+
+          <p>
+            A service marked as completed by JOYET may still be subject
+            to provider processing or reconciliation. Where a service
+            fails or is reversed, any refund or adjustment may depend on
+            the relevant provider's rules and the circumstances of the
+            transaction.
+          </p>
+
+
+          <h2 id="fees">
+            8. Fees and Charges
+          </h2>
+
+          <p>
+            Certain JOYET services may carry fees. Applicable fees may
+            include transaction fees, service fees, provider charges,
+            network fees or other applicable charges.
+          </p>
+
+          <p>
+            Where reasonably practical, applicable fees will be presented
+            to you before you confirm a transaction.
+          </p>
+
+          <p>
+            Third-party network fees associated with blockchain transfers
+            may be outside JOYET's control.
+          </p>
+
+
+          <h2 id="security">
+            9. Security
+          </h2>
+
+          <p>
+            We use reasonable technical and organizational measures
+            intended to protect JOYET accounts and services. However, no
+            internet-connected system can be guaranteed to be completely
+            secure.
+          </p>
+
+          <p>
+            You should protect your device, account credentials,
+            authentication codes and other security information. JOYET
+            will not ask you to disclose passwords or sensitive
+            authentication information through unofficial channels.
+          </p>
+
+
+          <h2 id="prohibited">
+            10. Prohibited Use
+          </h2>
+
+          <p>
+            You agree not to use JOYET to:
+          </p>
+
+          <ul>
+
+            <li>
+              Violate applicable laws or regulations
+            </li>
+
+            <li>
+              Commit or facilitate fraud, theft or other unlawful
+              activity
+            </li>
+
+            <li>
+              Circumvent transaction, account or service restrictions
+            </li>
+
+            <li>
+              Attempt to gain unauthorized access to JOYET systems or
+              another user's account
+            </li>
+
+            <li>
+              Interfere with the operation or security of the platform
+            </li>
+
+            <li>
+              Provide false or misleading identity or transaction
+              information
+            </li>
+
+            <li>
+              Use JOYET in connection with prohibited transactions or
+              activities
+            </li>
+
+            <li>
+              Exploit technical vulnerabilities or intentionally cause
+              service disruption
+            </li>
+
+          </ul>
+
+
+          <h2 id="availability">
+            11. Service Availability
+          </h2>
+
+          <p>
+            We aim to keep JOYET available and reliable, but we do not
+            guarantee uninterrupted access.
+          </p>
+
+          <p>
+            Services may become temporarily unavailable because of
+            maintenance, technical failures, blockchain network issues,
+            third-party provider outages, telecommunications problems,
+            security incidents, regulatory requirements or other events
+            beyond our reasonable control.
+          </p>
+
+
+          <h2>
+            12. Third-Party Services
+          </h2>
+
+          <p>
+            Some JOYET functionality may depend on third-party services,
+            including blockchain infrastructure, payment providers,
+            financial institutions, telecommunications providers and
+            digital-service providers.
+          </p>
+
+          <p>
+            Those providers may have their own terms, fees, limits,
+            availability requirements and privacy practices. Your use of
+            a third-party service may therefore be subject to additional
+            terms.
+          </p>
+
+
+          <h2>
+            13. Taxes
+          </h2>
+
+          <p>
+            You are responsible for determining and meeting any tax
+            obligations that may apply to your use of JOYET, including
+            obligations arising from cryptocurrency transactions,
+            transfers or other activities.
+          </p>
+
+          <p>
+            JOYET does not provide tax, accounting or financial advice.
+          </p>
+
+
+          <h2 id="liability">
+            14. Disclaimers and Limitation of Liability
+          </h2>
+
+          <p>
+            JOYET is provided on an "as available" and "as is" basis to
+            the extent permitted by applicable law.
+          </p>
+
+          <p>
+            We do not guarantee that every feature or service will always
+            be available, uninterrupted, error-free or suitable for every
+            particular purpose.
+          </p>
+
+          <p>
+            To the maximum extent permitted by applicable law, JOYET and
+            its service providers will not be responsible for losses
+            caused by circumstances outside reasonable control, including
+            blockchain network failures, incorrect recipient information,
+            unsupported deposits, third-party outages, unauthorized
+            access resulting from compromised user credentials, or other
+            events outside the reasonable control of JOYET.
+          </p>
+
+          <p>
+            Nothing in these Terms is intended to exclude or limit
+            liability that cannot lawfully be excluded or limited under
+            applicable law.
+          </p>
+
+
+          <h2 id="termination">
+            15. Suspension and Termination
+          </h2>
+
+          <p>
+            You may stop using JOYET at any time, subject to completion
+            of any pending transactions or obligations.
+          </p>
+
+          <p>
+            We may suspend, restrict or terminate access to an account or
+            service where reasonably necessary to protect the platform,
+            comply with legal or regulatory requirements, investigate
+            suspected fraud or misuse, enforce these Terms, or address
+            security or operational risks.
+          </p>
+
+          <p>
+            Where permitted and appropriate, we may provide notice before
+            taking such action. In some circumstances, immediate action
+            may be necessary.
+          </p>
+
+
+          <h2 id="changes">
+            16. Changes to these Terms
+          </h2>
+
+          <p>
+            We may update these Terms from time to time to reflect changes
+            to our services, technology, legal requirements or business
+            practices.
+          </p>
+
+          <p>
+            When we make material changes, we may provide notice through
+            the JOYET application, website or another appropriate method.
+            Your continued use of JOYET after updated Terms become
+            effective means you accept the revised Terms to the extent
+            permitted by applicable law.
+          </p>
+
+
+          <h2>
+            17. Privacy
+          </h2>
+
+          <p>
+            Your use of JOYET is also subject to our Privacy Policy,
+            which explains how information may be collected, used,
+            stored and protected.
+          </p>
+
+          <p>
+            You can review the Privacy Policy through the JOYET website
+            or application.
+          </p>
+
+
+          <h2>
+            18. Governing Law
+          </h2>
+
+          <p>
+            These Terms will be governed by the laws applicable to the
+            JOYET operating entity and the relevant jurisdiction,
+            subject to any mandatory consumer, financial or other legal
+            protections that may apply to you.
+          </p>
+
+          <p>
+            The final governing-law and dispute-resolution provisions
+            should be completed based on the jurisdictions in which JOYET
+            operates and the legal structure of the company.
+          </p>
+
+
+          <h2 id="contact">
+            19. Contact Us
+          </h2>
+
+          <p>
+            If you have questions about these Terms or JOYET services,
+            please contact us through the official contact details
+            published on the JOYET website or within the JOYET application.
+          </p>
+
+
+          <!-- FINAL NOTICE -->
+
+          <div
+            class="notice p-5 sm:p-6 mt-12"
+          >
+
+            <h3
+              class="text-base font-semibold text-slate-200 mt-0"
+            >
+              Before JOYET goes live
+            </h3>
+
+            <p
+              class="text-sm text-slate-500 leading-7 mt-2 mb-0"
+            >
+              This page is a product-oriented terms template. Because
+              JOYET will involve cryptocurrency deposits, payment
+              transfers and third-party financial or digital-service
+              providers, the final Terms should be reviewed and adapted
+              by qualified legal counsel for the jurisdictions and
+              regulatory obligations applicable to JOYET.
+            </p>
+
+          </div>
+
+
+        </article>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- ==================================================
+       FOOTER
+  =================================================== -->
+
+  <footer
+    class="border-t border-white/[.035] pt-14 pb-8"
+  >
+
+    <div
+      class="max-w-7xl mx-auto px-5 sm:px-7 lg:px-8"
+    >
+
+      <div
+        class="grid md:grid-cols-[1.2fr_1fr_1fr_1fr] gap-10"
+      >
+
+        <!-- BRAND -->
+
+        <div>
+
+          <a
+            href="index.html"
+            class="text-3xl font-black tracking-[-.06em]"
+          >
+            JOYET
+          </a>
+
+
+          <p
+            class="text-sm text-slate-600 leading-6 mt-4 max-w-sm"
+          >
+            A crypto-funded payment and digital-services platform
+            built for everyday use.
+          </p>
+
+        </div>
+
+
+        <!-- PRODUCT -->
+
+        <div>
+
+          <div
+            class="text-xs uppercase tracking-[.15em] text-slate-600 font-semibold"
+          >
+            Product
+          </div>
+
+
+          <div class="space-y-3 mt-5">
+
+            <a
+              href="index.html#how-it-works"
+              class="block text-sm text-slate-500 hover:text-slate-300"
+            >
+              How it works
+            </a>
+
+            <a
+              href="services.html"
+              class="block text-sm text-slate-500 hover:text-slate-300"
+            >
+              Services
+            </a>
+
+            <a
+              href="download.html"
+              class="block text-sm text-slate-500 hover:text-slate-300"
+            >
+              Get the app
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <!-- COMPANY -->
+
+        <div>
+
+          <div
+            class="text-xs uppercase tracking-[.15em] text-slate-600 font-semibold"
+          >
+            Company
+          </div>
+
+
+          <div class="space-y-3 mt-5">
+
+            <a
+              href="about.html"
+              class="block text-sm text-slate-500 hover:text-slate-300"
+            >
+              About
+            </a>
+
+            <a
+              href="security.html"
+              class="block text-sm text-slate-500 hover:text-slate-300"
+            >
+              Security
+            </a>
+
+            <a
+              href="contact.html"
+              class="block text-sm text-slate-500 hover:text-slate-300"
+            >
+              Contact
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <!-- LEGAL -->
+
+        <div>
+
+          <div
+            class="text-xs uppercase tracking-[.15em] text-slate-600 font-semibold"
+          >
+            Legal
+          </div>
+
+
+          <div class="space-y-3 mt-5">
+
+            <a
+              href="terms.html"
+              class="block text-sm text-slate-300"
+            >
+              Terms
+            </a>
+
+            <a
+              href="privacy.html"
+              class="block text-sm text-slate-500 hover:text-slate-300"
+            >
+              Privacy
+            </a>
+
+            <a
+              href="faq.html"
+              class="block text-sm text-slate-500 hover:text-slate-300"
+            >
+              FAQ
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div
+        class="h-px bg-white/[.035] my-10"
+      ></div>
+
+
+      <div
+        class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4"
+      >
+
+        <p class="text-xs text-slate-700">
+          © 2026 JOYET. All rights reserved.
+        </p>
+
+
+        <p class="text-xs text-slate-700 max-w-xl">
+          This Terms page should be reviewed and finalized for the
+          jurisdictions and services in which JOYET operates.
+        </p>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <script>
+
+    const menuButton =
+      document.getElementById(
+        "menuButton"
+      );
+
+    const mobileMenu =
+      document.getElementById(
+        "mobileMenu"
+      );
+
+
+    menuButton?.addEventListener(
+      "click",
+      () => {
+
+        mobileMenu.classList.toggle(
+          "open"
+        );
+
+      }
+    );
+
+
+    document
+      .querySelectorAll(
+        "#mobileMenu a"
+      )
+      .forEach(link => {
+
+        link.addEventListener(
+          "click",
+          () => {
+
+            mobileMenu.classList.remove(
+              "open"
+            );
+
+          }
+        );
+
+      });
+
+  </script>
+
+</body>
+</html>
