@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1"
+  />
+
+  <title>FAQ — JOYET</title>
+  <meta
+    name="description"
+    content="Find answers to common questions about JOYET, crypto deposits, JOYET balance, transfers, airtime, data, electricity, cable TV and account security."
+  />
+
+  <link rel="icon" href="https://vernsa.com/logo.png" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            joyet: {
+              bg: "#070A10",
+              dark: "#0B1018",
+              surface: "#0F1722",
+              blue: "#3B82F6",
+              bright: "#60A5FA",
+              sky: "#38BDF8",
+              soft: "#93C5FD",
+              muted: "#94A3B8"
+            }
+          },
+          fontFamily: {
+            sans: ["Inter", "sans-serif"]
+          }
+        }
+      }
+    };
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background:
+        radial-gradient(circle at 50% -20%, rgba(59, 130, 246, 0.12), transparent 34%),
+        #070A10;
+      color: #F8FAFC;
+    }
+
+    .glass {
+      background: rgba(15, 23, 34, 0.74);
+      border: 1px solid rgba(148, 163, 184, 0.10);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.22),
+        inset 0 1px 0 rgba(255,255,255,0.025);
+    }
+
+    .glass-soft {
+      background: rgba(255,255,255,0.025);
+      border: 1px solid rgba(148,163,184,0.08);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .hero-glow {
+      position: absolute;
+      width: 520px;
+      height: 520px;
+      border-radius: 9999px;
+      background: rgba(59,130,246,0.10);
+      filter: blur(110px);
+      pointer-events: none;
+    }
+
+    .gradient-text {
+      background: linear-gradient(
+        90deg,
+        #F8FAFC 0%,
+        #BFDBFE 48%,
+        #60A5FA 100%
+      );
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .faq-button {
+      transition: background .25s ease, border-color .25s ease;
+    }
+
+    .faq-button:hover {
+      background: rgba(255,255,255,0.035);
+      border-color: rgba(96,165,250,0.20);
+    }
+
+    .faq-icon {
+      transition: transform .3s ease;
+    }
+
+    .faq-item.active .faq-icon {
+      transform: rotate(45deg);
+    }
+
+    .faq-answer {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows .3s ease;
+    }
+
+    .faq-item.active .faq-answer {
+      grid-template-rows: 1fr;
+    }
+
+    .faq-answer-inner {
+      overflow: hidden;
+    }
+
+    .faq-item {
+      transition: border-color .25s ease, box-shadow .25s ease;
+    }
+
+    .faq-item.active {
+      border-color: rgba(59,130,246,0.22);
+      box-shadow: 0 14px 40px rgba(0,0,0,0.12);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition:
+        opacity .7s ease,
+        transform .7s ease;
+    }
+
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .nav-link {
+      color: #94A3B8;
+      transition: color .2s ease;
+    }
+
+    .nav-link:hover {
+      color: #F8FAFC;
+    }
+
+    .mobile-menu {
+      display: none;
+    }
+
+    .mobile-menu.open {
+      display: block;
+    }
+
+    ::selection {
+      background: rgba(59,130,246,0.35);
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <header class="fixed top-0 left-0 right-0 z-50">
+    <div class="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+      <div
+        class="mt-4 flex h-16 items-center justify-between rounded-2xl border border-white/5 bg-[#0B1018]/80 px-4 sm:px-5 backdrop-blur-xl"
+      >
+        <a
+          href="index.html"
+          class="text-xl font-extrabold tracking-tight text-white"
+        >
+          JOYET
+        </a>
+
+        <nav class="hidden items-center gap-7 md:flex">
+          <a href="index.html#how-it-works" class="nav-link text-sm">
+            How it works
+          </a>
+          <a href="services.html" class="nav-link text-sm">
+            Services
+          </a>
+          <a href="security.html" class="nav-link text-sm">
+            Security
+          </a>
+          <a href="faq.html" class="text-sm font-medium text-white">
+            FAQ
+          </a>
+        </nav>
+
+        <div class="hidden md:block">
+          <a
+            href="download.html"
+            class="inline-flex items-center rounded-xl bg-blue-500 px-4 py-2.5 text-sm font-semibold text-white shadow-lg shadow-blue-500/20 transition hover:bg-blue-400"
+          >
+            Get the app
+          </a>
+        </div>
+
+        <button
+          id="menuBtn"
+          class="rounded-xl border border-white/10 bg-white/[0.03] p-2.5 md:hidden"
+          aria-label="Open menu"
+        >
+          <svg
+            id="menuIcon"
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5 text-white"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="1.7"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+        </button>
+      </div>
+
+      <div
+        id="mobileMenu"
+        class="mobile-menu mt-2 rounded-2xl border border-white/5 bg-[#0B1018]/95 p-3 shadow-2xl backdrop-blur-xl md:hidden"
+      >
+        <div class="flex flex-col">
+          <a
+            href="index.html#how-it-works"
+            class="rounded-xl px-4 py-3 text-sm text-slate-300 hover:bg-white/[0.04] hover:text-white"
+          >
+            How it works
+          </a>
+
+          <a
+            href="services.html"
+            class="rounded-xl px-4 py-3 text-sm text-slate-300 hover:bg-white/[0.04] hover:text-white"
+          >
+            Services
+          </a>
+
+          <a
+            href="security.html"
+            class="rounded-xl px-4 py-3 text-sm text-slate-300 hover:bg-white/[0.04] hover:text-white"
+          >
+            Security
+          </a>
+
+          <a
+            href="faq.html"
+            class="rounded-xl bg-white/[0.04] px-4 py-3 text-sm text-white"
+          >
+            FAQ
+          </a>
+
+          <a
+            href="download.html"
+            class="mt-2 rounded-xl bg-blue-500 px-4 py-3 text-center text-sm font-semibold text-white"
+          >
+            Get the app
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="overflow-hidden">
+
+    <!-- HERO -->
+    <section class="relative px-5 pb-20 pt-36 sm:px-6 sm:pb-24 lg:px-8">
+      <div class="hero-glow left-1/2 top-0 -translate-x-1/2"></div>
+
+      <div class="relative mx-auto max-w-4xl text-center">
+
+        <div
+          class="reveal mx-auto mb-6 inline-flex items-center gap-2 rounded-full border border-blue-400/10 bg-blue-400/[0.06] px-3.5 py-2 text-xs font-medium text-blue-200"
+        >
+          <span class="h-1.5 w-1.5 rounded-full bg-blue-400"></span>
+          Frequently asked questions
+        </div>
+
+        <h1
+          class="reveal mx-auto max-w-4xl text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl lg:text-6xl"
+        >
+          Everything you need to know about
+          <span class="gradient-text">JOYET.</span>
+        </h1>
+
+        <p
+          class="reveal mx-auto mt-6 max-w-2xl text-base leading-7 text-slate-400 sm:text-lg"
+        >
+          Learn how crypto deposits, your JOYET balance, transfers and everyday
+          digital services work together in one place.
+        </p>
+
+        <div
+          class="reveal mx-auto mt-8 flex max-w-2xl flex-wrap justify-center gap-3"
+        >
+          <a
+            href="#general"
+            class="rounded-full border border-white/8 bg-white/[0.035] px-4 py-2.5 text-sm text-slate-300 transition hover:bg-white/[0.06] hover:text-white"
+          >
+            General
+          </a>
+
+          <a
+            href="#deposits"
+            class="rounded-full border border-white/8 bg-white/[0.035] px-4 py-2.5 text-sm text-slate-300 transition hover:bg-white/[0.06] hover:text-white"
+          >
+            Crypto deposits
+          </a>
+
+          <a
+            href="#services"
+            class="rounded-full border border-white/8 bg-white/[0.035] px-4 py-2.5 text-sm text-slate-300 transition hover:bg-white/[0.06] hover:text-white"
+          >
+            Services
+          </a>
+
+          <a
+            href="#security"
+            class="rounded-full border border-white/8 bg-white/[0.035] px-4 py-2.5 text-sm text-slate-300 transition hover:bg-white/[0.06] hover:text-white"
+          >
+            Security
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ CONTENT -->
+    <section class="px-5 pb-24 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-4xl">
+
+        <!-- GENERAL -->
+        <div id="general" class="mb-16 scroll-mt-28">
+
+          <div class="reveal mb-6">
+            <p class="text-sm font-semibold uppercase tracking-[0.18em] text-blue-400">
+              General
+            </p>
+            <h2 class="mt-2 text-2xl font-bold tracking-tight text-white sm:text-3xl">
+              Getting started with JOYET
+            </h2>
+          </div>
+
+          <div class="space-y-3">
+
+            <div class="faq-item reveal glass rounded-2xl">
+              <button
+                class="faq-button flex w-full items-center justify-between gap-6 rounded-2xl px-5 py-5 text-left sm:px-6"
+              >
+                <span class="text-sm font-semibold text-white sm:text-base">
+                  What is JOYET?
+                </span>
+
+                <span
+                  class="faq-icon flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-slate-300"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-4 w-4"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M12 5v14M5 12h14"
+                    />
+                  </svg>
+                </span>
+              </button>
+
+              <div class="faq-answer">
+                <div class="faq-answer-inner px-5 pb-5 sm:px-6 sm:pb-6">
+                  <p class="text-sm leading-7 text-slate-400">
+                    JOYET is a crypto-funded payment and digital-services
+                    platform. You can deposit supported crypto, receive the
+                    corresponding JOYET balance, and use that balance for
+                    transfers and everyday services.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item reveal glass rounded-2xl">
+              <button
+                class="faq-button flex w-full items-center justify-between gap-6 rounded-2xl px-5 py-5 text-left sm:px-6"
+              >
+                <span class="text-sm font-semibold text-white sm:text-base">
+                  What can I use my JOYET balance for?
+                </span>
+
+                <span
+                  class="faq-icon flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-slate-300"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-4 w-4"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M12 5v14M5 12h14"
+                    />
+                  </svg>
+                </span>
+              </button>
+
+              <div class="faq-answer">
+                <div class="faq-answer-inner px-5 pb-5 sm:px-6 sm:pb-6">
+                  <p class="text-sm leading-7 text-slate-400">
+                    Your JOYET balance can be used for supported bank
+                    transfers, transfers to other JOYET users, airtime,
+                    mobile data, electricity, cable TV and other supported
+                    digital services.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item reveal glass rounded-2xl">
+              <button
+                class="faq-button flex w-full items-center justify-between gap-6 rounded-2xl px-5 py-5 text-left sm:px-6"
+              >
+                <span class="text-sm font-semibold text-white sm:text-base">
+                  Is JOYET an investment platform?
+                </span>
+
+                <span
+                  class="faq-icon flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-slate-300"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-4 w-4"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M12 5v14M5 12h14"
+                    />
+                  </svg>
+                </span>
+              </button>
+
+              <div class="faq-answer">
+                <div class="faq-answer-inner px-5 pb-5 sm:px-6 sm:pb-6">
+                  <p class="text-sm leading-7 text-slate-400">
+                    No. JOYET is designed as a payment and digital-services
+                    platform. It is not presented as an investment product
+                    and does not promise returns on deposited funds.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item reveal glass rounded-2xl">
+              <button
+                class="faq-button flex w-full items-center justify-between gap-6 rounded-2xl px-5 py-5 text-left sm:px-6"
+              >
+                <span class="text-sm font-semibold text-white sm:text-base">
+                  Where do I get the JOYET app?
+                </span>
+
+                <span
+                  class="faq-icon flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-slate-300"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-4 w-4"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M12 5v14M5 12h14"
+                    />
+                  </svg>
+                </span>
+              </button>
+
+              <div class="faq-answer">
+                <div class="faq-answer-inner px-5 pb-5 sm:px-6 sm:pb-6">
+                  <p class="text-sm leading-7 text-slate-400">
+                    JOYET will be distributed through its official app
+                    channels. Visit the download page for the latest
+                    availability.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- DEPOSITS -->
+        <div id="deposits" class="mb-16 scroll-mt-28">
+
+          <div class="reveal mb-6">
+            <p class="text-sm font-semibold uppercase tracking-[0.18em] text-blue-400">
+              Crypto deposits
+            </p>
+            <h2 class="mt-2 text-2xl font-bold tracking-tight text-white sm:text-3xl">
+              Turning crypto into JOYET balance
+            </h2>
+          </div>
+
+          <div class="space-y-3">
+
+            <div class="faq-item reveal glass rounded-2xl">
+              <button
+                class="faq-button flex w-full items-center justify-between gap-6 rounded-2xl px-5 py-5 text-left sm:px-6"
+              >
+                <span class="text-sm font-semibold text-white sm:text-base">
+                  How do I fund my JOYET account?
+                </span>
+
+                <span
+                  class="faq-icon flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-slate-300"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 5v14M5 12h14"/>
+                  </svg>
+                </span>
+              </button>
+
+              <div class="faq-answer">
+                <div class="faq-answer-inner px-5 pb-5 sm:px-6 sm:pb-6">
+                  <p class="text-sm leading-7 text-slate-400">
+                    JOYET is designed around crypto funding. You select a
+                    supported asset inside the app, receive the appropriate
+                    deposit details, and send the crypto from your exchange
+                    or personal wallet. Once the deposit is processed, your
+                    JOYET balance is updated according to the applicable
+                    conversion and processing rules.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item reveal glass rounded-2xl">
+              <button
+                class="faq-button flex w-full items-center justify-between gap-6 rounded-2xl px-5 py-5 text-left sm:px-6"
+              >
+                <span class="text-sm font-semibold text-white sm:text-base">
+                  Can I deposit crypto from Binance or Bybit?
+                </span>
+
+                <span
+                  class="faq-icon flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-slate-300"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 5v14M5 12h14"/>
+                  </svg>
+                </span>
+              </button>
+
+              <div class="faq-answer">
+                <div class="faq-answer-inner px-5 pb-5 sm:px-6 sm:pb-6">
+                  <p class="text-sm leading-7 text-slate-400">
+                    Yes, where the asset and network are supported. You can
+                    send crypto from an exchange such as Binance or Bybit to
+                    the deposit details displayed by JOYET. JOYET does not
+                    require your exchange password or exchange account
+                    credentials.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item reveal glass rounded-2xl">
+              <button
+                class="faq-button flex w-full items-center justify-between gap-6 rounded-2xl px-5 py-5 text-left sm:px-6"
+              >
+                <span class="text-sm font-semibold text-white sm:text-base">
+                  Which cryptocurrencies are supported?
+                </span>
+
+                <span
+                  class="faq-icon flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-slate-300"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 5v14M5 12h14"/>
+                  </svg>
+                </span>
+              </button>
+
+              <div class="faq-answer">
+                <div class="faq-answer-inner px-5 pb-5 sm:px-6 sm:pb-6">
+                  <p class="text-sm leading-7 text-slate-400">
+                    Supported assets and networks will be listed directly
+                    inside the JOYET app. Always confirm both the asset and
+                    network before sending a deposit.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item reveal glass rounded-2xl">
+              <button
+                class="faq-button flex w-full items-center justify-between gap-6 rounded-2xl px-5 py-5 text-left sm:px-6"
+              >
+                <span class="text-sm font-semibold text-white sm:text-base">
+                  How long does a crypto deposit take?
+                </span>
+
+                <span
+                  class="faq-icon flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-slate-300"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 5v14M5 12h14"/>
+                  </svg>
+                </span>
+              </button>
+
+              <div class="faq-answer">
+                <div class="faq-answer-inner px-5 pb-5 sm:px-6 sm:pb-6">
+                  <p class="text-sm leading-7 text-slate-400">
+                    Processing time can depend on the blockchain network,
+                    confirmation requirements and JOYET's processing systems.
+                    The app will show the status of your deposit where
+                    available.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item reveal glass rounded-2xl">
+              <button
+                class="faq-button flex w-full items-center justify-between gap-6 rounded-2xl px-5 py-5 text-left sm:px-6"
+              >
+                <span class="text-sm font-semibold text-white sm:text-base">
+                  What happens if I send the wrong network or asset?
+                </span>
+
+                <span
+                  class="faq-icon flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-slate-300"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 5v14M5 12h14"/>
+                  </svg>
+                </span>
+              </button>
+
+              <div class="faq-answer">
+                <div class="faq-answer-inner px-5 pb-5 sm:px-6 sm:pb-6">
+                  <p class="text-sm leading-7 text-slate-400">
+                    Crypto transactions can be irreversible. Always check
+                    the asset, network and deposit details shown by JOYET
+                    before confirming a transaction. Recovery may not be
+                    possible for unsupported or incorrectly sent assets.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- SERVICES -->
+        <div id="services" class="mb-16 scroll-mt-28">
+
+          <div class="reveal mb-6">
+            <p class="text-sm font-semibold uppercase tracking-[0.18em] text-blue-400">
+              Services
+            </p>
+            <h2 class="mt-2 text-2xl font-bold tracking-tight text-white sm:text-3xl">
+              What you can do with JOYET
+            </h2>
+          </div>
+
+          <div class="space-y-3">
+
+            <div class="faq-item reveal glass rounded-2xl">
+              <button class="faq-button flex w-full items-center justify-between gap-6 rounded-2xl px-5 py-5 text-left sm:px-6">
+                <span class="text-sm font-semibold text-white sm:text-base">
+                  Can I send money to a bank account?
+                </span>
+
+                <span class="faq-icon flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-slate-300">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 5v14M5 12h14"/>
+                  </svg>
+                </span>
+              </button>
+
+              <div class="faq-answer">
+                <div class="faq-answer-inner px-5 pb-5 sm:px-6 sm:pb-6">
+                  <p class="text-sm leading-7 text-slate-400">
+                    Yes, supported bank transfers are one of JOYET's core
+                    use cases. Available banks, limits, fees and transfer
+                    processing depend on the services available in your
+                    region and the payment providers JOYET uses.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item reveal glass rounded-2xl">
+              <button class="faq-button flex w-full items-center justify-between gap-6 rounded-2xl px-5 py-5 text-left sm:px-6">
+                <span class="text-sm font-semibold text-white sm:text-base">
+                  Can I send money to another JOYET user?
+                </span>
+
+                <span class="faq-icon flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-slate-300">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 5v14M5 12h14"/>
+                  </svg>
+                </span>
+              </button>
+
+              <div class="faq-answer">
+                <div class="faq-answer-inner px-5 pb-5 sm:px-6 sm:pb-6">
+                  <p class="text-sm leading-7 text-slate-400">
+                    Yes. JOYET is designed to make transfers between JOYET
+                    users simple, using your JOYET balance.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item reveal glass rounded-2xl">
+              <button class="faq-button flex w-full items-center justify-between gap-6 rounded-2xl px-5 py-5 text-left sm:px-6">
+                <span class="text-sm font-semibold text-white sm:text-base">
+                  Can I buy airtime and mobile data?
+                </span>
+
+                <span class="faq-icon flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-slate-300">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 5v14M5 12h14"/>
+                  </svg>
+                </span>
+              </button>
+
+              <div class="faq-answer">
+                <div class="faq-answer-inner px-5 pb-5 sm:px-6 sm:pb-6">
+                  <p class="text-sm leading-7 text-slate-400">
+                    Yes. Supported airtime and mobile-data services can be
+                    purchased using your JOYET balance.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item reveal glass rounded-2xl">
+              <button class="faq-button flex w-full items-center justify-between gap-6 rounded-2xl px-5 py-5 text-left sm:px-6">
+                <span class="text-sm font-semibold text-white sm:text-base">
+                  Can I pay electricity and cable TV bills?
+                </span>
+
+                <span class="faq-icon flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-slate-300">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 5v14M5 12h14"/>
+                  </svg>
+                </span>
+              </button>
+
+              <div class="faq-answer">
+                <div class="faq-answer-inner px-5 pb-5 sm:px-6 sm:pb-6">
+                  <p class="text-sm leading-7 text-slate-400">
+                    Yes. JOYET is designed to support everyday digital
+                    services such as electricity and cable TV payments,
+                    subject to provider availability.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- SECURITY -->
+        <div id="security" class="mb-16 scroll-mt-28">
+
+          <div class="reveal mb-6">
+            <p class="text-sm font-semibold uppercase tracking-[0.18em] text-blue-400">
+              Security
+            </p>
+
+            <h2 class="mt-2 text-2xl font-bold tracking-tight text-white sm:text-3xl">
+              Keeping your account protected
+            </h2>
+          </div>
+
+          <div class="space-y-3">
+
+            <div class="faq-item reveal glass rounded-2xl">
+              <button class="faq-button flex w-full items-center justify-between gap-6 rounded-2xl px-5 py-5 text-left sm:px-6">
+                <span class="text-sm font-semibold text-white sm:text-base">
+                  Is my JOYET balance protected?
+                </span>
+
+                <span class="faq-icon flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-slate-300">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 5v14M5 12h14"/>
+                  </svg>
+                </span>
+              </button>
+
+              <div class="faq-answer">
+                <div class="faq-answer-inner px-5 pb-5 sm:px-6 sm:pb-6">
+                  <p class="text-sm leading-7 text-slate-400">
+                    JOYET is designed with account, transaction and
+                    infrastructure security controls. However, no online
+                    service can eliminate every possible risk. You should
+                    also protect your login details and never share security
+                    codes with anyone.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item reveal glass rounded-2xl">
+              <button class="faq-button flex w-full items-center justify-between gap-6 rounded-2xl px-5 py-5 text-left sm:px-6">
+                <span class="text-sm font-semibold text-white sm:text-base">
+                  Does JOYET need my Binance or Bybit password?
+                </span>
+
+                <span class="faq-icon flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-slate-300">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 5v14M5 12h14"/>
+                  </svg>
+                </span>
+              </button>
+
+              <div class="faq-answer">
+                <div class="faq-answer-inner px-5 pb-5 sm:px-6 sm:pb-6">
+                  <p class="text-sm leading-7 text-slate-400">
+                    No. JOYET does not need your exchange login credentials
+                    simply for you to send a supported crypto deposit to your
+                    JOYET deposit address.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item reveal glass rounded-2xl">
+              <button class="faq-button flex w-full items-center justify-between gap-6 rounded-2xl px-5 py-5 text-left sm:px-6">
+                <span class="text-sm font-semibold text-white sm:text-base">
+                  What should I do if I see something suspicious?
+                </span>
+
+                <span class="faq-icon flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-slate-300">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 5v14M5 12h14"/>
+                  </svg>
+                </span>
+              </button>
+
+              <div class="faq-answer">
+                <div class="faq-answer-inner px-5 pb-5 sm:px-6 sm:pb-6">
+                  <p class="text-sm leading-7 text-slate-400">
+                    Secure your account immediately, stop any suspicious
+                    activity, and contact JOYET through the official support
+                    channel. Never share your password, PIN, OTP or recovery
+                    information with someone claiming to be support.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- STILL HAVE QUESTIONS -->
+        <div class="reveal relative overflow-hidden rounded-3xl border border-blue-400/10 bg-gradient-to-br from-blue-500/[0.12] via-blue-500/[0.04] to-transparent p-7 sm:p-10">
+
+          <div class="absolute -right-20 -top-20 h-56 w-56 rounded-full bg-blue-500/10 blur-3xl"></div>
+
+          <div class="relative">
+            <div class="mb-3 inline-flex rounded-full border border-blue-400/10 bg-blue-400/[0.06] px-3 py-1.5 text-xs font-medium text-blue-200">
+              Need more help?
+            </div>
+
+            <h3 class="text-2xl font-bold tracking-tight text-white sm:text-3xl">
+              Still have questions?
+            </h3>
+
+            <p class="mt-3 max-w-2xl text-sm leading-7 text-slate-400 sm:text-base">
+              The JOYET app and official support channels will provide the
+              latest information about available assets, services, limits and
+              account-specific issues.
+            </p>
+
+            <div class="mt-6 flex flex-col gap-3 sm:flex-row">
+              <a
+                href="download.html"
+                class="inline-flex items-center justify-center rounded-xl bg-blue-500 px-5 py-3 text-sm font-semibold text-white shadow-xl shadow-blue-500/20 transition hover:bg-blue-400"
+              >
+                Get the app
+              </a>
+
+              <a
+                href="security.html"
+                class="inline-flex items-center justify-center rounded-xl border border-white/10 bg-white/[0.03] px-5 py-3 text-sm font-semibold text-slate-200 transition hover:bg-white/[0.06] hover:text-white"
+              >
+                Read about security
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="px-5 pb-24 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-6xl">
+        <div class="reveal glass rounded-3xl px-6 py-12 text-center sm:px-10 lg:px-16">
+
+          <div class="mx-auto max-w-2xl">
+            <p class="text-sm font-semibold text-blue-400">
+              One balance. Multiple possibilities.
+            </p>
+
+            <h2 class="mt-3 text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
+              Your crypto can do more.
+            </h2>
+
+            <p class="mx-auto mt-4 max-w-xl text-sm leading-7 text-slate-400 sm:text-base">
+              Deposit supported crypto, get your JOYET balance and use it for
+              the things that matter every day.
+            </p>
+
+            <div class="mt-7">
+              <a
+                href="download.html"
+                class="inline-flex items-center justify-center rounded-xl bg-blue-500 px-6 py-3.5 text-sm font-semibold text-white shadow-xl shadow-blue-500/20 transition hover:bg-blue-400"
+              >
+                Get JOYET
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-white/5 bg-[#06090E]">
+    <div class="mx-auto max-w-7xl px-5 py-12 sm:px-6 lg:px-8">
+
+      <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
+
+        <div class="lg:col-span-2">
+          <div class="text-xl font-extrabold tracking-tight text-white">
+            JOYET
+          </div>
+
+          <p class="mt-4 max-w-md text-sm leading-7 text-slate-500">
+            A crypto-funded payment and digital-services platform built to
+            turn digital assets into everyday utility.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="text-sm font-semibold text-white">
+            Product
+          </h4>
+
+          <div class="mt-4 flex flex-col gap-3">
+            <a
+              href="index.html#how-it-works"
+              class="text-sm text-slate-500 transition hover:text-white"
+            >
+              How it works
+            </a>
+
+            <a
+              href="services.html"
+              class="text-sm text-slate-500 transition hover:text-white"
+            >
+              Services
+            </a>
+
+            <a
+              href="security.html"
+              class="text-sm text-slate-500 transition hover:text-white"
+            >
+              Security
+            </a>
+
+            <a
+              href="download.html"
+              class="text-sm text-slate-500 transition hover:text-white"
+            >
+              Download
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="text-sm font-semibold text-white">
+            Legal
+          </h4>
+
+          <div class="mt-4 flex flex-col gap-3">
+            <a
+              href="terms.html"
+              class="text-sm text-slate-500 transition hover:text-white"
+            >
+              Terms
+            </a>
+
+            <a
+              href="privacy.html"
+              class="text-sm text-slate-500 transition hover:text-white"
+            >
+              Privacy
+            </a>
+
+            <a
+              href="faq.html"
+              class="text-sm text-slate-500 transition hover:text-white"
+            >
+              FAQ
+            </a>
+
+            <a
+              href="contact.html"
+              class="text-sm text-slate-500 transition hover:text-white"
+            >
+              Contact
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="mt-10 border-t border-white/5 pt-6">
+        <p class="text-xs leading-6 text-slate-600">
+          © 2026 JOYET. All rights reserved. Availability of features,
+          supported assets, payment services and limits may vary by region.
+        </p>
+      </div>
+
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu
+    const menuBtn = document.getElementById("menuBtn");
+    const mobileMenu = document.getElementById("mobileMenu");
+
+    menuBtn.addEventListener("click", () => {
+      mobileMenu.classList.toggle("open");
+    });
+
+    document.querySelectorAll("#mobileMenu a").forEach((link) => {
+      link.addEventListener("click", () => {
+        mobileMenu.classList.remove("open");
+      });
+    });
+
+    // FAQ accordion
+    document.querySelectorAll(".faq-item").forEach((item) => {
+      const button = item.querySelector(".faq-button");
+
+      button.addEventListener("click", () => {
+        const wasActive = item.classList.contains("active");
+
+        document.querySelectorAll(".faq-item.active").forEach((activeItem) => {
+          activeItem.classList.remove("active");
+        });
+
+        if (!wasActive) {
+          item.classList.add("active");
+        }
+      });
+    });
+
+    // Reveal animation
+    const revealItems = document.querySelectorAll(".reveal");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.08
+      }
+    );
+
+    revealItems.forEach((item) => observer.observe(item));
+  </script>
+
+</body>
+</html>
