@@ -9,15 +9,15 @@
         name="viewport"
         content="width=device-width, initial-scale=1.0">
 
-    <title>Joyet — Turn Crypto Into Everyday Payments</title>
+    <title>Joyet — Crypto Made Useful</title>
 
     <meta
         name="description"
-        content="Joyet lets you deposit crypto and use your balance to send money, buy airtime, data, pay bills and access everyday digital services.">
+        content="Joyet lets you deposit crypto and use your balance for transfers, airtime, data, bills and everyday digital services.">
 
     <meta
         name="theme-color"
-        content="#090B0E">
+        content="#070A10">
 
 
     <!-- =========================================================
@@ -36,22 +36,15 @@
 
                     colors: {
 
-                        joyet: '#6366F1',
-                        joyet2: '#818CF8',
-                        mint: '#34D399',
-                        dark: '#090B0E',
-                        panel: '#11141A',
-                        panel2: '#171A21'
+                        joyet: "#3B82F6",
+                        joyetBright: "#60A5FA",
+                        joyetSky: "#38BDF8",
+                        joyetSoft: "#93C5FD",
 
-                    },
-
-                    boxShadow: {
-
-                        glow:
-                            '0 0 70px rgba(99,102,241,.16)',
-
-                        card:
-                            '0 25px 70px rgba(0,0,0,.35)'
+                        dark: "#070A10",
+                        dark2: "#0B1018",
+                        surface: "#0F1722",
+                        surface2: "#131D2A"
 
                     }
 
@@ -70,7 +63,7 @@
 
 
     <!-- =========================================================
-         CUSTOM DESIGN
+         CUSTOM CSS
     ========================================================== -->
 
     <style>
@@ -79,27 +72,24 @@
             box-sizing: border-box;
         }
 
-
         html {
             scroll-behavior: smooth;
         }
 
-
         body {
 
             margin: 0;
-
             overflow-x: hidden;
 
-            color: #ffffff;
+            color: #F8FAFC;
 
             background:
                 radial-gradient(
-                    circle at 50% -10%,
-                    rgba(99,102,241,.17),
-                    transparent 32%
+                    circle at 50% -15%,
+                    rgba(59,130,246,.13),
+                    transparent 34%
                 ),
-                #090B0E;
+                #070A10;
 
             font-family:
                 Inter,
@@ -109,16 +99,20 @@
                 BlinkMacSystemFont,
                 "Segoe UI",
                 sans-serif;
-        }
 
+        }
 
         ::selection {
 
             background:
-                rgba(99,102,241,.35);
+                rgba(59,130,246,.30);
 
             color: white;
 
+        }
+
+        a {
+            text-decoration: none;
         }
 
 
@@ -126,10 +120,9 @@
            BACKGROUND
         ====================================================== */
 
-        .site-bg {
+        .site-background {
 
             position: fixed;
-
             inset: 0;
 
             z-index: -30;
@@ -140,88 +133,93 @@
 
         }
 
-
-        .grid-bg {
+        .background-grid {
 
             position: absolute;
-
             inset: 0;
 
             background-image:
 
                 linear-gradient(
-                    rgba(255,255,255,.023) 1px,
+                    rgba(255,255,255,.020) 1px,
                     transparent 1px
                 ),
 
                 linear-gradient(
                     90deg,
-                    rgba(255,255,255,.023) 1px,
+                    rgba(255,255,255,.020) 1px,
                     transparent 1px
                 );
 
-            background-size:
-                58px 58px;
+            background-size: 64px 64px;
 
             mask-image:
                 linear-gradient(
                     to bottom,
                     black,
-                    transparent 85%
+                    transparent 90%
                 );
 
         }
 
+        .noise {
+
+            position: absolute;
+            inset: 0;
+
+            opacity: .018;
+
+            background-image:
+                url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+
+        }
 
         .orb {
 
             position: absolute;
 
-            border-radius: 9999px;
+            border-radius: 50%;
 
-            filter: blur(100px);
+            filter: blur(110px);
 
         }
 
+        .orb-one {
 
-        .orb-1 {
+            width: 520px;
+            height: 520px;
 
-            width: 480px;
-            height: 480px;
-
-            left: -180px;
-            top: -180px;
+            top: -220px;
+            left: -190px;
 
             background:
-                rgba(99,102,241,.12);
+                rgba(59,130,246,.085);
 
         }
 
+        .orb-two {
 
-        .orb-2 {
-
-            width: 420px;
-            height: 420px;
+            width: 430px;
+            height: 430px;
 
             right: -180px;
-            top: 26%;
+            top: 28%;
 
             background:
-                rgba(129,140,248,.08);
+                rgba(56,189,248,.055);
 
         }
 
+        .orb-three {
 
-        .orb-3 {
+            width: 380px;
+            height: 380px;
 
-            width: 360px;
-            height: 360px;
-
-            left: -160px;
-            bottom: 10%;
+            left: -190px;
+            bottom: 8%;
 
             background:
-                rgba(52,211,153,.05);
+                rgba(37,99,235,.055);
 
         }
 
@@ -236,24 +234,24 @@
 
                 linear-gradient(
                     90deg,
-                    #ffffff 0%,
-                    #c7d2fe 38%,
-                    #818cf8 72%,
-                    #a5b4fc 100%
+                    #F8FAFC,
+                    #BFDBFE 40%,
+                    #60A5FA 72%,
+                    #38BDF8
                 );
 
             -webkit-background-clip: text;
-
             background-clip: text;
 
             -webkit-text-fill-color: transparent;
 
         }
 
+        .eyebrow {
 
-        .section-label {
+            color: #60A5FA;
 
-            font-size: .72rem;
+            font-size: .7rem;
 
             font-weight: 800;
 
@@ -261,10 +259,7 @@
 
             text-transform: uppercase;
 
-            color: #818cf8;
-
         }
-
 
         .glass {
 
@@ -272,13 +267,13 @@
 
                 linear-gradient(
                     145deg,
-                    rgba(255,255,255,.065),
-                    rgba(255,255,255,.018)
+                    rgba(255,255,255,.052),
+                    rgba(255,255,255,.012)
                 );
 
             border:
                 1px solid
-                rgba(255,255,255,.08);
+                rgba(255,255,255,.075);
 
             backdrop-filter:
                 blur(20px);
@@ -288,32 +283,28 @@
 
         }
 
-
         .glass-hover {
 
             transition:
-
-                transform .3s ease,
-                border-color .3s ease,
-                box-shadow .3s ease;
+                transform .32s ease,
+                border-color .32s ease,
+                box-shadow .32s ease;
 
         }
-
 
         .glass-hover:hover {
 
             transform:
-                translateY(-6px);
+                translateY(-7px);
 
             border-color:
-                rgba(129,140,248,.32);
+                rgba(96,165,250,.28);
 
             box-shadow:
-                0 25px 70px
+                0 30px 80px
                 rgba(0,0,0,.28);
 
         }
-
 
         .soft-line {
 
@@ -324,7 +315,7 @@
                 linear-gradient(
                     90deg,
                     transparent,
-                    rgba(255,255,255,.11),
+                    rgba(255,255,255,.10),
                     transparent
                 );
 
@@ -332,20 +323,19 @@
 
 
         /* =====================================================
-           NAVBAR
+           NAVIGATION
         ====================================================== */
 
         .nav-link {
 
             position: relative;
 
-            color: #9ca3af;
+            color: #94A3B8;
 
             transition:
                 color .2s ease;
 
         }
-
 
         .nav-link:hover {
 
@@ -353,38 +343,35 @@
 
         }
 
-
         .nav-link::after {
 
             content: "";
 
             position: absolute;
 
-            width: 0;
-
-            height: 2px;
-
             left: 50%;
+            bottom: -9px;
+
+            width: 0;
+            height: 2px;
 
             transform:
                 translateX(-50%);
 
-            bottom: -8px;
-
-            border-radius: 999px;
+            border-radius: 99px;
 
             background:
-                #818cf8;
+                #3B82F6;
 
             transition:
                 width .25s ease;
 
         }
 
-
         .nav-link:hover::after {
 
-            width: 100%;
+            width:
+                100%;
 
         }
 
@@ -395,92 +382,98 @@
 
         .hero {
 
-            position: relative;
+            position:
+                relative;
 
-            overflow: hidden;
+            overflow:
+                hidden;
 
         }
 
-
         .hero-grid {
 
-            position: absolute;
+            position:
+                absolute;
 
-            inset: 0;
+            inset:
+                0;
 
             background-image:
 
                 linear-gradient(
-                    rgba(255,255,255,.026) 1px,
+                    rgba(255,255,255,.024) 1px,
                     transparent 1px
                 ),
 
                 linear-gradient(
                     90deg,
-                    rgba(255,255,255,.026) 1px,
+                    rgba(255,255,255,.024) 1px,
                     transparent 1px
                 );
 
             background-size:
-                62px 62px;
+                60px 60px;
 
             mask-image:
                 linear-gradient(
                     to bottom,
                     black,
-                    transparent 80%
+                    transparent 82%
                 );
 
         }
 
-
         .hero-glow {
 
-            position: absolute;
+            position:
+                absolute;
 
-            width: 700px;
+            width:
+                760px;
 
-            height: 700px;
+            height:
+                760px;
 
-            right: -300px;
+            right:
+                -330px;
 
-            top: -300px;
+            top:
+                -340px;
 
-            border-radius: 50%;
+            border-radius:
+                50%;
 
             background:
 
                 radial-gradient(
                     circle,
-                    rgba(99,102,241,.19),
-                    transparent 68%
+                    rgba(59,130,246,.14),
+                    transparent 69%
                 );
 
             filter:
-                blur(25px);
+                blur(18px);
 
         }
-
 
         .hero-title {
 
             font-size:
                 clamp(
-                    3.1rem,
+                    3.25rem,
                     7vw,
-                    7.2rem
+                    7.3rem
                 );
 
             line-height:
-                .92;
+                .91;
 
             letter-spacing:
-                -.065em;
+                -.068em;
 
         }
 
-
-        .status-pill {
+        .hero-pill {
 
             display:
                 inline-flex;
@@ -488,7 +481,8 @@
             align-items:
                 center;
 
-            gap: 9px;
+            gap:
+                9px;
 
             padding:
                 9px 14px;
@@ -497,69 +491,132 @@
                 999px;
 
             background:
-                rgba(99,102,241,.08);
+                rgba(59,130,246,.07);
 
             border:
                 1px solid
-                rgba(129,140,248,.20);
+                rgba(96,165,250,.16);
 
             color:
-                #c7d2fe;
+                #BFDBFE;
 
             font-size:
-                .78rem;
+                .76rem;
 
             font-weight:
                 600;
 
         }
 
+        .hero-dot {
 
-        .status-dot {
+            width:
+                7px;
 
-            width: 8px;
-            height: 8px;
+            height:
+                7px;
 
             border-radius:
                 50%;
 
             background:
-                #34d399;
+                #60A5FA;
 
             box-shadow:
                 0 0 0 5px
-                rgba(52,211,153,.08);
+                rgba(96,165,250,.07);
 
         }
 
 
         /* =====================================================
-           PHONE
+           PHONE / APP MOCKUP
         ====================================================== */
 
-        .phone-stage {
+        .visual-stage {
 
-            position: relative;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
+            position:
+                relative;
 
             min-height:
-                560px;
+                580px;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
 
         }
 
+        .visual-ring {
+
+            position:
+                absolute;
+
+            width:
+                480px;
+
+            height:
+                480px;
+
+            border-radius:
+                50%;
+
+            border:
+                1px solid
+                rgba(59,130,246,.08);
+
+            animation:
+                slow-spin
+                22s
+                linear
+                infinite;
+
+        }
+
+        .visual-ring::before {
+
+            content:
+                "";
+
+            position:
+                absolute;
+
+            inset:
+                35px;
+
+            border-radius:
+                50%;
+
+            border:
+                1px dashed
+                rgba(56,189,248,.08);
+
+        }
+
+        @keyframes slow-spin {
+
+            to {
+                transform:
+                    rotate(360deg);
+            }
+
+        }
 
         .phone {
 
-            position: relative;
+            position:
+                relative;
 
-            width: 315px;
+            width:
+                330px;
 
-            max-width: 90vw;
+            max-width:
+                87vw;
 
             padding:
                 10px;
@@ -571,54 +628,48 @@
 
                 linear-gradient(
                     145deg,
-                    #252934,
-                    #0a0c10
+                    #202937,
+                    #090D13
                 );
 
             border:
                 1px solid
-                rgba(255,255,255,.14);
+                rgba(255,255,255,.13);
 
             box-shadow:
 
-                0 50px 120px
-                rgba(0,0,0,.55),
+                0 55px 120px
+                rgba(0,0,0,.52),
 
                 0 0 80px
-                rgba(99,102,241,.12);
+                rgba(59,130,246,.09);
 
             transform:
                 rotate(2deg);
 
             animation:
-                phoneFloat
+                phone-float
                 6s
                 ease-in-out
                 infinite;
 
         }
 
-
-        @keyframes phoneFloat {
+        @keyframes phone-float {
 
             0%,100% {
-
                 transform:
                     translateY(0)
                     rotate(2deg);
-
             }
 
             50% {
-
                 transform:
-                    translateY(-12px)
+                    translateY(-11px)
                     rotate(2deg);
-
             }
 
         }
-
 
         .phone-screen {
 
@@ -629,16 +680,15 @@
                 29px;
 
             background:
-                #0d1015;
+                #0B1017;
 
             border:
                 1px solid
-                rgba(255,255,255,.05);
+                rgba(255,255,255,.045);
 
         }
 
-
-        .phone-top {
+        .notch-wrap {
 
             height:
                 28px;
@@ -646,39 +696,37 @@
             display:
                 flex;
 
-            align-items:
-                center;
-
             justify-content:
                 center;
 
+            align-items:
+                center;
+
         }
 
-
-        .phone-notch {
+        .notch {
 
             width:
-                95px;
+                90px;
 
             height:
-                22px;
+                20px;
 
             border-radius:
-                0 0 15px 15px;
+                0 0 13px 13px;
 
             background:
-                #050609;
+                #05070A;
 
         }
-
 
         .balance-card {
 
             margin:
-                18px;
+                17px;
 
             padding:
-                18px;
+                19px;
 
             border-radius:
                 22px;
@@ -687,60 +735,58 @@
 
                 linear-gradient(
                     135deg,
-                    rgba(99,102,241,.30),
-                    rgba(99,102,241,.08)
+                    rgba(59,130,246,.22),
+                    rgba(56,189,248,.045)
                 );
 
             border:
                 1px solid
-                rgba(129,140,248,.18);
+                rgba(96,165,250,.16);
 
         }
 
-
-        .quick-action {
+        .mobile-action {
 
             display:
                 flex;
-
-            align-items:
-                center;
-
-            justify-content:
-                center;
 
             flex-direction:
                 column;
 
-            gap:
-                7px;
+            align-items:
+                center;
 
-            border-radius:
-                17px;
+            justify-content:
+                center;
+
+            gap:
+                6px;
 
             padding:
-                13px 5px;
+                10px 3px;
+
+            border-radius:
+                14px;
 
             background:
-                rgba(255,255,255,.025);
+                rgba(255,255,255,.018);
 
             border:
                 1px solid
-                rgba(255,255,255,.06);
+                rgba(255,255,255,.05);
 
         }
 
-
-        .quick-icon {
+        .mobile-action-icon {
 
             width:
-                34px;
+                32px;
 
             height:
-                34px;
+                32px;
 
             border-radius:
-                11px;
+                10px;
 
             display:
                 flex;
@@ -752,15 +798,14 @@
                 center;
 
             background:
-                rgba(99,102,241,.10);
+                rgba(59,130,246,.08);
 
             color:
-                #a5b4fc;
+                #93C5FD;
 
         }
 
-
-        .asset-row {
+        .mobile-asset {
 
             display:
                 flex;
@@ -772,17 +817,58 @@
                 space-between;
 
             padding:
-                11px;
+                10px;
+
+            margin-top:
+                8px;
 
             border-radius:
-                15px;
+                14px;
 
             background:
-                rgba(255,255,255,.022);
+                rgba(255,255,255,.018);
 
             border:
                 1px solid
-                rgba(255,255,255,.05);
+                rgba(255,255,255,.045);
+
+        }
+
+        .asset-left {
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            gap:
+                9px;
+
+        }
+
+        .asset-icon {
+
+            width:
+                33px;
+
+            height:
+                33px;
+
+            border-radius:
+                10px;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            background:
+                rgba(255,255,255,.04);
 
         }
 
@@ -797,13 +883,13 @@
                 absolute;
 
             z-index:
-                5;
+                10;
 
             border-radius:
-                18px;
+                17px;
 
             background:
-                rgba(13,16,21,.90);
+                rgba(8,13,20,.90);
 
             border:
                 1px solid
@@ -813,47 +899,44 @@
                 blur(18px);
 
             box-shadow:
-                0 25px 70px
-                rgba(0,0,0,.34);
+                0 25px 65px
+                rgba(0,0,0,.35);
 
         }
 
-
-        .float-send {
-
-            left:
-                -5px;
-
-            bottom:
-                70px;
-
-            animation:
-                floatSend
-                5s
-                ease-in-out
-                infinite;
-
-        }
-
-
-        .float-deposit {
+        .floating-deposit {
 
             right:
                 -5px;
 
             top:
-                85px;
+                70px;
 
             animation:
-                floatDeposit
-                5.7s
+                float-top
+                5.4s
                 ease-in-out
                 infinite;
 
         }
 
+        .floating-service {
 
-        @keyframes floatSend {
+            left:
+                -7px;
+
+            bottom:
+                75px;
+
+            animation:
+                float-bottom
+                5.9s
+                ease-in-out
+                infinite;
+
+        }
+
+        @keyframes float-top {
 
             0%,100% {
                 transform:
@@ -867,8 +950,7 @@
 
         }
 
-
-        @keyframes floatDeposit {
+        @keyframes float-bottom {
 
             0%,100% {
                 transform:
@@ -877,45 +959,8 @@
 
             50% {
                 transform:
-                    translateY(9px);
+                    translateY(10px);
             }
-
-        }
-
-
-        /* =====================================================
-           TICKER
-        ====================================================== */
-
-        .ticker {
-
-            border-top:
-                1px solid
-                rgba(255,255,255,.07);
-
-            border-bottom:
-                1px solid
-                rgba(255,255,255,.07);
-
-            background:
-                rgba(255,255,255,.012);
-
-        }
-
-
-        .ticker-item {
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            gap:
-                9px;
-
-            white-space:
-                nowrap;
 
         }
 
@@ -945,14 +990,14 @@
                 center;
 
             background:
-                rgba(99,102,241,.09);
+                rgba(59,130,246,.07);
 
             border:
                 1px solid
-                rgba(129,140,248,.14);
+                rgba(96,165,250,.14);
 
             color:
-                #a5b4fc;
+                #93C5FD;
 
             font-size:
                 21px;
@@ -961,33 +1006,150 @@
 
 
         /* =====================================================
-           FLOW
+           BIG TRANSFER SHOWCASE
         ====================================================== */
 
-        .flow-card {
+        .transfer-window {
 
-            min-height:
-                240px;
+            overflow:
+                hidden;
+
+            border-radius:
+                29px;
+
+            border:
+                1px solid
+                rgba(255,255,255,.08);
+
+            background:
+                #0A0F16;
+
+            box-shadow:
+                0 35px 90px
+                rgba(0,0,0,.35);
+
+        }
+
+        .window-top {
 
             display:
                 flex;
 
-            flex-direction:
-                column;
-
             justify-content:
                 space-between;
+
+            align-items:
+                center;
+
+            padding:
+                14px 17px;
+
+            border-bottom:
+                1px solid
+                rgba(255,255,255,.06);
+
+        }
+
+        .window-dots {
+
+            display:
+                flex;
+
+            gap:
+                6px;
+
+        }
+
+        .window-dot {
+
+            width:
+                7px;
+
+            height:
+                7px;
+
+            border-radius:
+                50%;
+
+            background:
+                #334155;
+
+        }
+
+        .recipient-box {
+
+            border:
+                1px solid
+                rgba(255,255,255,.07);
+
+            border-radius:
+                17px;
+
+            background:
+                rgba(255,255,255,.018);
+
+            padding:
+                14px;
+
+        }
+
+        .send-amount {
+
+            font-size:
+                3rem;
+
+            line-height:
+                1;
+
+            font-weight:
+                900;
+
+            letter-spacing:
+                -.055em;
+
+        }
+
+        .transfer-button {
+
+            width:
+                100%;
+
+            border:
+                none;
+
+            padding:
+                14px;
+
+            border-radius:
+                15px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #3B82F6,
+                    #2563EB
+                );
+
+            color:
+                white;
+
+            font-weight:
+                800;
 
         }
 
 
+        /* =====================================================
+           FLOW
+        ====================================================== */
+
         .flow-number {
 
             width:
-                44px;
+                45px;
 
             height:
-                44px;
+                45px;
 
             border-radius:
                 14px;
@@ -1002,17 +1164,17 @@
                 center;
 
             background:
-                rgba(99,102,241,.11);
+                rgba(59,130,246,.08);
 
             border:
                 1px solid
-                rgba(129,140,248,.18);
+                rgba(96,165,250,.14);
 
             color:
-                #a5b4fc;
+                #93C5FD;
 
             font-weight:
-                800;
+                900;
 
         }
 
@@ -1046,8 +1208,7 @@
 
         }
 
-
-        .orbit {
+        .security-ring {
 
             position:
                 absolute;
@@ -1057,12 +1218,11 @@
 
             border:
                 1px solid
-                rgba(129,140,248,.17);
+                rgba(59,130,246,.13);
 
         }
 
-
-        .orbit-a {
+        .security-ring.one {
 
             width:
                 100%;
@@ -1071,15 +1231,14 @@
                 100%;
 
             animation:
-                spin
+                spin-a
                 20s
                 linear
                 infinite;
 
         }
 
-
-        .orbit-b {
+        .security-ring.two {
 
             width:
                 73%;
@@ -1088,15 +1247,14 @@
                 73%;
 
             animation:
-                spin
+                spin-a
                 13s
                 linear
                 infinite reverse;
 
         }
 
-
-        .orbit-c {
+        .security-ring.three {
 
             width:
                 46%;
@@ -1105,13 +1263,21 @@
                 46%;
 
             animation:
-                spin
+                spin-a
                 8s
                 linear
                 infinite;
 
         }
 
+        @keyframes spin-a {
+
+            to {
+                transform:
+                    rotate(360deg);
+            }
+
+        }
 
         .security-core {
 
@@ -1133,33 +1299,23 @@
             justify-content:
                 center;
 
-            font-size:
-                2.7rem;
-
             background:
                 radial-gradient(
                     circle,
-                    rgba(99,102,241,.25),
-                    rgba(99,102,241,.06)
+                    rgba(59,130,246,.20),
+                    rgba(59,130,246,.03)
                 );
 
             border:
                 1px solid
-                rgba(129,140,248,.24);
+                rgba(96,165,250,.22);
 
             box-shadow:
-                0 0 70px
-                rgba(99,102,241,.18);
+                0 0 75px
+                rgba(59,130,246,.12);
 
-        }
-
-
-        @keyframes spin {
-
-            to {
-                transform:
-                    rotate(360deg);
-            }
+            font-size:
+                2.6rem;
 
         }
 
@@ -1171,10 +1327,10 @@
         .avatar {
 
             width:
-                42px;
+                43px;
 
             height:
-                42px;
+                43px;
 
             border-radius:
                 50%;
@@ -1191,12 +1347,12 @@
             background:
                 linear-gradient(
                     135deg,
-                    #6366f1,
-                    #3730a3
+                    #3B82F6,
+                    #1D4ED8
                 );
 
             font-size:
-                .75rem;
+                .74rem;
 
             font-weight:
                 800;
@@ -1210,26 +1366,28 @@
 
         .faq-item {
 
+            overflow:
+                hidden;
+
             border:
                 1px solid
-                rgba(255,255,255,.08);
+                rgba(255,255,255,.075);
 
             border-radius:
                 20px;
 
-            overflow:
-                hidden;
-
             background:
-                rgba(255,255,255,.018);
+                rgba(255,255,255,.015);
 
         }
-
 
         .faq-button {
 
             width:
                 100%;
+
+            padding:
+                22px;
 
             display:
                 flex;
@@ -1243,14 +1401,10 @@
             gap:
                 20px;
 
-            padding:
-                22px;
-
             text-align:
                 left;
 
         }
-
 
         .faq-answer {
 
@@ -1267,22 +1421,23 @@
 
         }
 
-
         .faq-inner {
 
             padding:
                 0 22px 22px;
 
             color:
-                #9ca3af;
+                #8290A0;
 
             line-height:
                 1.75;
 
         }
 
-
         .faq-icon {
+
+            color:
+                #60A5FA;
 
             transition:
                 transform
@@ -1290,7 +1445,6 @@
                 ease;
 
         }
-
 
         .faq-item.active
         .faq-icon {
@@ -1319,7 +1473,6 @@
 
         }
 
-
         .reveal.show {
 
             opacity:
@@ -1332,10 +1485,20 @@
 
 
         /* =====================================================
-           MOBILE
+           RESPONSIVE
         ====================================================== */
 
-        @media (max-width: 850px) {
+        @media (max-width: 1024px) {
+
+            .floating-card {
+                display:
+                    none;
+            }
+
+        }
+
+
+        @media (max-width: 900px) {
 
             .desktop-nav {
                 display:
@@ -1354,38 +1517,37 @@
 
             }
 
-
-            .phone-stage {
+            .visual-stage {
 
                 min-height:
                     500px;
 
             }
 
-
             .phone {
 
                 width:
-                    290px;
+                    295px;
 
             }
 
+            .visual-ring {
 
-            .stat-grid {
+                width:
+                    400px;
 
-                grid-template-columns:
-                    repeat(2,1fr);
+                height:
+                    400px;
 
             }
-
 
             .security-orbit {
 
                 width:
-                    280px;
+                    275px;
 
                 height:
-                    280px;
+                    275px;
 
             }
 
@@ -1401,31 +1563,39 @@
 
 <!-- =========================================================
      BACKGROUND
-========================================================= -->
+========================================================== -->
 
-<div class="site-bg">
+<div class="site-background">
 
-    <div class="grid-bg"></div>
+    <div class="background-grid"></div>
 
-    <div class="orb orb-1"></div>
-    <div class="orb orb-2"></div>
-    <div class="orb orb-3"></div>
+    <div class="noise"></div>
+
+    <div class="orb orb-one"></div>
+
+    <div class="orb orb-two"></div>
+
+    <div class="orb orb-three"></div>
 
 </div>
 
 
 <!-- =========================================================
      NAVBAR
-========================================================= -->
+========================================================== -->
 
 <header
-    class="sticky top-0 z-[100]
-           border-b border-white/10
-           bg-[#090B0E]/75
+    class="sticky
+           top-0
+           z-[100]
+           border-b
+           border-white/8
+           bg-[#070A10]/75
            backdrop-blur-2xl">
 
     <nav
-        class="max-w-7xl mx-auto
+        class="max-w-7xl
+               mx-auto
                px-5 sm:px-6
                py-4">
 
@@ -1435,27 +1605,26 @@
                    justify-between">
 
 
-            <!-- Logo -->
+            <!-- LOGO -->
 
             <a
                 href="index.html"
-                class="text-2xl
-                       sm:text-3xl
+                class="text-3xl
                        font-black
                        tracking-tight">
 
-                Joy<span class="text-indigo-400">
-                    et
+                J<span class="text-joyet">
+                    oyet
                 </span>
 
             </a>
 
 
-            <!-- Navigation -->
+            <!-- DESKTOP NAV -->
 
             <div
-                class="desktop-nav
-                       hidden md:flex
+                class="hidden
+                       md:flex
                        items-center
                        gap-8
                        text-sm">
@@ -1493,10 +1662,11 @@
             </div>
 
 
-            <!-- Desktop actions -->
+            <!-- ACTIONS -->
 
             <div
-                class="hidden sm:flex
+                class="hidden
+                       sm:flex
                        items-center
                        gap-3">
 
@@ -1506,9 +1676,10 @@
                            py-2.5
                            rounded-xl
                            border
-                           border-white/10
-                           bg-white/[.02]
-                           hover:bg-white/[.06]
+                           border-white/9
+                           text-gray-300
+                           hover:text-white
+                           hover:bg-white/[.04]
                            transition">
 
                     Login
@@ -1521,11 +1692,12 @@
                     class="px-5
                            py-2.5
                            rounded-xl
-                           bg-indigo-500
-                           hover:bg-indigo-400
-                           shadow-lg
-                           shadow-indigo-900/20
+                           bg-joyet
+                           hover:bg-joyetBright
+                           text-white
                            font-semibold
+                           shadow-lg
+                           shadow-blue-900/15
                            transition">
 
                     Get Started
@@ -1535,7 +1707,7 @@
             </div>
 
 
-            <!-- Mobile -->
+            <!-- MOBILE -->
 
             <button
                 id="menuButton"
@@ -1543,8 +1715,8 @@
                        w-11 h-11
                        rounded-xl
                        border
-                       border-white/10
-                       bg-white/[.03]
+                       border-white/9
+                       bg-white/[.025]
                        flex
                        items-center
                        justify-center">
@@ -1553,10 +1725,10 @@
                     id="menuIcon"
                     width="20"
                     height="20"
+                    viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
-                    stroke-width="1.8"
-                    viewBox="0 0 24 24">
+                    stroke-width="1.8">
 
                     <path
                         stroke-linecap="round"
@@ -1569,7 +1741,7 @@
         </div>
 
 
-        <!-- Mobile menu -->
+        <!-- MOBILE MENU -->
 
         <div
             id="mobileMenu"
@@ -1589,62 +1761,66 @@
                     href="#features"
                     class="mobile-link
                            block
-                           rounded-xl
                            px-4 py-3
+                           rounded-xl
                            text-gray-300
-                           hover:bg-white/5">
+                           hover:bg-white/[.04]">
 
                     Features
 
                 </a>
 
+
                 <a
                     href="#services"
                     class="mobile-link
                            block
-                           rounded-xl
                            px-4 py-3
+                           rounded-xl
                            text-gray-300
-                           hover:bg-white/5">
+                           hover:bg-white/[.04]">
 
                     Services
 
                 </a>
 
+
                 <a
                     href="#how"
                     class="mobile-link
                            block
-                           rounded-xl
                            px-4 py-3
+                           rounded-xl
                            text-gray-300
-                           hover:bg-white/5">
+                           hover:bg-white/[.04]">
 
                     How it works
 
                 </a>
 
+
                 <a
                     href="#security"
                     class="mobile-link
                            block
-                           rounded-xl
                            px-4 py-3
+                           rounded-xl
                            text-gray-300
-                           hover:bg-white/5">
+                           hover:bg-white/[.04]">
 
                     Security
 
                 </a>
 
+
                 <a
                     href="#faq"
                     class="mobile-link
                            block
-                           rounded-xl
                            px-4 py-3
+                           rounded-xl
                            text-gray-300
-                           hover:bg-white/5">
+                           hover:bg-white/[.04]">
 
                     FAQ
 
@@ -1652,7 +1828,9 @@
 
 
                 <div
-                    class="flex gap-3 pt-3">
+                    class="flex
+                           gap-3
+                           pt-3">
 
                     <a
                         href="login.html"
@@ -1661,7 +1839,7 @@
                                py-3
                                rounded-xl
                                border
-                               border-white/10">
+                               border-white/9">
 
                         Login
 
@@ -1674,7 +1852,7 @@
                                text-center
                                py-3
                                rounded-xl
-                               bg-indigo-500
+                               bg-joyet
                                font-semibold">
 
                         Get Started
@@ -1697,7 +1875,7 @@
 
 <!-- =========================================================
      HERO
-========================================================= -->
+========================================================== -->
 
 <section class="hero">
 
@@ -1711,26 +1889,32 @@
                max-w-7xl
                mx-auto
                px-5 sm:px-6
-               pt-20 sm:pt-28
+               pt-20
+               sm:pt-28
                lg:pt-36
-               pb-24">
+               pb-20
+               lg:pb-28">
 
 
         <div
             class="grid
                    lg:grid-cols-[1fr_.9fr]
-                   gap-16
+                   gap-12
+                   lg:gap-16
                    items-center">
 
 
-            <!-- LEFT -->
+            <!-- COPY -->
 
-            <div class="reveal show">
+            <div
+                class="reveal
+                       show">
 
 
-                <div class="status-pill">
+                <div
+                    class="hero-pill">
 
-                    <span class="status-dot"></span>
+                    <span class="hero-dot"></span>
 
                     Crypto-powered everyday payments
 
@@ -1742,11 +1926,14 @@
                            font-black
                            mt-7">
 
-                    Your crypto.
+                    Crypto,
 
-                    <span class="gradient-text block mt-3">
+                    <span
+                        class="gradient-text
+                               block
+                               mt-3">
 
-                        Your everyday money.
+                        made useful.
 
                     </span>
 
@@ -1758,14 +1945,13 @@
                            text-base
                            sm:text-lg
                            lg:text-xl
-                           leading-relaxed
                            max-w-2xl
+                           leading-relaxed
                            mt-8">
 
                     Deposit crypto into Joyet and use
                     your balance for transfers, airtime,
-                    data, bills and other everyday
-                    digital services.
+                    data, bills and everyday digital services.
 
                 </p>
 
@@ -1779,26 +1965,20 @@
 
                     <a
                         href="signup.html"
-                        class="group
-                               px-7 py-4
+                        class="px-7
+                               py-4
                                rounded-2xl
-                               bg-indigo-500
-                               hover:bg-indigo-400
+                               bg-joyet
+                               hover:bg-joyetBright
                                text-center
-                               font-semibold
-                               shadow-[0_20px_60px_rgba(99,102,241,.22)]
+                               font-bold
+                               shadow-[0_20px_60px_rgba(59,130,246,.18)]
                                transition">
 
-                        Get Started
+                        Create Account
 
-                        <span
-                            class="inline-block
-                                   ml-1
-                                   group-hover:translate-x-1
-                                   transition">
-
+                        <span class="ml-1">
                             →
-
                         </span>
 
                     </a>
@@ -1806,12 +1986,13 @@
 
                     <a
                         href="#how"
-                        class="px-7 py-4
+                        class="px-7
+                               py-4
                                rounded-2xl
                                border
-                               border-white/10
+                               border-white/9
                                bg-white/[.02]
-                               hover:bg-white/[.06]
+                               hover:bg-white/[.05]
                                text-center
                                font-semibold
                                transition">
@@ -1823,82 +2004,132 @@
                 </div>
 
 
+                <!-- Highlights -->
+
                 <div
-                    class="flex
-                           flex-wrap
-                           items-center
-                           gap-x-6
-                           gap-y-3
-                           mt-9
-                           text-sm
-                           text-gray-500">
+                    class="grid
+                           grid-cols-3
+                           max-w-lg
+                           gap-5
+                           mt-12
+                           pt-7
+                           border-t
+                           border-white/8">
 
-                    <span>
-                        <b class="text-gray-300">
-                            Crypto
-                        </b>
-                        deposits
-                    </span>
 
-                    <span>
-                        <b class="text-gray-300">
-                            Fast
-                        </b>
-                        transfers
-                    </span>
+                    <div>
 
-                    <span>
-                        <b class="text-gray-300">
-                            VTU
-                        </b>
-                        services
-                    </span>
+                        <p
+                            class="text-2xl
+                                   font-black">
+                            ↓
+                        </p>
+
+                        <p
+                            class="text-xs
+                                   text-gray-600
+                                   mt-2">
+
+                            Crypto deposits
+
+                        </p>
+
+                    </div>
+
+
+                    <div>
+
+                        <p
+                            class="text-2xl
+                                   font-black">
+                            ↑
+                        </p>
+
+                        <p
+                            class="text-xs
+                                   text-gray-600
+                                   mt-2">
+
+                            Transfers
+
+                        </p>
+
+                    </div>
+
+
+                    <div>
+
+                        <p
+                            class="text-2xl
+                                   font-black">
+                            ⚡
+                        </p>
+
+                        <p
+                            class="text-xs
+                                   text-gray-600
+                                   mt-2">
+
+                            VTU services
+
+                        </p>
+
+                    </div>
 
                 </div>
 
             </div>
 
 
-            <!-- PHONE -->
+            <!-- APP VISUAL -->
 
             <div
-                class="phone-stage
-                       reveal show">
+                class="visual-stage
+                       reveal
+                       show">
 
 
-                <!-- Main phone -->
+                <div class="visual-ring"></div>
+
 
                 <div class="phone">
 
                     <div class="phone-screen">
 
 
-                        <div class="phone-top">
+                        <div class="notch-wrap">
 
-                            <div class="phone-notch"></div>
+                            <div class="notch"></div>
 
                         </div>
 
 
-                        <!-- App header -->
+                        <!-- Account -->
 
                         <div
-                            class="px-5
+                            class="px-4
                                    flex
                                    items-center
                                    justify-between">
 
+
                             <div>
 
-                                <p class="text-[10px]
-                                          text-gray-600">
+                                <p
+                                    class="text-[9px]
+                                           text-gray-600">
+
                                     Good morning
+
                                 </p>
 
-                                <p class="text-sm
-                                          font-bold
-                                          mt-1">
-                                    Welcome to Joyet
+                                <p
+                                    class="text-sm
+                                           font-bold
+                                           mt-1">
+
+                                    Your Joyet
+
                                 </p>
 
                             </div>
@@ -1907,14 +2138,16 @@
                             <div
                                 class="w-9 h-9
                                        rounded-xl
-                                       bg-white/[.04]
+                                       bg-blue-500/10
                                        border
-                                       border-white/7
+                                       border-blue-400/10
                                        flex
                                        items-center
-                                       justify-center">
+                                       justify-center
+                                       text-blue-300
+                                       font-bold">
 
-                                ◉
+                                J
 
                             </div>
 
@@ -1923,15 +2156,16 @@
 
                         <!-- Balance -->
 
-                        <div class="balance-card">
+                        <div
+                            class="balance-card">
 
                             <p
-                                class="text-[10px]
-                                       text-indigo-200/60
+                                class="text-[9px]
                                        uppercase
-                                       tracking-widest">
+                                       tracking-widest
+                                       text-blue-200/55">
 
-                                Total balance
+                                Available balance
 
                             </p>
 
@@ -1939,6 +2173,7 @@
                             <p
                                 class="text-3xl
                                        font-black
+                                       tracking-tight
                                        mt-2">
 
                                 $4,860.42
@@ -1948,21 +2183,19 @@
 
                             <div
                                 class="flex
-                                       items-center
                                        justify-between
-                                       mt-3">
+                                       mt-3
+                                       text-[9px]">
 
                                 <span
-                                    class="text-xs
-                                           text-green-300">
+                                    class="text-green-300">
 
                                     Available
 
                                 </span>
 
                                 <span
-                                    class="text-xs
-                                           text-indigo-200/70">
+                                    class="text-blue-200/50">
 
                                     Joyet balance
 
@@ -1979,55 +2212,72 @@
                             class="grid
                                    grid-cols-4
                                    gap-2
-                                   px-4">
+                                   px-3">
 
-                            <div class="quick-action">
 
-                                <div class="quick-icon">
+                            <div class="mobile-action">
+
+                                <div class="mobile-action-icon">
                                     ↓
                                 </div>
 
-                                <span class="text-[9px]">
+                                <span
+                                    class="text-[8px]
+                                           text-gray-600">
+
                                     Deposit
+
                                 </span>
 
                             </div>
 
 
-                            <div class="quick-action">
+                            <div class="mobile-action">
 
-                                <div class="quick-icon">
+                                <div class="mobile-action-icon">
                                     ↑
                                 </div>
 
-                                <span class="text-[9px]">
+                                <span
+                                    class="text-[8px]
+                                           text-gray-600">
+
                                     Send
+
                                 </span>
 
                             </div>
 
 
-                            <div class="quick-action">
+                            <div class="mobile-action">
 
-                                <div class="quick-icon">
+                                <div class="mobile-action-icon">
                                     📱
                                 </div>
 
-                                <span class="text-[9px]">
+                                <span
+                                    class="text-[8px]
+                                           text-gray-600">
+
                                     Airtime
+
                                 </span>
 
                             </div>
 
 
-                            <div class="quick-action">
+                            <div class="mobile-action">
 
-                                <div class="quick-icon">
+                                <div class="mobile-action-icon">
                                     📡
                                 </div>
 
-                                <span class="text-[9px]">
+                                <span
+                                    class="text-[8px]
+                                           text-gray-600">
+
                                     Data
+
                                 </span>
 
                             </div>
@@ -2035,72 +2285,65 @@
                         </div>
 
 
-                        <!-- Services -->
+                        <!-- Assets -->
 
-                        <div class="px-4 mt-6">
+                        <div
+                            class="px-3
+                                   mt-5">
+
 
                             <div
                                 class="flex
-                                       items-center
-                                       justify-between">
+                                       justify-between
+                                       items-center">
 
-                                <p class="text-xs
-                                          font-bold">
-                                    Your assets
+                                <p
+                                    class="text-xs
+                                           font-bold">
+
+                                    Assets
+
                                 </p>
+
 
                                 <span
                                     class="text-[9px]
-                                           text-indigo-400">
+                                           text-blue-400">
+
                                     View all
+
                                 </span>
 
                             </div>
 
 
-                            <div class="space-y-2 mt-3">
+                            <div class="mobile-asset">
 
-
-                                <div class="asset-row">
+                                <div class="asset-left">
 
                                     <div
-                                        class="flex
-                                               items-center
-                                               gap-3">
+                                        class="asset-icon">
 
-                                        <div
-                                            class="asset-icon">
-                                            ₿
-                                        </div>
-
-                                        <div>
-
-                                            <p class="text-xs
-                                                      font-bold">
-                                                Bitcoin
-                                            </p>
-
-                                            <p class="text-[9px]
-                                                      text-gray-600">
-                                                BTC
-                                            </p>
-
-                                        </div>
+                                        ₿
 
                                     </div>
 
+                                    <div>
 
-                                    <div
-                                        class="text-right">
+                                        <p
+                                            class="text-[10px]
+                                                   font-bold">
 
-                                        <p class="text-xs
-                                                  font-bold">
-                                            $2,460
+                                            Bitcoin
+
                                         </p>
 
-                                        <p class="text-[9px]
-                                                  text-green-400">
-                                            +3.42%
+                                        <p
+                                            class="text-[8px]
+                                                   text-gray-600">
+
+                                            BTC
+
                                         </p>
 
                                     </div>
@@ -2108,49 +2351,82 @@
                                 </div>
 
 
-                                <div class="asset-row">
+                                <div
+                                    class="text-right">
+
+                                    <p
+                                        class="text-[10px]
+                                               font-bold">
+
+                                        $2,460
+
+                                    </p>
+
+                                    <p
+                                        class="text-[8px]
+                                               text-green-400">
+
+                                        +3.42%
+
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="mobile-asset">
+
+                                <div class="asset-left">
 
                                     <div
-                                        class="flex
-                                               items-center
-                                               gap-3">
+                                        class="asset-icon">
 
-                                        <div
-                                            class="asset-icon">
-                                            $
-                                        </div>
-
-                                        <div>
-
-                                            <p class="text-xs
-                                                      font-bold">
-                                                USDT
-                                            </p>
-
-                                            <p class="text-[9px]
-                                                      text-gray-600">
-                                                Stablecoin
-                                            </p>
-
-                                        </div>
+                                        $
 
                                     </div>
 
+                                    <div>
 
-                                    <div
-                                        class="text-right">
+                                        <p
+                                            class="text-[10px]
+                                                   font-bold">
 
-                                        <p class="text-xs
-                                                  font-bold">
-                                            $1,840
+                                            USDT
+
                                         </p>
 
-                                        <p class="text-[9px]
-                                                  text-gray-500">
-                                            Stable
+                                        <p
+                                            class="text-[8px]
+                                                   text-gray-600">
+
+                                            Stablecoin
+
                                         </p>
 
                                     </div>
+
+                                </div>
+
+
+                                <div
+                                    class="text-right">
+
+                                    <p
+                                        class="text-[10px]
+                                               font-bold">
+
+                                        $1,840
+
+                                    </p>
+
+                                    <p
+                                        class="text-[8px]
+                                               text-gray-600">
+
+                                        Stable
+
+                                    </p>
 
                                 </div>
 
@@ -2159,40 +2435,30 @@
                         </div>
 
 
-                        <!-- Activity -->
+                        <!-- Recent -->
 
-                        <div class="px-4 mt-5 pb-5">
+                        <div
+                            class="px-3
+                                   mt-5
+                                   pb-5">
 
                             <p
                                 class="text-xs
                                        font-bold">
+
                                 Recent activity
+
                             </p>
 
 
                             <div
-                                class="flex
-                                       items-center
-                                       justify-between
-                                       mt-3
-                                       rounded-xl
-                                       bg-white/[.025]
-                                       border
-                                       border-white/5
-                                       p-3">
+                                class="mobile-asset">
 
                                 <div
-                                    class="flex
-                                           items-center
-                                           gap-3">
+                                    class="asset-left">
 
                                     <div
-                                        class="w-8 h-8
-                                               rounded-lg
-                                               bg-green-500/10
-                                               flex
-                                               items-center
-                                               justify-center
+                                        class="asset-icon
                                                text-green-400">
 
                                         ↓
@@ -2201,14 +2467,20 @@
 
                                     <div>
 
-                                        <p class="text-[10px]
-                                                  font-bold">
+                                        <p
+                                            class="text-[10px]
+                                                   font-bold">
+
                                             Crypto deposit
+
                                         </p>
 
-                                        <p class="text-[8px]
-                                                  text-gray-600">
+                                        <p
+                                            class="text-[8px]
+                                                   text-gray-600">
+
                                             Just now
+
                                         </p>
 
                                     </div>
@@ -2219,7 +2491,9 @@
                                 <span
                                     class="text-[10px]
                                            text-green-400">
+
                                     +$500
+
                                 </span>
 
                             </div>
@@ -2231,11 +2505,11 @@
                 </div>
 
 
-                <!-- Floating deposit -->
+                <!-- Deposit floating -->
 
                 <div
                     class="floating-card
-                           float-deposit
+                           floating-deposit
                            hidden sm:block
                            p-4">
 
@@ -2247,11 +2521,11 @@
                         <div
                             class="w-9 h-9
                                    rounded-xl
-                                   bg-green-500/10
+                                   bg-blue-500/10
                                    flex
                                    items-center
                                    justify-center
-                                   text-green-400">
+                                   text-blue-300">
 
                             ↓
 
@@ -2260,15 +2534,22 @@
 
                         <div>
 
-                            <p class="text-[10px]
-                                      text-gray-600">
+                            <p
+                                class="text-[9px]
+                                       text-gray-600">
+
                                 Deposit received
+
                             </p>
 
-                            <p class="text-sm
-                                      font-bold
-                                      mt-1">
-                                +0.024 BTC
+
+                            <p
+                                class="text-sm
+                                       font-bold
+                                       mt-1">
+
+                                0.024 BTC
+
                             </p>
 
                         </div>
@@ -2278,11 +2559,11 @@
                 </div>
 
 
-                <!-- Floating send -->
+                <!-- Service floating -->
 
                 <div
                     class="floating-card
-                           float-send
+                           floating-service
                            hidden sm:block
                            p-4">
 
@@ -2294,28 +2575,35 @@
                         <div
                             class="w-9 h-9
                                    rounded-xl
-                                   bg-indigo-500/10
+                                   bg-cyan-500/10
                                    flex
                                    items-center
                                    justify-center
-                                   text-indigo-300">
+                                   text-cyan-300">
 
-                            ↑
+                            ⚡
 
                         </div>
 
 
                         <div>
 
-                            <p class="text-[10px]
-                                      text-gray-600">
-                                Transfer sent
+                            <p
+                                class="text-[9px]
+                                       text-gray-600">
+
+                                Payment complete
+
                             </p>
 
-                            <p class="text-sm
-                                      font-bold
-                                      mt-1">
-                                $120.00
+
+                            <p
+                                class="text-sm
+                                       font-bold
+                                       mt-1">
+
+                                Airtime
+
                             </p>
 
                         </div>
@@ -2334,240 +2622,73 @@
 
 
 <!-- =========================================================
-     TICKER
+     VALUE STRIP
 ========================================================= -->
 
-<section class="ticker">
+<section
+    class="border-y
+           border-white/7
+           bg-white/[.012]">
 
     <div
-        class="max-w-7xl mx-auto
+        class="max-w-7xl
+               mx-auto
                px-5 sm:px-6
-               py-4">
+               py-5">
 
         <div
             class="flex
                    flex-wrap
+                   items-center
                    justify-center
-                   xl:justify-between
-                   gap-x-8
-                   gap-y-4
-                   text-xs">
-
-            <div class="ticker-item">
-
-                <span class="font-bold">
-                    BTC
-                </span>
-
-                <span class="text-gray-500">
-                    $104,842
-                </span>
-
-                <span class="text-green-400">
-                    +2.41%
-                </span>
-
-            </div>
-
-
-            <div class="ticker-item">
-
-                <span class="font-bold">
-                    ETH
-                </span>
-
-                <span class="text-gray-500">
-                    $3,844
-                </span>
-
-                <span class="text-green-400">
-                    +1.87%
-                </span>
-
-            </div>
-
-
-            <div class="ticker-item">
-
-                <span class="font-bold">
-                    SOL
-                </span>
-
-                <span class="text-gray-500">
-                    $215.40
-                </span>
-
-                <span class="text-green-400">
-                    +3.16%
-                </span>
-
-            </div>
-
-
-            <div class="ticker-item">
-
-                <span class="font-bold">
-                    USDT
-                </span>
-
-                <span class="text-gray-500">
-                    $1.00
-                </span>
-
-                <span class="text-green-400">
-                    +0.01%
-                </span>
-
-            </div>
-
-
-            <div
-                class="ticker-item">
-
-                <span
-                    class="text-gray-500">
-
-                    Crypto → Everyday
-
-                </span>
-
-                <span
-                    class="text-indigo-400">
-
-                    Joyet
-
-                </span>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     STATS
-========================================================= -->
-
-<section
-    class="max-w-7xl mx-auto
-           px-5 sm:px-6
-           py-20">
-
-    <div
-        class="stat-grid
-               grid grid-cols-2
-               md:grid-cols-4
-               overflow-hidden
-               rounded-[28px]
-               border
-               border-white/8
-               bg-white/[.025]">
-
-        <div
-            class="p-7
-                   border-r
-                   border-b
-                   md:border-b-0
-                   border-white/7">
-
-            <p
-                class="text-3xl
-                       font-black
-                       tracking-tight">
-
-                ₿
-
-            </p>
-
-            <p
-                class="text-sm
-                       text-gray-500
-                       mt-3">
-
-                Crypto deposits
-
-            </p>
-
-        </div>
-
-
-        <div
-            class="p-7
-                   md:border-r
-                   border-b
-                   md:border-b-0
-                   border-white/7">
-
-            <p
-                class="text-3xl
-                       font-black
-                       tracking-tight">
-
-                24/7
-
-            </p>
-
-            <p
-                class="text-sm
-                       text-gray-500
-                       mt-3">
-
-                Wallet access
-
-            </p>
-
-        </div>
-
-
-        <div
-            class="p-7
-                   border-r
-                   border-white/7">
-
-            <p
-                class="text-3xl
-                       font-black
-                       tracking-tight">
-
-                VTU
-
-            </p>
-
-            <p
-                class="text-sm
-                       text-gray-500
-                       mt-3">
-
-                Digital services
-
-            </p>
-
-        </div>
-
-
-        <div
-            class="p-7">
-
-            <p
-                class="text-3xl
-                       font-black
-                       tracking-tight">
-
-                1
-
-            </p>
-
-            <p
-                class="text-sm
-                       text-gray-500
-                       mt-3">
-
-                Connected balance
-
-            </p>
+                   gap-x-6
+                   gap-y-3
+                   text-xs
+                   text-gray-600">
+
+            <span>
+                Deposit crypto
+            </span>
+
+            <span>
+                →
+            </span>
+
+            <span>
+                Joyet balance
+            </span>
+
+            <span>
+                →
+            </span>
+
+            <span>
+                Send money
+            </span>
+
+            <span>
+                →
+            </span>
+
+            <span>
+                Buy airtime
+            </span>
+
+            <span>
+                →
+            </span>
+
+            <span>
+                Buy data
+            </span>
+
+            <span>
+                →
+            </span>
+
+            <span>
+                Pay bills
+            </span>
 
         </div>
 
@@ -2582,17 +2703,20 @@
 
 <section
     id="features"
-    class="max-w-7xl mx-auto
+    class="max-w-7xl
+           mx-auto
            px-5 sm:px-6
            py-24">
+
 
     <div
         class="max-w-3xl
                reveal">
 
-        <p class="section-label">
-            WHY JOYET
+        <p class="eyebrow">
+            THE JOYET EXPERIENCE
         </p>
+
 
         <h2
             class="text-4xl
@@ -2602,12 +2726,13 @@
                    tracking-tight
                    mt-4">
 
-            Crypto should be
+            More than
             <span class="text-gray-600">
-                useful.
+                holding crypto.
             </span>
 
         </h2>
+
 
         <p
             class="text-gray-400
@@ -2616,8 +2741,8 @@
                    mt-6
                    max-w-2xl">
 
-            Joyet is built around one simple idea:
-            make crypto usable beyond simply holding it.
+            Joyet connects crypto funding to practical
+            services that you can actually use.
 
         </p>
 
@@ -2632,8 +2757,6 @@
                mt-14">
 
 
-        <!-- Feature 1 -->
-
         <div
             class="glass
                    glass-hover
@@ -2645,29 +2768,40 @@
                 ↓
             </div>
 
+
             <h3
                 class="text-xl
                        font-bold
                        mt-7">
 
-                Deposit crypto
+                Crypto deposits
 
             </h3>
 
+
             <p
-                class="text-gray-400
+                class="text-gray-500
                        leading-relaxed
                        mt-3">
 
-                Fund your Joyet balance by depositing
-                supported crypto assets.
+                Deposit supported crypto assets
+                into your Joyet account.
+
+            </p>
+
+
+            <p
+                class="text-blue-400
+                       text-sm
+                       font-semibold
+                       mt-6">
+
+                Fund your account →
 
             </p>
 
         </div>
 
-
-        <!-- Feature 2 -->
 
         <div
             class="glass
@@ -2680,29 +2814,41 @@
                 ↑
             </div>
 
+
             <h3
                 class="text-xl
                        font-bold
                        mt-7">
 
-                Send money
+                Transfers
 
             </h3>
 
+
             <p
-                class="text-gray-400
+                class="text-gray-500
                        leading-relaxed
                        mt-3">
 
-                Use your Joyet balance to make transfers
-                to supported recipients and destinations.
+                Use your Joyet balance to send
+                money through supported transfer
+                services.
+
+            </p>
+
+
+            <p
+                class="text-blue-400
+                       text-sm
+                       font-semibold
+                       mt-6">
+
+                Move value →
 
             </p>
 
         </div>
 
-
-        <!-- Feature 3 -->
 
         <div
             class="glass
@@ -2715,29 +2861,40 @@
                 📱
             </div>
 
+
             <h3
                 class="text-xl
                        font-bold
                        mt-7">
 
-                Buy airtime
+                Airtime
 
             </h3>
 
+
             <p
-                class="text-gray-400
+                class="text-gray-500
                        leading-relaxed
                        mt-3">
 
-                Turn your crypto-funded balance into
-                airtime whenever you need it.
+                Recharge supported mobile networks
+                directly from your Joyet balance.
+
+            </p>
+
+
+            <p
+                class="text-blue-400
+                       text-sm
+                       font-semibold
+                       mt-6">
+
+                Recharge →
 
             </p>
 
         </div>
 
-
-        <!-- Feature 4 -->
 
         <div
             class="glass
@@ -2750,29 +2907,40 @@
                 📡
             </div>
 
+
             <h3
                 class="text-xl
                        font-bold
                        mt-7">
 
-                Buy data
+                Mobile data
 
             </h3>
 
+
             <p
-                class="text-gray-400
+                class="text-gray-500
                        leading-relaxed
                        mt-3">
 
-                Purchase mobile data directly through
-                your Joyet balance.
+                Purchase supported data packages
+                from the same account balance.
+
+            </p>
+
+
+            <p
+                class="text-blue-400
+                       text-sm
+                       font-semibold
+                       mt-6">
+
+                Get connected →
 
             </p>
 
         </div>
 
-
-        <!-- Feature 5 -->
 
         <div
             class="glass
@@ -2785,29 +2953,40 @@
                 ⚡
             </div>
 
+
             <h3
                 class="text-xl
                        font-bold
                        mt-7">
 
-                Pay bills
+                Electricity
 
             </h3>
 
+
             <p
-                class="text-gray-400
+                class="text-gray-500
                        leading-relaxed
                        mt-3">
 
-                Access supported electricity, cable and
-                other digital bill services.
+                Access supported power utility
+                payment services.
+
+            </p>
+
+
+            <p
+                class="text-blue-400
+                       text-sm
+                       font-semibold
+                       mt-6">
+
+                Pay a bill →
 
             </p>
 
         </div>
 
-
-        <!-- Feature 6 -->
 
         <div
             class="glass
@@ -2817,25 +2996,38 @@
                    reveal">
 
             <div class="service-icon">
-                🌐
+                📺
             </div>
+
 
             <h3
                 class="text-xl
                        font-bold
                        mt-7">
 
-                One balance
+                Cable TV
 
             </h3>
 
+
             <p
-                class="text-gray-400
+                class="text-gray-500
                        leading-relaxed
                        mt-3">
 
-                Keep your crypto-funded spending experience
-                connected through one Joyet account.
+                Manage supported cable and
+                entertainment subscriptions.
+
+            </p>
+
+
+            <p
+                class="text-blue-400
+                       text-sm
+                       font-semibold
+                       mt-6">
+
+                Manage service →
 
             </p>
 
@@ -2847,346 +3039,364 @@
 
 
 <!-- =========================================================
-     SERVICES
+     TRANSFER SHOWCASE
 ========================================================= -->
 
 <section
-    id="services"
-    class="border-y
-           border-white/8
-           bg-white/[.012]">
+    class="max-w-7xl
+           mx-auto
+           px-5 sm:px-6
+           py-24">
+
 
     <div
-        class="max-w-7xl
-               mx-auto
-               px-5 sm:px-6
-               py-24">
+        class="grid
+               lg:grid-cols-2
+               gap-14
+               items-center">
 
+
+        <!-- COPY -->
 
         <div
-            class="flex
-                   flex-col
-                   lg:flex-row
-                   lg:items-end
-                   lg:justify-between
-                   gap-7
-                   reveal">
+            class="reveal">
+
+            <p class="eyebrow">
+                SEND MONEY
+            </p>
 
 
-            <div>
+            <h2
+                class="text-4xl
+                       sm:text-5xl
+                       lg:text-6xl
+                       font-black
+                       tracking-tight
+                       mt-4">
 
-                <p class="section-label">
-                    EVERYDAY SERVICES
-                </p>
+                Your balance
+                is ready to move.
 
-                <h2
-                    class="text-4xl
-                           sm:text-5xl
-                           lg:text-6xl
-                           font-black
-                           tracking-tight
-                           mt-4">
-
-                    One wallet.
-                    <span class="gradient-text">
-                        More possibilities.
-                    </span>
-
-                </h2>
-
-            </div>
+            </h2>
 
 
             <p
                 class="text-gray-400
-                       max-w-xl
-                       leading-relaxed">
+                       text-lg
+                       leading-relaxed
+                       mt-6">
 
-                Deposit crypto once and use your Joyet
-                balance across supported services whenever
-                you need them.
+                Joyet is designed to make transfers
+                feel like a normal payment experience,
+                while your account can be funded through
+                supported crypto deposits.
 
             </p>
+
+
+            <div
+                class="space-y-5
+                       mt-9">
+
+
+                <div
+                    class="flex
+                           gap-4">
+
+                    <div class="flow-number">
+                        01
+                    </div>
+
+
+                    <div>
+
+                        <h3
+                            class="font-bold">
+
+                            Pick a recipient
+
+                        </h3>
+
+
+                        <p
+                            class="text-sm
+                                   text-gray-600
+                                   mt-1">
+
+                            Choose a supported destination.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="flex
+                           gap-4">
+
+                    <div class="flow-number">
+                        02
+                    </div>
+
+
+                    <div>
+
+                        <h3
+                            class="font-bold">
+
+                            Enter the amount
+
+                        </h3>
+
+
+                        <p
+                            class="text-sm
+                                   text-gray-600
+                                   mt-1">
+
+                            Enter the amount you want to send.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="flex
+                           gap-4">
+
+                    <div class="flow-number">
+                        03
+                    </div>
+
+
+                    <div>
+
+                        <h3
+                            class="font-bold">
+
+                            Review and confirm
+
+                        </h3>
+
+
+                        <p
+                            class="text-sm
+                                   text-gray-600
+                                   mt-1">
+
+                            Check the details and complete
+                            your transaction.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
 
         </div>
 
 
+        <!-- UI -->
+
         <div
-            class="grid
-                   md:grid-cols-2
-                   lg:grid-cols-4
-                   gap-5
-                   mt-14">
+            class="transfer-window
+                   reveal">
 
 
-            <!-- Airtime -->
+            <div class="window-top">
 
-            <div
-                class="glass
-                       glass-hover
-                       rounded-3xl
-                       p-6
-                       reveal">
+                <div class="window-dots">
 
-                <div
-                    class="w-12 h-12
-                           rounded-2xl
-                           bg-indigo-500/10
-                           border
-                           border-indigo-500/15
-                           flex
-                           items-center
-                           justify-center
-                           text-indigo-300">
-
-                    📱
+                    <span class="window-dot"></span>
+                    <span class="window-dot"></span>
+                    <span class="window-dot"></span>
 
                 </div>
 
 
-                <h3
-                    class="font-bold
-                           text-lg
-                           mt-6">
+                <span
+                    class="text-[10px]
+                           text-gray-600
+                           tracking-widest">
 
-                    Airtime
+                    JOYET / TRANSFER
 
-                </h3>
-
-
-                <p
-                    class="text-gray-500
-                           text-sm
-                           leading-relaxed
-                           mt-2">
-
-                    Recharge supported mobile networks.
-
-                </p>
+                </span>
 
 
-                <div
-                    class="flex
-                           items-center
-                           justify-between
-                           mt-7
-                           text-xs">
+                <span
+                    class="text-[10px]
+                           text-green-400">
 
-                    <span
-                        class="text-gray-600">
-                        Service
-                    </span>
+                    SECURE
 
-                    <span
-                        class="text-green-400">
-                        Available
-                    </span>
-
-                </div>
+                </span>
 
             </div>
 
 
-            <!-- Data -->
-
             <div
-                class="glass
-                       glass-hover
-                       rounded-3xl
-                       p-6
-                       reveal">
-
-                <div
-                    class="w-12 h-12
-                           rounded-2xl
-                           bg-indigo-500/10
-                           border
-                           border-indigo-500/15
-                           flex
-                           items-center
-                           justify-center
-                           text-indigo-300">
-
-                    📡
-
-                </div>
-
-
-                <h3
-                    class="font-bold
-                           text-lg
-                           mt-6">
-
-                    Data
-
-                </h3>
+                class="p-6 sm:p-8">
 
 
                 <p
-                    class="text-gray-500
-                           text-sm
-                           leading-relaxed
-                           mt-2">
+                    class="text-xs
+                           text-gray-600">
 
-                    Purchase supported internet bundles.
+                    Send money
 
                 </p>
 
 
                 <div
-                    class="flex
-                           items-center
-                           justify-between
-                           mt-7
-                           text-xs">
+                    class="text-center
+                           py-8">
 
-                    <span
-                        class="text-gray-600">
-                        Service
-                    </span>
+                    <p class="send-amount">
+                        $240.00
+                    </p>
 
-                    <span
-                        class="text-green-400">
-                        Available
-                    </span>
+                    <p
+                        class="text-sm
+                               text-gray-600
+                               mt-3">
 
-                </div>
+                        From Joyet balance
 
-            </div>
-
-
-            <!-- Electricity -->
-
-            <div
-                class="glass
-                       glass-hover
-                       rounded-3xl
-                       p-6
-                       reveal">
-
-                <div
-                    class="w-12 h-12
-                           rounded-2xl
-                           bg-indigo-500/10
-                           border
-                           border-indigo-500/15
-                           flex
-                           items-center
-                           justify-center
-                           text-indigo-300">
-
-                    ⚡
+                    </p>
 
                 </div>
-
-
-                <h3
-                    class="font-bold
-                           text-lg
-                           mt-6">
-
-                    Electricity
-
-                </h3>
-
-
-                <p
-                    class="text-gray-500
-                           text-sm
-                           leading-relaxed
-                           mt-2">
-
-                    Pay supported power utility bills.
-
-                </p>
 
 
                 <div
-                    class="flex
-                           items-center
-                           justify-between
-                           mt-7
-                           text-xs">
+                    class="recipient-box">
 
-                    <span
-                        class="text-gray-600">
-                        Service
-                    </span>
+                    <p
+                        class="text-[10px]
+                               uppercase
+                               tracking-widest
+                               text-gray-600">
 
-                    <span
-                        class="text-green-400">
-                        Available
-                    </span>
+                        Recipient
+
+                    </p>
+
+
+                    <div
+                        class="flex
+                               items-center
+                               gap-3
+                               mt-3">
+
+                        <div
+                            class="w-10 h-10
+                                   rounded-xl
+                                   bg-blue-500/10
+                                   border
+                                   border-blue-500/10
+                                   flex
+                                   items-center
+                                   justify-center
+                                   text-blue-300
+                                   font-bold">
+
+                            JD
+
+                        </div>
+
+
+                        <div>
+
+                            <p
+                                class="text-sm
+                                       font-bold">
+
+                                John Doe
+
+                            </p>
+
+
+                            <p
+                                class="text-xs
+                                       text-gray-600">
+
+                                @johndoe
+
+                            </p>
+
+                        </div>
+
+                    </div>
 
                 </div>
-
-            </div>
-
-
-            <!-- Cable -->
-
-            <div
-                class="glass
-                       glass-hover
-                       rounded-3xl
-                       p-6
-                       reveal">
-
-                <div
-                    class="w-12 h-12
-                           rounded-2xl
-                           bg-indigo-500/10
-                           border
-                           border-indigo-500/15
-                           flex
-                           items-center
-                           justify-center
-                           text-indigo-300">
-
-                    📺
-
-                </div>
-
-
-                <h3
-                    class="font-bold
-                           text-lg
-                           mt-6">
-
-                    Cable TV
-
-                </h3>
-
-
-                <p
-                    class="text-gray-500
-                           text-sm
-                           leading-relaxed
-                           mt-2">
-
-                    Manage supported cable subscriptions.
-
-                </p>
 
 
                 <div
-                    class="flex
-                           items-center
-                           justify-between
-                           mt-7
-                           text-xs">
+                    class="grid
+                           grid-cols-2
+                           gap-3
+                           mt-4">
 
-                    <span
-                        class="text-gray-600">
-                        Service
-                    </span>
+                    <div class="recipient-box">
 
-                    <span
-                        class="text-green-400">
-                        Available
-                    </span>
+                        <p
+                            class="text-[10px]
+                                   text-gray-600">
+
+                            Fee
+
+                        </p>
+
+                        <p
+                            class="text-sm
+                                   font-bold
+                                   mt-2">
+
+                            $1.20
+
+                        </p>
+
+                    </div>
+
+
+                    <div class="recipient-box">
+
+                        <p
+                            class="text-[10px]
+                                   text-gray-600">
+
+                            Balance
+
+                        </p>
+
+                        <p
+                            class="text-sm
+                                   font-bold
+                                   mt-2">
+
+                            $4,860
+
+                        </p>
+
+                    </div>
 
                 </div>
+
+
+                <button
+                    class="transfer-button
+                           mt-5">
+
+                    Confirm Transfer
+
+                </button>
 
             </div>
 
@@ -3203,44 +3413,444 @@
 
 <section
     id="how"
+    class="border-y
+           border-white/7
+           bg-white/[.012]">
+
+    <div
+        class="max-w-7xl
+               mx-auto
+               px-5 sm:px-6
+               py-24">
+
+
+        <div
+            class="text-center
+                   max-w-3xl
+                   mx-auto
+                   reveal">
+
+            <p class="eyebrow">
+                HOW JOYET WORKS
+            </p>
+
+
+            <h2
+                class="text-4xl
+                       sm:text-5xl
+                       lg:text-6xl
+                       font-black
+                       tracking-tight
+                       mt-4">
+
+                One flow.
+                <span class="gradient-text">
+                    Multiple ways to use it.
+                </span>
+
+            </h2>
+
+
+            <p
+                class="text-gray-400
+                       text-lg
+                       leading-relaxed
+                       mt-6">
+
+                Your crypto is the funding source.
+                Joyet is the interface for using it.
+
+            </p>
+
+        </div>
+
+
+        <div
+            class="grid
+                   md:grid-cols-3
+                   gap-5
+                   mt-14">
+
+
+            <div
+                class="glass
+                       glass-hover
+                       rounded-3xl
+                       min-h-[260px]
+                       p-7
+                       reveal">
+
+                <div class="flow-number">
+                    01
+                </div>
+
+
+                <h3
+                    class="text-2xl
+                           font-black
+                           mt-9">
+
+                    Deposit
+
+                </h3>
+
+
+                <p
+                    class="text-gray-500
+                           leading-relaxed
+                           mt-3">
+
+                    Deposit a supported crypto asset
+                    into your Joyet account.
+
+                </p>
+
+
+                <p
+                    class="text-blue-400
+                           font-semibold
+                           text-sm
+                           mt-8">
+
+                    Crypto enters →
+
+                </p>
+
+            </div>
+
+
+            <div
+                class="glass
+                       glass-hover
+                       rounded-3xl
+                       min-h-[260px]
+                       p-7
+                       reveal">
+
+                <div class="flow-number">
+                    02
+                </div>
+
+
+                <h3
+                    class="text-2xl
+                           font-black
+                           mt-9">
+
+                    Balance
+
+                </h3>
+
+
+                <p
+                    class="text-gray-500
+                           leading-relaxed
+                           mt-3">
+
+                    Once processed, your available
+                    Joyet balance can be used across
+                    supported services.
+
+                </p>
+
+
+                <p
+                    class="text-blue-400
+                           font-semibold
+                           text-sm
+                           mt-8">
+
+                    Value available →
+
+                </p>
+
+            </div>
+
+
+            <div
+                class="glass
+                       glass-hover
+                       rounded-3xl
+                       min-h-[260px]
+                       p-7
+                       reveal">
+
+                <div class="flow-number">
+                    03
+                </div>
+
+
+                <h3
+                    class="text-2xl
+                           font-black
+                           mt-9">
+
+                    Use
+
+                </h3>
+
+
+                <p
+                    class="text-gray-500
+                           leading-relaxed
+                           mt-3">
+
+                    Send money, recharge airtime,
+                    buy data or access supported
+                    bills and services.
+
+                </p>
+
+
+                <p
+                    class="text-blue-400
+                           font-semibold
+                           text-sm
+                           mt-8">
+
+                    Put it to use →
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- Flow bar -->
+
+        <div
+            class="glass
+                   rounded-3xl
+                   p-6
+                   sm:p-8
+                   mt-6
+                   reveal">
+
+            <div
+                class="flex
+                       flex-col
+                       md:flex-row
+                       items-center
+                       justify-between
+                       gap-7">
+
+
+                <div
+                    class="text-center">
+
+                    <div
+                        class="w-16 h-16
+                               mx-auto
+                               rounded-2xl
+                               bg-blue-500/8
+                               border
+                               border-blue-400/12
+                               flex
+                               items-center
+                               justify-center
+                               text-2xl">
+
+                        ₿
+
+                    </div>
+
+                    <p
+                        class="font-bold
+                               mt-3">
+
+                        Crypto
+
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="text-blue-400
+                           text-2xl
+                           rotate-90
+                           md:rotate-0">
+
+                    →
+
+                </div>
+
+
+                <div
+                    class="text-center">
+
+                    <div
+                        class="w-16 h-16
+                               mx-auto
+                               rounded-2xl
+                               bg-blue-500/8
+                               border
+                               border-blue-400/12
+                               flex
+                               items-center
+                               justify-center
+                               text-2xl
+                               font-black">
+
+                        J
+
+                    </div>
+
+                    <p
+                        class="font-bold
+                               mt-3">
+
+                        Joyet
+
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="text-blue-400
+                           text-2xl
+                           rotate-90
+                           md:rotate-0">
+
+                    →
+
+                </div>
+
+
+                <div
+                    class="text-center">
+
+                    <div
+                        class="w-16 h-16
+                               mx-auto
+                               rounded-2xl
+                               bg-cyan-400/8
+                               border
+                               border-cyan-400/12
+                               flex
+                               items-center
+                               justify-center
+                               text-2xl">
+
+                        ↑
+
+                    </div>
+
+                    <p
+                        class="font-bold
+                               mt-3">
+
+                        Transfers
+
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="text-blue-400
+                           text-2xl
+                           rotate-90
+                           md:rotate-0">
+
+                    +
+
+                </div>
+
+
+                <div
+                    class="text-center">
+
+                    <div
+                        class="w-16 h-16
+                               mx-auto
+                               rounded-2xl
+                               bg-blue-500/8
+                               border
+                               border-blue-400/12
+                               flex
+                               items-center
+                               justify-center
+                               text-2xl">
+
+                        ⚡
+
+                    </div>
+
+                    <p
+                        class="font-bold
+                               mt-3">
+
+                        Services
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     SERVICES
+========================================================= -->
+
+<section
+    id="services"
     class="max-w-7xl
            mx-auto
            px-5 sm:px-6
            py-24">
 
+
     <div
-        class="text-center
-               max-w-3xl
-               mx-auto
+        class="flex
+               flex-col
+               lg:flex-row
+               lg:items-end
+               lg:justify-between
+               gap-7
                reveal">
 
-        <p class="section-label">
-            HOW JOYET WORKS
-        </p>
 
-        <h2
-            class="text-4xl
-                   sm:text-5xl
-                   lg:text-6xl
-                   font-black
-                   tracking-tight
-                   mt-4">
+        <div>
 
-            From crypto
-            <span class="gradient-text">
-                to everyday use.
-            </span>
+            <p class="eyebrow">
+                EVERYDAY SERVICES
+            </p>
 
-        </h2>
+
+            <h2
+                class="text-4xl
+                       sm:text-5xl
+                       lg:text-6xl
+                       font-black
+                       tracking-tight
+                       mt-4">
+
+                Your crypto,
+                useful every day.
+
+            </h2>
+
+        </div>
+
 
         <p
-            class="text-gray-400
-                   text-lg
-                   mt-6
+            class="text-gray-500
+                   max-w-xl
                    leading-relaxed">
 
-            A simple flow designed to connect your
-            crypto with the services you actually use.
+            The goal is simple: make a crypto-funded
+            balance useful for the digital services
+            you already use.
 
         </p>
 
@@ -3249,277 +3859,250 @@
 
     <div
         class="grid
-               md:grid-cols-3
+               sm:grid-cols-2
+               lg:grid-cols-4
                gap-5
                mt-14">
 
 
+        <!-- Airtime -->
+
         <div
             class="glass
                    glass-hover
-                   flow-card
                    rounded-3xl
-                   p-7
+                   p-6
                    reveal">
 
-            <div class="flow-number">
-                01
+            <div class="service-icon">
+                📱
             </div>
 
 
-            <div>
+            <h3
+                class="font-bold
+                       text-lg
+                       mt-6">
 
-                <h3
-                    class="text-2xl
-                           font-black
-                           mt-8">
+                Airtime
 
-                    Deposit crypto
+            </h3>
 
-                </h3>
 
-                <p
-                    class="text-gray-400
-                           mt-3
-                           leading-relaxed">
+            <p
+                class="text-sm
+                       text-gray-600
+                       leading-relaxed
+                       mt-3">
 
-                    Send supported crypto to your
-                    Joyet deposit address and wait
-                    for the transaction to be credited.
+                Recharge supported mobile
+                networks from Joyet.
 
-                </p>
-
-            </div>
+            </p>
 
 
             <div
-                class="text-indigo-400
-                       text-sm
-                       font-semibold
-                       mt-8">
+                class="flex
+                       justify-between
+                       mt-7
+                       text-xs">
 
-                Crypto in →
+                <span
+                    class="text-gray-700">
+
+                    Digital service
+
+                </span>
+
+                <span
+                    class="text-green-400">
+
+                    Ready
+
+                </span>
 
             </div>
 
         </div>
 
 
+        <!-- Data -->
+
         <div
             class="glass
                    glass-hover
-                   flow-card
                    rounded-3xl
-                   p-7
+                   p-6
                    reveal">
 
-            <div class="flow-number">
-                02
+            <div class="service-icon">
+                📡
             </div>
 
 
-            <div>
+            <h3
+                class="font-bold
+                       text-lg
+                       mt-6">
 
-                <h3
-                    class="text-2xl
-                           font-black
-                           mt-8">
+                Data
 
-                    Get your Joyet balance
+            </h3>
 
-                </h3>
 
-                <p
-                    class="text-gray-400
-                           mt-3
-                           leading-relaxed">
+            <p
+                class="text-sm
+                       text-gray-600
+                       leading-relaxed
+                       mt-3">
 
-                    Once credited, your Joyet balance
-                    becomes available for supported
-                    transactions and services.
+                Purchase supported mobile data
+                packages.
 
-                </p>
-
-            </div>
+            </p>
 
 
             <div
-                class="text-indigo-400
-                       text-sm
-                       font-semibold
-                       mt-8">
+                class="flex
+                       justify-between
+                       mt-7
+                       text-xs">
 
-                Balance ready →
+                <span
+                    class="text-gray-700">
+
+                    Digital service
+
+                </span>
+
+                <span
+                    class="text-green-400">
+
+                    Ready
+
+                </span>
 
             </div>
 
         </div>
 
 
+        <!-- Power -->
+
         <div
             class="glass
                    glass-hover
-                   flow-card
                    rounded-3xl
-                   p-7
+                   p-6
                    reveal">
 
-            <div class="flow-number">
-                03
+            <div class="service-icon">
+                ⚡
             </div>
 
 
-            <div>
+            <h3
+                class="font-bold
+                       text-lg
+                       mt-6">
 
-                <h3
-                    class="text-2xl
-                           font-black
-                           mt-8">
+                Electricity
 
-                    Spend or transfer
+            </h3>
 
-                </h3>
 
-                <p
-                    class="text-gray-400
-                           mt-3
-                           leading-relaxed">
+            <p
+                class="text-sm
+                       text-gray-600
+                       leading-relaxed
+                       mt-3">
 
-                    Use your balance to send money,
-                    buy airtime, purchase data or
-                    access supported digital services.
+                Pay supported electricity
+                utility services.
 
-                </p>
-
-            </div>
+            </p>
 
 
             <div
-                class="text-indigo-400
-                       text-sm
-                       font-semibold
-                       mt-8">
+                class="flex
+                       justify-between
+                       mt-7
+                       text-xs">
 
-                Use it everywhere →
+                <span
+                    class="text-gray-700">
+
+                    Digital service
+
+                </span>
+
+                <span
+                    class="text-green-400">
+
+                    Ready
+
+                </span>
 
             </div>
 
         </div>
 
-    </div>
 
-
-    <!-- Flow visual -->
-
-    <div
-        class="glass
-               rounded-3xl
-               p-6 sm:p-8
-               mt-6
-               reveal">
+        <!-- Cable -->
 
         <div
-            class="flex
-                   flex-col
-                   md:flex-row
-                   items-center
-                   justify-between
-                   gap-5
-                   text-center">
+            class="glass
+                   glass-hover
+                   rounded-3xl
+                   p-6
+                   reveal">
 
-            <div>
-
-                <div
-                    class="w-14 h-14
-                           mx-auto
-                           rounded-2xl
-                           bg-orange-500/10
-                           border
-                           border-orange-500/15
-                           flex
-                           items-center
-                           justify-center
-                           text-xl">
-
-                    ₿
-
-                </div>
-
-                <p class="font-bold mt-3">
-                    Crypto
-                </p>
-
+            <div class="service-icon">
+                📺
             </div>
+
+
+            <h3
+                class="font-bold
+                       text-lg
+                       mt-6">
+
+                Cable TV
+
+            </h3>
+
+
+            <p
+                class="text-sm
+                       text-gray-600
+                       leading-relaxed
+                       mt-3">
+
+                Manage supported TV
+                subscriptions.
+
+            </p>
 
 
             <div
-                class="text-indigo-400
-                       text-2xl
-                       rotate-90
-                       md:rotate-0">
+                class="flex
+                       justify-between
+                       mt-7
+                       text-xs">
 
-                →
+                <span
+                    class="text-gray-700">
 
-            </div>
+                    Digital service
 
+                </span>
 
-            <div>
+                <span
+                    class="text-green-400">
 
-                <div
-                    class="w-14 h-14
-                           mx-auto
-                           rounded-2xl
-                           bg-indigo-500/10
-                           border
-                           border-indigo-500/15
-                           flex
-                           items-center
-                           justify-center
-                           text-xl">
+                    Ready
 
-                    J
-
-                </div>
-
-                <p class="font-bold mt-3">
-                    Joyet Balance
-                </p>
-
-            </div>
-
-
-            <div
-                class="text-indigo-400
-                       text-2xl
-                       rotate-90
-                       md:rotate-0">
-
-                →
-
-            </div>
-
-
-            <div>
-
-                <div
-                    class="w-14 h-14
-                           mx-auto
-                           rounded-2xl
-                           bg-green-500/10
-                           border
-                           border-green-500/15
-                           flex
-                           items-center
-                           justify-center
-                           text-xl">
-
-                    ✓
-
-                </div>
-
-                <p class="font-bold mt-3">
-                    Everyday Services
-                </p>
+                </span>
 
             </div>
 
@@ -3537,8 +4120,9 @@
 <section
     id="security"
     class="border-y
-           border-white/8
+           border-white/7
            bg-white/[.012]">
+
 
     <div
         class="max-w-7xl
@@ -3554,25 +4138,39 @@
                    items-center">
 
 
-            <!-- Orbit -->
+            <!-- Visual -->
 
-            <div class="reveal">
+            <div
+                class="reveal">
 
                 <div
                     class="glass
                            rounded-[34px]
-                           p-7 sm:p-10">
-
-                    <div class="security-orbit">
-
-                        <div class="orbit orbit-a"></div>
-
-                        <div class="orbit orbit-b"></div>
-
-                        <div class="orbit orbit-c"></div>
+                           p-8
+                           sm:p-10">
 
 
-                        <div class="security-core">
+                    <div
+                        class="security-orbit">
+
+                        <div
+                            class="security-ring
+                                   one">
+                        </div>
+
+                        <div
+                            class="security-ring
+                                   two">
+                        </div>
+
+                        <div
+                            class="security-ring
+                                   three">
+                        </div>
+
+
+                        <div
+                            class="security-core">
 
                             🔐
 
@@ -3589,18 +4187,21 @@
                             class="text-xl
                                    font-black">
 
-                            Built with security in mind
+                            Security by design
 
                         </p>
 
+
                         <p
-                            class="text-gray-500
-                                   text-sm
+                            class="text-sm
+                                   text-gray-600
+                                   max-w-sm
+                                   mx-auto
                                    mt-2">
 
-                            Your account and transaction
-                            experience should be protected
-                            at every stage.
+                            Designed around protected
+                            account access and clear
+                            transaction experiences.
 
                         </p>
 
@@ -3611,11 +4212,12 @@
             </div>
 
 
-            <!-- Security content -->
+            <!-- Content -->
 
-            <div class="reveal">
+            <div
+                class="reveal">
 
-                <p class="section-label">
+                <p class="eyebrow">
                     SECURITY
                 </p>
 
@@ -3628,10 +4230,8 @@
                            tracking-tight
                            mt-4">
 
-                    Your money.
-                    <span class="gradient-text">
-                        Protected.
-                    </span>
+                    Move digital value
+                    with confidence.
 
                 </h2>
 
@@ -3642,11 +4242,9 @@
                            leading-relaxed
                            mt-6">
 
-                    Joyet is designed with secure
-                    account access, transaction controls
-                    and responsible digital money
-                    movement at the centre of the
-                    platform.
+                    Joyet is designed around security,
+                    visibility and control across
+                    the account experience.
 
                 </p>
 
@@ -3670,15 +4268,19 @@
                         <h3
                             class="font-bold
                                    mt-4">
-                            Account access
+
+                            Secure access
+
                         </h3>
 
                         <p
                             class="text-sm
-                                   text-gray-500
+                                   text-gray-600
                                    mt-2">
-                            Protected login and
-                            account management.
+
+                            Account access designed
+                            around protection.
+
                         </p>
 
                     </div>
@@ -3696,15 +4298,19 @@
                         <h3
                             class="font-bold
                                    mt-4">
-                            Transaction controls
+
+                            Transaction visibility
+
                         </h3>
 
                         <p
                             class="text-sm
-                                   text-gray-500
+                                   text-gray-600
                                    mt-2">
-                            Designed to keep transactions
-                            clear and controlled.
+
+                            Keep track of important
+                            account activity.
+
                         </p>
 
                     </div>
@@ -3722,15 +4328,19 @@
                         <h3
                             class="font-bold
                                    mt-4">
-                            User ownership
+
+                            Account control
+
                         </h3>
 
                         <p
                             class="text-sm
-                                   text-gray-500
+                                   text-gray-600
                                    mt-2">
-                            Clear access to your account
-                            and transaction activity.
+
+                            Keep account controls
+                            in one place.
+
                         </p>
 
                     </div>
@@ -3748,15 +4358,19 @@
                         <h3
                             class="font-bold
                                    mt-4">
+
                             Modern infrastructure
+
                         </h3>
 
                         <p
                             class="text-sm
-                                   text-gray-500
+                                   text-gray-600
                                    mt-2">
-                            Built around a modern
-                            digital platform architecture.
+
+                            Built around modern
+                            digital systems.
+
                         </p>
 
                     </div>
@@ -3773,7 +4387,7 @@
 
 
 <!-- =========================================================
-     WHY THIS IS DIFFERENT
+     WHY JOYET
 ========================================================= -->
 
 <section
@@ -3782,6 +4396,7 @@
            px-5 sm:px-6
            py-24">
 
+
     <div
         class="grid
                lg:grid-cols-[.8fr_1.2fr]
@@ -3789,11 +4404,14 @@
                items-center">
 
 
-        <div class="reveal">
+        <div
+            class="reveal">
 
-            <p class="section-label">
-                THE JOYET IDEA
+
+            <p class="eyebrow">
+                THE IDEA
             </p>
+
 
             <h2
                 class="text-4xl
@@ -3803,10 +4421,11 @@
                        tracking-tight
                        mt-4">
 
-                Crypto doesn't have
-                to stay in your wallet.
+                Crypto shouldn't
+                stop at “hold”.
 
             </h2>
+
 
             <p
                 class="text-gray-400
@@ -3814,10 +4433,9 @@
                        leading-relaxed
                        mt-6">
 
-                Joyet connects crypto funding with
-                practical digital services so the value
-                you hold can become useful for things
-                you actually need.
+                Joyet is designed to give supported
+                crypto a path into everyday transfers,
+                payments and digital services.
 
             </p>
 
@@ -3826,14 +4444,15 @@
                 href="signup.html"
                 class="inline-flex
                        mt-8
-                       px-6 py-3.5
+                       px-6
+                       py-3.5
                        rounded-xl
-                       bg-indigo-500
-                       hover:bg-indigo-400
-                       font-semibold
+                       bg-joyet
+                       hover:bg-joyetBright
+                       font-bold
                        transition">
 
-                Create a Joyet account →
+                Start with Joyet →
 
             </a>
 
@@ -3853,25 +4472,33 @@
                        rounded-3xl
                        p-7">
 
-                <div
+                <span
                     class="text-3xl
-                           text-indigo-300">
+                           text-blue-400">
+
                     01
-                </div>
+
+                </span>
+
 
                 <h3
                     class="text-xl
                            font-bold
                            mt-7">
-                    Fund with crypto
+
+                    Fund
+
                 </h3>
 
+
                 <p
-                    class="text-gray-500
+                    class="text-gray-600
                            mt-3
                            leading-relaxed">
-                    Bring supported crypto into
-                    your Joyet account.
+
+                    Bring supported crypto
+                    into Joyet.
+
                 </p>
 
             </div>
@@ -3883,25 +4510,33 @@
                        rounded-3xl
                        p-7">
 
-                <div
+                <span
                     class="text-3xl
-                           text-indigo-300">
+                           text-blue-400">
+
                     02
-                </div>
+
+                </span>
+
 
                 <h3
                     class="text-xl
                            font-bold
                            mt-7">
-                    Send value
+
+                    Balance
+
                 </h3>
 
+
                 <p
-                    class="text-gray-500
+                    class="text-gray-600
                            mt-3
                            leading-relaxed">
-                    Move money to supported
-                    recipients and destinations.
+
+                    Keep an accessible Joyet
+                    account balance.
+
                 </p>
 
             </div>
@@ -3913,25 +4548,33 @@
                        rounded-3xl
                        p-7">
 
-                <div
+                <span
                     class="text-3xl
-                           text-indigo-300">
+                           text-blue-400">
+
                     03
-                </div>
+
+                </span>
+
 
                 <h3
                     class="text-xl
                            font-bold
                            mt-7">
-                    Buy services
+
+                    Transfer
+
                 </h3>
 
+
                 <p
-                    class="text-gray-500
+                    class="text-gray-600
                            mt-3
                            leading-relaxed">
-                    Turn your balance into airtime,
-                    data and supported bills.
+
+                    Send value through
+                    supported services.
+
                 </p>
 
             </div>
@@ -3943,25 +4586,33 @@
                        rounded-3xl
                        p-7">
 
-                <div
+                <span
                     class="text-3xl
-                           text-indigo-300">
+                           text-blue-400">
+
                     04
-                </div>
+
+                </span>
+
 
                 <h3
                     class="text-xl
                            font-bold
                            mt-7">
-                    Keep it simple
+
+                    Spend
+
                 </h3>
 
+
                 <p
-                    class="text-gray-500
+                    class="text-gray-600
                            mt-3
                            leading-relaxed">
-                    One platform for crypto-funded
-                    everyday transactions.
+
+                    Use your balance for
+                    digital services.
+
                 </p>
 
             </div>
@@ -3974,13 +4625,14 @@
 
 
 <!-- =========================================================
-     TESTIMONIALS
+     EXPERIENCE / TESTIMONIALS
 ========================================================= -->
 
 <section
     class="border-y
-           border-white/8
+           border-white/7
            bg-white/[.012]">
+
 
     <div
         class="max-w-7xl
@@ -3995,9 +4647,10 @@
                    mx-auto
                    reveal">
 
-            <p class="section-label">
-                EXPERIENCE
+            <p class="eyebrow">
+                THE EXPERIENCE
             </p>
+
 
             <h2
                 class="text-4xl
@@ -4005,16 +4658,17 @@
                        font-black
                        mt-4">
 
-                Made to feel simple.
+                Simple enough for everyday use.
 
             </h2>
 
+
             <p
-                class="text-gray-500
+                class="text-gray-600
                        mt-5">
 
-                The goal is a payment experience
-                that doesn't make crypto feel complicated.
+                The product is built around making
+                crypto-funded payments feel familiar.
 
             </p>
 
@@ -4036,18 +4690,21 @@
                        reveal">
 
                 <div
-                    class="text-indigo-300">
+                    class="text-blue-400">
+
                     ★ ★ ★ ★ ★
+
                 </div>
+
 
                 <p
                     class="text-gray-300
                            leading-relaxed
                            mt-5">
 
-                    "I like the idea of being able to
-                    use crypto for normal digital services
-                    instead of keeping it completely separate."
+                    “The idea of using crypto for normal
+                    digital services makes it feel much
+                    more practical.”
 
                 </p>
 
@@ -4067,13 +4724,17 @@
                         <p
                             class="text-sm
                                    font-bold">
+
                             Daniel A.
+
                         </p>
 
                         <p
                             class="text-xs
-                                   text-gray-600">
+                                   text-gray-700">
+
                             Joyet user
+
                         </p>
 
                     </div>
@@ -4091,18 +4752,21 @@
                        reveal">
 
                 <div
-                    class="text-indigo-300">
+                    class="text-blue-400">
+
                     ★ ★ ★ ★ ★
+
                 </div>
+
 
                 <p
                     class="text-gray-300
                            leading-relaxed
                            mt-5">
 
-                    "The concept makes crypto feel much
-                    more practical because the balance can
-                    connect to everyday things."
+                    “Having transfers and everyday
+                    services around one balance is
+                    a really interesting approach.”
 
                 </p>
 
@@ -4122,13 +4786,17 @@
                         <p
                             class="text-sm
                                    font-bold">
+
                             Michael K.
+
                         </p>
 
                         <p
                             class="text-xs
-                                   text-gray-600">
+                                   text-gray-700">
+
                             Joyet user
+
                         </p>
 
                     </div>
@@ -4146,18 +4814,21 @@
                        reveal">
 
                 <div
-                    class="text-indigo-300">
+                    class="text-blue-400">
+
                     ★ ★ ★ ★ ★
+
                 </div>
+
 
                 <p
                     class="text-gray-300
                            leading-relaxed
                            mt-5">
 
-                    "One account for transfers, airtime,
-                    data and bills is a much cleaner
-                    experience."
+                    “The concept is much closer to how
+                    I'd actually want to use crypto
+                    day to day.”
 
                 </p>
 
@@ -4177,13 +4848,17 @@
                         <p
                             class="text-sm
                                    font-bold">
+
                             Joseph O.
+
                         </p>
 
                         <p
                             class="text-xs
-                                   text-gray-600">
+                                   text-gray-700">
+
                             Joyet user
+
                         </p>
 
                     </div>
@@ -4210,13 +4885,15 @@
            px-5 sm:px-6
            py-24">
 
+
     <div
         class="text-center
                reveal">
 
-        <p class="section-label">
+        <p class="eyebrow">
             FAQ
         </p>
+
 
         <h2
             class="text-4xl
@@ -4224,16 +4901,17 @@
                    font-black
                    mt-4">
 
-            Questions, answered.
+            Questions,
+            answered.
 
         </h2>
 
+
         <p
-            class="text-gray-500
+            class="text-gray-600
                    mt-5">
 
-            A few things people may want to know
-            before using Joyet.
+            Common questions about the Joyet platform.
 
         </p>
 
@@ -4254,14 +4932,18 @@
 
                 <span
                     class="font-semibold">
+
                     What is Joyet?
+
                 </span>
+
 
                 <span
                     class="faq-icon
-                           text-xl
-                           text-indigo-300">
+                           text-xl">
+
                     +
+
                 </span>
 
             </button>
@@ -4271,11 +4953,11 @@
 
                 <div class="faq-inner">
 
-                    Joyet is a crypto-powered payment
-                    and digital services platform. Users
-                    can deposit supported crypto and use
-                    their Joyet balance for supported
-                    transfers and everyday services.
+                    Joyet is a crypto-powered payments
+                    and digital services platform designed
+                    to let users deposit supported crypto
+                    and use their Joyet balance for
+                    transfers and supported services.
 
                 </div>
 
@@ -4293,14 +4975,18 @@
 
                 <span
                     class="font-semibold">
-                    How do I fund my Joyet account?
+
+                    How do I deposit crypto?
+
                 </span>
+
 
                 <span
                     class="faq-icon
-                           text-xl
-                           text-indigo-300">
+                           text-xl">
+
                     +
+
                 </span>
 
             </button>
@@ -4310,10 +4996,10 @@
 
                 <div class="faq-inner">
 
-                    You fund your Joyet account by
-                    depositing supported crypto assets
-                    into the appropriate Joyet deposit
-                    address.
+                    You can deposit supported crypto
+                    by sending the asset to the appropriate
+                    Joyet deposit address for that asset
+                    and network.
 
                 </div>
 
@@ -4331,14 +5017,18 @@
 
                 <span
                     class="font-semibold">
+
                     What can I use my Joyet balance for?
+
                 </span>
+
 
                 <span
                     class="faq-icon
-                           text-xl
-                           text-indigo-300">
+                           text-xl">
+
                     +
+
                 </span>
 
             </button>
@@ -4349,8 +5039,9 @@
                 <div class="faq-inner">
 
                     Depending on the services available,
-                    Joyet can support transfers, airtime,
-                    mobile data, electricity, cable TV and
+                    your Joyet balance can be used for
+                    supported transfers, airtime, mobile
+                    data, electricity, cable TV and
                     other digital services.
 
                 </div>
@@ -4369,14 +5060,18 @@
 
                 <span
                     class="font-semibold">
-                    Is Joyet a crypto wallet?
+
+                    Is Joyet only a crypto wallet?
+
                 </span>
+
 
                 <span
                     class="faq-icon
-                           text-xl
-                           text-indigo-300">
+                           text-xl">
+
                     +
+
                 </span>
 
             </button>
@@ -4386,11 +5081,10 @@
 
                 <div class="faq-inner">
 
-                    Joyet can provide wallet infrastructure
-                    for supported crypto assets, but the
-                    broader product is designed around using
-                    crypto for payments, transfers and
-                    digital services.
+                    No. Wallet infrastructure can provide
+                    the crypto funding layer, while the
+                    broader Joyet platform is focused on
+                    transfers, payments and digital services.
 
                 </div>
 
@@ -4408,14 +5102,18 @@
 
                 <span
                     class="font-semibold">
-                    Can I send money from Joyet?
+
+                    Can I buy airtime and data?
+
                 </span>
+
 
                 <span
                     class="faq-icon
-                           text-xl
-                           text-indigo-300">
+                           text-xl">
+
                     +
+
                 </span>
 
             </button>
@@ -4425,10 +5123,10 @@
 
                 <div class="faq-inner">
 
-                    Joyet is designed to support transfers
-                    to supported recipients and destinations.
-                    Availability depends on the implemented
-                    transfer infrastructure.
+                    Joyet is designed to support VTU
+                    services such as airtime and mobile
+                    data through supported service
+                    providers.
 
                 </div>
 
@@ -4446,14 +5144,18 @@
 
                 <span
                     class="font-semibold">
+
                     Which crypto assets are supported?
+
                 </span>
+
 
                 <span
                     class="faq-icon
-                           text-xl
-                           text-indigo-300">
+                           text-xl">
+
                     +
+
                 </span>
 
             </button>
@@ -4463,10 +5165,11 @@
 
                 <div class="faq-inner">
 
-                    Supported assets and networks depend on
-                    Joyet's active wallet and payment
-                    infrastructure. The platform will clearly
-                    identify available assets before deposit.
+                    Supported assets and networks depend
+                    on Joyet's active wallet and payment
+                    infrastructure. The supported asset
+                    and network should always be confirmed
+                    before making a deposit.
 
                 </div>
 
@@ -4480,7 +5183,7 @@
 
 
 <!-- =========================================================
-     CTA
+     FINAL CTA
 ========================================================= -->
 
 <section
@@ -4489,19 +5192,20 @@
            px-5 sm:px-6
            py-20">
 
+
     <div
         class="relative
                overflow-hidden
                rounded-[38px]
                border
-               border-indigo-400/20
+               border-blue-400/15
                bg-gradient-to-br
-               from-indigo-500/20
-               via-indigo-500/10
+               from-blue-500/12
+               via-sky-400/5
                to-transparent
-               px-7 py-14
+               px-7
+               py-14
                sm:px-12
-               sm:py-18
                lg:px-16
                lg:py-20
                reveal">
@@ -4512,7 +5216,7 @@
                    w-[500px]
                    h-[500px]
                    rounded-full
-                   bg-indigo-500/15
+                   bg-blue-500/8
                    blur-3xl
                    -right-60
                    -top-60">
@@ -4524,7 +5228,7 @@
                    w-[350px]
                    h-[350px]
                    rounded-full
-                   bg-emerald-400/5
+                   bg-sky-400/5
                    blur-3xl
                    -left-60
                    -bottom-60">
@@ -4535,7 +5239,8 @@
             class="relative
                    max-w-4xl">
 
-            <p class="section-label">
+
+            <p class="eyebrow">
                 START WITH JOYET
             </p>
 
@@ -4550,8 +5255,9 @@
                        mt-5">
 
                 Deposit crypto.
+
                 <span class="gradient-text">
-                    Start using it.
+                    Put it to use.
                 </span>
 
             </h2>
@@ -4564,8 +5270,9 @@
                        max-w-2xl
                        mt-7">
 
-                One platform for crypto-funded transfers,
-                airtime, data and supported digital services.
+                One platform for crypto-funded
+                transfers, airtime, data, bills
+                and supported digital services.
 
             </p>
 
@@ -4577,16 +5284,16 @@
                        gap-3
                        mt-9">
 
+
                 <a
                     href="signup.html"
                     class="px-8
                            py-4
                            rounded-2xl
-                           bg-indigo-500
-                           hover:bg-indigo-400
+                           bg-joyet
+                           hover:bg-joyetBright
                            text-center
-                           font-semibold
-                           shadow-[0_20px_70px_rgba(99,102,241,.22)]
+                           font-bold
                            transition">
 
                     Create Account
@@ -4595,19 +5302,19 @@
 
 
                 <a
-                    href="#how"
+                    href="#features"
                     class="px-8
                            py-4
                            rounded-2xl
                            border
-                           border-white/10
-                           bg-white/[.03]
-                           hover:bg-white/[.07]
+                           border-white/9
+                           bg-white/[.02]
+                           hover:bg-white/[.05]
                            text-center
                            font-semibold
                            transition">
 
-                    Learn More
+                    Explore Joyet
 
                 </a>
 
@@ -4621,7 +5328,7 @@
 
 
 <!-- =========================================================
-     DISCLAIMER
+     IMPORTANT INFORMATION
 ========================================================= -->
 
 <section
@@ -4635,22 +5342,24 @@
                rounded-2xl
                p-5 sm:p-6">
 
+
         <div
             class="flex
                    items-start
                    gap-4">
 
+
             <div
                 class="w-10 h-10
                        shrink-0
                        rounded-xl
-                       bg-white/[.04]
+                       bg-white/[.025]
                        border
-                       border-white/8
+                       border-white/7
                        flex
                        items-center
                        justify-center
-                       text-gray-400">
+                       text-gray-500">
 
                 i
 
@@ -4661,22 +5370,24 @@
 
                 <h3
                     class="font-semibold">
+
                     Important information
+
                 </h3>
 
 
                 <p
                     class="text-sm
-                           text-gray-500
+                           text-gray-600
                            leading-relaxed
                            mt-2">
 
                     Joyet services, supported crypto assets,
                     networks, transfers and VTU services may
-                    depend on the platform's active infrastructure
-                    and third-party service providers. Crypto
-                    transactions can involve network fees,
-                    processing delays and market-value changes.
+                    depend on active platform infrastructure
+                    and third-party providers. Crypto
+                    transactions may involve network fees,
+                    processing delays and changes in market value.
 
                 </p>
 
@@ -4688,6 +5399,7 @@
 
 </section>
 
+
 </main>
 
 
@@ -4697,7 +5409,8 @@
 
 <footer
     class="border-t
-           border-white/8">
+           border-white/7">
+
 
     <div
         class="max-w-7xl
@@ -4714,18 +5427,19 @@
                    gap-10">
 
 
-            <!-- Brand -->
+            <!-- BRAND -->
 
-            <div class="lg:col-span-2">
+            <div
+                class="lg:col-span-2">
 
                 <a
                     href="index.html"
                     class="text-3xl
-                           font-black">
+                           font-black
+                           tracking-tight">
 
-                    Joy<span
-                        class="text-indigo-400">
-                        et
+                    J<span class="text-joyet">
+                        oyet
                     </span>
 
                 </a>
@@ -4733,13 +5447,13 @@
 
                 <p
                     class="max-w-md
-                           text-gray-500
+                           text-gray-600
                            leading-relaxed
                            mt-5">
 
                     A crypto-powered platform for
-                    everyday payments, transfers and
-                    digital services.
+                    transfers, payments, airtime,
+                    data, bills and everyday digital services.
 
                 </p>
 
@@ -4749,18 +5463,19 @@
                            gap-3
                            mt-7">
 
+
                     <a
                         href="#"
                         class="w-10 h-10
                                rounded-xl
                                border
                                border-white/8
-                               bg-white/[.02]
                                flex
                                items-center
                                justify-center
-                               text-gray-500
+                               text-gray-600
                                hover:text-white
+                               hover:border-blue-400/20
                                transition">
 
                         X
@@ -4774,12 +5489,12 @@
                                rounded-xl
                                border
                                border-white/8
-                               bg-white/[.02]
                                flex
                                items-center
                                justify-center
-                               text-gray-500
+                               text-gray-600
                                hover:text-white
+                               hover:border-blue-400/20
                                transition">
 
                         ◎
@@ -4793,12 +5508,12 @@
                                rounded-xl
                                border
                                border-white/8
-                               bg-white/[.02]
                                flex
                                items-center
                                justify-center
-                               text-gray-500
+                               text-gray-600
                                hover:text-white
+                               hover:border-blue-400/20
                                transition">
 
                         in
@@ -4810,12 +5525,11 @@
             </div>
 
 
-            <!-- Product -->
+            <!-- PRODUCT -->
 
             <div>
 
-                <h3
-                    class="font-semibold">
+                <h3 class="font-semibold">
                     Product
                 </h3>
 
@@ -4824,37 +5538,29 @@
                     class="space-y-3
                            mt-5
                            text-sm
-                           text-gray-500">
+                           text-gray-600">
 
                     <a
                         href="#features"
-                        class="block
-                               hover:text-white
-                               transition">
+                        class="block hover:text-white transition">
                         Features
                     </a>
 
                     <a
                         href="#services"
-                        class="block
-                               hover:text-white
-                               transition">
+                        class="block hover:text-white transition">
                         Services
                     </a>
 
                     <a
                         href="#how"
-                        class="block
-                               hover:text-white
-                               transition">
+                        class="block hover:text-white transition">
                         How it works
                     </a>
 
                     <a
                         href="#security"
-                        class="block
-                               hover:text-white
-                               transition">
+                        class="block hover:text-white transition">
                         Security
                     </a>
 
@@ -4863,12 +5569,11 @@
             </div>
 
 
-            <!-- Account -->
+            <!-- ACCOUNT -->
 
             <div>
 
-                <h3
-                    class="font-semibold">
+                <h3 class="font-semibold">
                     Account
                 </h3>
 
@@ -4877,21 +5582,17 @@
                     class="space-y-3
                            mt-5
                            text-sm
-                           text-gray-500">
+                           text-gray-600">
 
                     <a
                         href="login.html"
-                        class="block
-                               hover:text-white
-                               transition">
+                        class="block hover:text-white transition">
                         Login
                     </a>
 
                     <a
                         href="signup.html"
-                        class="block
-                               hover:text-white
-                               transition">
+                        class="block hover:text-white transition">
                         Create Account
                     </a>
 
@@ -4900,13 +5601,12 @@
             </div>
 
 
-            <!-- Help -->
+            <!-- COMPANY -->
 
             <div>
 
-                <h3
-                    class="font-semibold">
-                    Help
+                <h3 class="font-semibold">
+                    Company
                 </h3>
 
 
@@ -4914,29 +5614,23 @@
                     class="space-y-3
                            mt-5
                            text-sm
-                           text-gray-500">
+                           text-gray-600">
 
                     <a
                         href="#faq"
-                        class="block
-                               hover:text-white
-                               transition">
+                        class="block hover:text-white transition">
                         FAQ
                     </a>
 
                     <a
                         href="#"
-                        class="block
-                               hover:text-white
-                               transition">
+                        class="block hover:text-white transition">
                         Privacy
                     </a>
 
                     <a
                         href="#"
-                        class="block
-                               hover:text-white
-                               transition">
+                        class="block hover:text-white transition">
                         Terms
                     </a>
 
@@ -4961,7 +5655,7 @@
                    justify-between
                    gap-4
                    text-xs
-                   text-gray-600">
+                   text-gray-700">
 
             <p>
                 © 2026 Joyet. All rights reserved.
@@ -4994,18 +5688,15 @@
             "menuButton"
         );
 
-
     const mobileMenu =
         document.getElementById(
             "mobileMenu"
         );
 
-
     const menuIcon =
         document.getElementById(
             "menuIcon"
         );
-
 
     let menuOpen = false;
 
@@ -5021,7 +5712,7 @@
             if (menuOpen) {
 
                 mobileMenu.style.maxHeight =
-                    "650px";
+                    "700px";
 
                 mobileMenu.style.opacity =
                     "1";
@@ -5064,35 +5755,37 @@
         .querySelectorAll(
             ".mobile-link"
         )
-        .forEach(link => {
+        .forEach(
+            link => {
 
-            link.addEventListener(
-                "click",
-                () => {
+                link.addEventListener(
+                    "click",
+                    () => {
 
-                    menuOpen =
-                        false;
+                        menuOpen =
+                            false;
 
-                    mobileMenu.style.maxHeight =
-                        "0";
+                        mobileMenu.style.maxHeight =
+                            "0";
 
-                    mobileMenu.style.opacity =
-                        "0";
+                        mobileMenu.style.opacity =
+                            "0";
 
 
-                    menuIcon.innerHTML = `
+                        menuIcon.innerHTML = `
 
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            d="M4 6h16M4 12h16M4 18h16"/>
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M4 6h16M4 12h16M4 18h16"/>
 
-                    `;
+                        `;
 
-                }
-            );
+                    }
+                );
 
-        });
+            }
+        );
 
 
     /* =========================================================
@@ -5103,80 +5796,84 @@
         .querySelectorAll(
             ".faq-button"
         )
-        .forEach(button => {
+        .forEach(
+            button => {
 
-            button.addEventListener(
-                "click",
-                () => {
+                button.addEventListener(
+                    "click",
+                    () => {
 
-                    const item =
-                        button.closest(
-                            ".faq-item"
-                        );
-
-
-                    const answer =
-                        item.querySelector(
-                            ".faq-answer"
-                        );
+                        const item =
+                            button.closest(
+                                ".faq-item"
+                            );
 
 
-                    document
-                        .querySelectorAll(
-                            ".faq-item"
-                        )
-                        .forEach(other => {
-
-                            if (
-                                other !== item
-                            ) {
-
-                                other.classList
-                                    .remove(
-                                        "active"
-                                    );
+                        const answer =
+                            item.querySelector(
+                                ".faq-answer"
+                            );
 
 
-                                other.querySelector(
-                                    ".faq-answer"
-                                ).style.maxHeight =
-                                    null;
+                        document
+                            .querySelectorAll(
+                                ".faq-item"
+                            )
+                            .forEach(
+                                other => {
 
-                            }
+                                    if (
+                                        other !== item
+                                    ) {
 
-                        });
+                                        other.classList
+                                            .remove(
+                                                "active"
+                                            );
 
 
-                    item.classList.toggle(
-                        "active"
-                    );
+                                        other.querySelector(
+                                            ".faq-answer"
+                                        ).style.maxHeight =
+                                            null;
+
+                                    }
+
+                                }
+                            );
 
 
-                    if (
-                        item.classList.contains(
+                        item.classList.toggle(
                             "active"
-                        )
-                    ) {
+                        );
 
-                        answer.style.maxHeight =
-                            answer.scrollHeight +
-                            "px";
 
-                    } else {
+                        if (
+                            item.classList.contains(
+                                "active"
+                            )
+                        ) {
 
-                        answer.style.maxHeight =
-                            null;
+                            answer.style.maxHeight =
+                                answer.scrollHeight +
+                                "px";
+
+                        } else {
+
+                            answer.style.maxHeight =
+                                null;
+
+                        }
 
                     }
+                );
 
-                }
-            );
-
-        });
+            }
+        );
 
 
     /* =========================================================
-       SCROLL REVEAL
+       REVEAL ANIMATIONS
     ========================================================== */
 
     const revealElements =
@@ -5185,7 +5882,7 @@
         );
 
 
-    const revealObserver =
+    const observer =
         new IntersectionObserver(
 
             entries => {
@@ -5198,13 +5895,14 @@
                         ) {
 
                             entry.target.classList
-                                .add("show");
-
-
-                            revealObserver
-                                .unobserve(
-                                    entry.target
+                                .add(
+                                    "show"
                                 );
+
+
+                            observer.unobserve(
+                                entry.target
+                            );
 
                         }
 
@@ -5215,7 +5913,7 @@
 
             {
                 threshold:
-                    0.10
+                    .10
             }
 
         );
@@ -5226,10 +5924,12 @@
 
             if (
                 !element.classList
-                    .contains("show")
+                    .contains(
+                        "show"
+                    )
             ) {
 
-                revealObserver.observe(
+                observer.observe(
                     element
                 );
 
