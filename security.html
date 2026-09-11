@@ -1,0 +1,2528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="theme-color"
+    content="#070A10"
+  >
+
+  <title>Security — JOYET</title>
+
+  <meta
+    name="description"
+    content="Learn how JOYET approaches account security, transaction protection, crypto deposits, privacy and platform safety."
+  >
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            joyet: "#3B82F6",
+            joyetLight: "#60A5FA",
+            joyetSky: "#38BDF8",
+            ink: "#070A10",
+            ink2: "#0A0F17",
+            panel: "#0E141D"
+          }
+        }
+      }
+    };
+  </script>
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+
+      font-family: "Inter", sans-serif;
+
+      color: #F8FAFC;
+
+      background:
+        radial-gradient(
+          circle at 10% 0%,
+          rgba(59,130,246,.11),
+          transparent 28%
+        ),
+        radial-gradient(
+          circle at 90% 25%,
+          rgba(56,189,248,.06),
+          transparent 25%
+        ),
+        #070A10;
+
+      overflow-x: hidden;
+    }
+
+
+    .navbar {
+
+      background:
+        rgba(7,10,16,.76);
+
+      backdrop-filter:
+        blur(22px);
+
+      -webkit-backdrop-filter:
+        blur(22px);
+
+      border-bottom:
+        1px solid
+        rgba(255,255,255,.035);
+
+    }
+
+
+    .glass {
+
+      background:
+        rgba(14,20,29,.72);
+
+      backdrop-filter:
+        blur(24px);
+
+      -webkit-backdrop-filter:
+        blur(24px);
+
+      box-shadow:
+        0 30px 90px
+        rgba(0,0,0,.25),
+
+        inset 0 1px
+        rgba(255,255,255,.018);
+
+    }
+
+
+    .blue-text {
+
+      background:
+        linear-gradient(
+          90deg,
+          #60A5FA,
+          #38BDF8
+        );
+
+      -webkit-background-clip:
+        text;
+
+      background-clip:
+        text;
+
+      color:
+        transparent;
+
+    }
+
+
+    .primary-btn {
+
+      display:
+        inline-flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      gap:
+        9px;
+
+      height:
+        49px;
+
+      padding:
+        0 20px;
+
+      border-radius:
+        14px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #3B82F6,
+          #2563EB
+        );
+
+      color:
+        #fff;
+
+      font-size:
+        14px;
+
+      font-weight:
+        700;
+
+      box-shadow:
+        0 17px 38px
+        rgba(37,99,235,.22);
+
+      transition:
+        .2s ease;
+
+    }
+
+
+    .primary-btn:hover {
+
+      transform:
+        translateY(-2px);
+
+    }
+
+
+    .secondary-btn {
+
+      display:
+        inline-flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      gap:
+        9px;
+
+      height:
+        49px;
+
+      padding:
+        0 20px;
+
+      border-radius:
+        14px;
+
+      background:
+        rgba(255,255,255,.035);
+
+      color:
+        #CBD5E1;
+
+      font-size:
+        14px;
+
+      font-weight:
+        600;
+
+      transition:
+        .2s ease;
+
+    }
+
+
+    .secondary-btn:hover {
+
+      background:
+        rgba(255,255,255,.06);
+
+      color:
+        white;
+
+    }
+
+
+    .hero-glow {
+
+      position:
+        absolute;
+
+      width:
+        620px;
+
+      height:
+        620px;
+
+      border-radius:
+        999px;
+
+      top:
+        -310px;
+
+      right:
+        -220px;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(59,130,246,.16),
+          transparent 68%
+        );
+
+      pointer-events:
+        none;
+
+    }
+
+
+    .security-card {
+
+      background:
+        rgba(14,20,29,.72);
+
+      border-radius:
+        25px;
+
+      transition:
+        .24s ease;
+
+    }
+
+
+    .security-card:hover {
+
+      transform:
+        translateY(-5px);
+
+      background:
+        rgba(19,28,41,.80);
+
+      box-shadow:
+        0 30px 70px
+        rgba(0,0,0,.22);
+
+    }
+
+
+    .security-icon {
+
+      width:
+        52px;
+
+      height:
+        52px;
+
+      border-radius:
+        16px;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      background:
+        rgba(59,130,246,.09);
+
+      color:
+        #60A5FA;
+
+    }
+
+
+    .step {
+
+      display:
+        flex;
+
+      gap:
+        18px;
+
+    }
+
+
+    .step-number {
+
+      width:
+        43px;
+
+      height:
+        43px;
+
+      border-radius:
+        13px;
+
+      flex:
+        0 0 auto;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      background:
+        rgba(59,130,246,.09);
+
+      color:
+        #60A5FA;
+
+      font-size:
+        12px;
+
+      font-weight:
+        800;
+
+    }
+
+
+    .orbit {
+
+      position:
+        relative;
+
+      min-height:
+        470px;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      overflow:
+        hidden;
+
+    }
+
+
+    .orbit-ring {
+
+      position:
+        absolute;
+
+      border:
+        1px solid
+        rgba(59,130,246,.09);
+
+      border-radius:
+        999px;
+
+    }
+
+
+    .ring-one {
+
+      width:
+        370px;
+
+      height:
+        370px;
+
+    }
+
+
+    .ring-two {
+
+      width:
+        280px;
+
+      height:
+        280px;
+
+    }
+
+
+    .ring-three {
+
+      width:
+        190px;
+
+      height:
+        190px;
+
+    }
+
+
+    .core {
+
+      position:
+        relative;
+
+      z-index:
+        5;
+
+      width:
+        105px;
+
+      height:
+        105px;
+
+      border-radius:
+        29px;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      background:
+        linear-gradient(
+          145deg,
+          #102139,
+          #0A111B
+        );
+
+      box-shadow:
+        0 30px 70px
+        rgba(0,0,0,.40),
+
+        inset 0 1px
+        rgba(255,255,255,.04);
+
+    }
+
+
+    .orbit-node {
+
+      position:
+        absolute;
+
+      z-index:
+        6;
+
+      padding:
+        11px 14px;
+
+      border-radius:
+        14px;
+
+      background:
+        rgba(14,20,29,.92);
+
+      color:
+        #CBD5E1;
+
+      font-size:
+        11px;
+
+      font-weight:
+        600;
+
+      box-shadow:
+        0 20px 50px
+        rgba(0,0,0,.28);
+
+    }
+
+
+    .node-one {
+
+      top:
+        50px;
+
+      left:
+        50%;
+
+      transform:
+        translateX(-50%);
+
+    }
+
+
+    .node-two {
+
+      right:
+        18px;
+
+      top:
+        50%;
+
+      transform:
+        translateY(-50%);
+
+    }
+
+
+    .node-three {
+
+      bottom:
+        52px;
+
+      left:
+        50%;
+
+      transform:
+        translateX(-50%);
+
+    }
+
+
+    .node-four {
+
+      left:
+        18px;
+
+      top:
+        50%;
+
+      transform:
+        translateY(-50%);
+
+    }
+
+
+    .check-card {
+
+      background:
+        rgba(255,255,255,.025);
+
+      border-radius:
+        18px;
+
+    }
+
+
+    .notice {
+
+      background:
+        rgba(59,130,246,.055);
+
+      border:
+        1px solid
+        rgba(59,130,246,.09);
+
+      border-radius:
+        20px;
+
+    }
+
+
+    .faq-item {
+
+      background:
+        rgba(255,255,255,.024);
+
+      border-radius:
+        18px;
+
+      overflow:
+        hidden;
+
+    }
+
+
+    .faq-button {
+
+      width:
+        100%;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        space-between;
+
+      gap:
+        20px;
+
+      padding:
+        19px;
+
+      color:
+        #E2E8F0;
+
+      text-align:
+        left;
+
+    }
+
+
+    .faq-answer {
+
+      display:
+        none;
+
+      padding:
+        0 19px 19px;
+
+      color:
+        #64748B;
+
+      font-size:
+        13px;
+
+      line-height:
+        1.8;
+
+    }
+
+
+    .faq-item.open
+    .faq-answer {
+
+      display:
+        block;
+
+    }
+
+
+    .plus {
+
+      transition:
+        .2s ease;
+
+      color:
+        #64748B;
+
+      font-size:
+        21px;
+
+    }
+
+
+    .faq-item.open
+    .plus {
+
+      transform:
+        rotate(45deg);
+
+    }
+
+
+    .reveal {
+
+      opacity:
+        0;
+
+      transform:
+        translateY(22px);
+
+      transition:
+        opacity .7s ease,
+        transform .7s ease;
+
+    }
+
+
+    .reveal.visible {
+
+      opacity:
+        1;
+
+      transform:
+        translateY(0);
+
+    }
+
+
+    .mobile-menu {
+
+      display:
+        none;
+
+    }
+
+
+    .mobile-menu.open {
+
+      display:
+        block;
+
+    }
+
+
+    @media(max-width:768px) {
+
+      .desktop-links {
+        display:
+          none;
+      }
+
+      .mobile-menu-btn {
+        display:
+          flex;
+      }
+
+      .orbit {
+        min-height:
+          390px;
+      }
+
+      .ring-one {
+        width:
+          310px;
+
+        height:
+          310px;
+      }
+
+      .ring-two {
+        width:
+          235px;
+
+        height:
+          235px;
+      }
+
+      .ring-three {
+        width:
+          160px;
+
+        height:
+          160px;
+      }
+
+      .node-one {
+        top:
+          25px;
+      }
+
+      .node-three {
+        bottom:
+          27px;
+      }
+
+      .node-two {
+        right:
+          0;
+      }
+
+      .node-four {
+        left:
+          0;
+      }
+
+    }
+
+
+    @media(min-width:769px) {
+
+      .mobile-menu-btn {
+        display:
+          none;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+<div class="relative z-10">
+
+
+  <!-- ==================================================
+       NAVBAR
+  =================================================== -->
+
+  <header
+    class="navbar fixed top-0 left-0 right-0 z-50"
+  >
+
+    <div
+      class="max-w-7xl mx-auto px-5 sm:px-7 lg:px-8"
+    >
+
+      <div
+        class="h-[76px] flex items-center justify-between"
+      >
+
+        <a
+          href="index.html"
+          class="text-3xl font-black tracking-[-.06em]"
+        >
+          JOYET
+        </a>
+
+
+        <nav
+          class="desktop-links flex items-center gap-8"
+        >
+
+          <a
+            href="index.html#how-it-works"
+            class="text-sm text-slate-400 hover:text-white transition"
+          >
+            How it works
+          </a>
+
+          <a
+            href="services.html"
+            class="text-sm text-slate-400 hover:text-white transition"
+          >
+            Services
+          </a>
+
+          <a
+            href="security.html"
+            class="text-sm text-white font-medium"
+          >
+            Security
+          </a>
+
+          <a
+            href="faq.html"
+            class="text-sm text-slate-400 hover:text-white transition"
+          >
+            FAQ
+          </a>
+
+        </nav>
+
+
+        <div class="flex items-center gap-3">
+
+          <a
+            href="download.html"
+            class="primary-btn"
+          >
+            Get the app
+          </a>
+
+
+          <button
+            id="menuButton"
+            class="mobile-menu-btn w-11 h-11 rounded-xl bg-white/[.035] items-center justify-center text-slate-300"
+            aria-label="Open menu"
+          >
+
+            <svg
+              width="20"
+              height="20"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              viewBox="0 0 24 24"
+            >
+
+              <path d="M4 7h16"/>
+              <path d="M4 12h16"/>
+              <path d="M4 17h16"/>
+
+            </svg>
+
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <!-- MOBILE MENU -->
+
+      <div
+        id="mobileMenu"
+        class="mobile-menu pb-5"
+      >
+
+        <div
+          class="glass rounded-2xl p-3"
+        >
+
+          <a
+            href="index.html#how-it-works"
+            class="block px-4 py-3 text-sm text-slate-400"
+          >
+            How it works
+          </a>
+
+          <a
+            href="services.html"
+            class="block px-4 py-3 text-sm text-slate-400"
+          >
+            Services
+          </a>
+
+          <a
+            href="security.html"
+            class="block px-4 py-3 text-sm text-white"
+          >
+            Security
+          </a>
+
+          <a
+            href="faq.html"
+            class="block px-4 py-3 text-sm text-slate-400"
+          >
+            FAQ
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <!-- ==================================================
+       HERO
+  =================================================== -->
+
+  <section
+    class="relative pt-36 md:pt-44 pb-20 md:pb-24 overflow-hidden"
+  >
+
+    <div class="hero-glow"></div>
+
+
+    <div
+      class="max-w-7xl mx-auto px-5 sm:px-7 lg:px-8"
+    >
+
+      <div
+        class="grid lg:grid-cols-[1.05fr_.95fr] gap-14 items-center"
+      >
+
+
+        <!-- COPY -->
+
+        <div class="reveal">
+
+          <div
+            class="inline-flex items-center gap-2 px-3 py-2 rounded-full"
+            style="
+              background:rgba(59,130,246,.07);
+              color:#93C5FD;
+            "
+          >
+
+            <span
+              class="w-1.5 h-1.5 rounded-full bg-blue-400"
+            ></span>
+
+            Security is part of the product
+
+          </div>
+
+
+          <h1
+            class="text-5xl sm:text-6xl md:text-7xl font-black leading-[.98] tracking-[-.065em] mt-7"
+          >
+
+            Protecting your
+            <span class="blue-text">
+              JOYET experience.
+            </span>
+
+          </h1>
+
+
+          <p
+            class="text-lg sm:text-xl text-slate-400 leading-8 mt-7 max-w-2xl"
+          >
+            JOYET is designed with security across the account,
+            transaction and service layers so your everyday
+            payment experience can remain simple and controlled.
+          </p>
+
+
+          <div
+            class="flex flex-wrap gap-3 mt-9"
+          >
+
+            <a
+              href="#security-layers"
+              class="primary-btn"
+            >
+              Explore security
+
+              <svg
+                width="16"
+                height="16"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                viewBox="0 0 24 24"
+              >
+                <path d="M12 5v14"/>
+                <path d="m6 13 6 6 6-6"/>
+              </svg>
+
+            </a>
+
+
+            <a
+              href="contact.html"
+              class="secondary-btn"
+            >
+              Contact us
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <!-- VISUAL -->
+
+        <div class="glass rounded-[30px] reveal">
+
+          <div class="orbit">
+
+            <div
+              class="orbit-ring ring-one"
+            ></div>
+
+            <div
+              class="orbit-ring ring-two"
+            ></div>
+
+            <div
+              class="orbit-ring ring-three"
+            ></div>
+
+
+            <div class="core">
+
+              <svg
+                width="38"
+                height="38"
+                fill="none"
+                stroke="#60A5FA"
+                stroke-width="1.5"
+                viewBox="0 0 24 24"
+              >
+
+                <path
+                  d="M12 3 20 6v6c0 5-3.3 8-8 9-4.7-1-8-4-8-9V6l8-3Z"
+                />
+
+                <path
+                  d="m9 12 2 2 4-4"
+                />
+
+              </svg>
+
+            </div>
+
+
+            <div
+              class="orbit-node node-one"
+            >
+              Account
+            </div>
+
+
+            <div
+              class="orbit-node node-two"
+            >
+              Transactions
+            </div>
+
+
+            <div
+              class="orbit-node node-three"
+            >
+              Privacy
+            </div>
+
+
+            <div
+              class="orbit-node node-four"
+            >
+              Crypto deposits
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ==================================================
+       SECURITY LAYERS
+  =================================================== -->
+
+  <section
+    id="security-layers"
+    class="py-24 md:py-32"
+  >
+
+    <div
+      class="max-w-7xl mx-auto px-5 sm:px-7 lg:px-8"
+    >
+
+      <div class="max-w-2xl reveal">
+
+        <p
+          class="text-xs uppercase tracking-[.18em] text-blue-400 font-semibold"
+        >
+          Security layers
+        </p>
+
+
+        <h2
+          class="text-4xl sm:text-5xl font-black tracking-[-.045em] mt-3"
+        >
+          Security across
+          <span class="blue-text">
+            every important step.
+          </span>
+        </h2>
+
+
+        <p
+          class="text-slate-500 leading-7 mt-5"
+        >
+          JOYET's architecture separates the major parts of the
+          experience so account access, deposits, balances and
+          outgoing transactions can each have appropriate controls.
+        </p>
+
+      </div>
+
+
+      <div
+        class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 mt-12"
+      >
+
+
+        <!-- ACCOUNT -->
+
+        <div
+          class="security-card p-7 reveal"
+        >
+
+          <div class="security-icon">
+
+            <svg
+              width="24"
+              height="24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              viewBox="0 0 24 24"
+            >
+
+              <circle
+                cx="12"
+                cy="8"
+                r="3.5"
+              />
+
+              <path
+                d="M5 20c.9-3.2 3.2-5 7-5s6.1 1.8 7 5"
+              />
+
+            </svg>
+
+          </div>
+
+
+          <h3
+            class="text-xl font-bold mt-6"
+          >
+            Account security
+          </h3>
+
+
+          <p
+            class="text-sm text-slate-500 leading-7 mt-3"
+          >
+            Account authentication and access controls are designed
+            to help protect your JOYET account from unauthorized use.
+          </p>
+
+        </div>
+
+
+        <!-- TRANSACTIONS -->
+
+        <div
+          class="security-card p-7 reveal"
+        >
+
+          <div class="security-icon">
+
+            <svg
+              width="24"
+              height="24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              viewBox="0 0 24 24"
+            >
+
+              <path
+                d="M21 3 10 14"
+              />
+
+              <path
+                d="m21 3-7 18-4-7-7-4 18-7Z"
+              />
+
+            </svg>
+
+          </div>
+
+
+          <h3
+            class="text-xl font-bold mt-6"
+          >
+            Transaction controls
+          </h3>
+
+
+          <p
+            class="text-sm text-slate-500 leading-7 mt-3"
+          >
+            Transaction flows are designed to make important
+            details visible before users confirm a payment.
+          </p>
+
+        </div>
+
+
+        <!-- DEPOSITS -->
+
+        <div
+          class="security-card p-7 reveal"
+        >
+
+          <div class="security-icon">
+
+            <svg
+              width="24"
+              height="24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              viewBox="0 0 24 24"
+            >
+
+              <path
+                d="M12 5v14"
+              />
+
+              <path
+                d="m6 13 6 6 6-6"
+              />
+
+              <rect
+                x="4"
+                y="3"
+                width="16"
+                height="18"
+                rx="3"
+              />
+
+            </svg>
+
+          </div>
+
+
+          <h3
+            class="text-xl font-bold mt-6"
+          >
+            Crypto deposit safety
+          </h3>
+
+
+          <p
+            class="text-sm text-slate-500 leading-7 mt-3"
+          >
+            Deposit flows can display the relevant asset and network
+            information before users send cryptocurrency to JOYET.
+          </p>
+
+        </div>
+
+
+        <!-- PRIVACY -->
+
+        <div
+          class="security-card p-7 reveal"
+        >
+
+          <div class="security-icon">
+
+            <svg
+              width="24"
+              height="24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              viewBox="0 0 24 24"
+            >
+
+              <path
+                d="M12 3 20 6v6c0 5-3.3 8-8 9-4.7-1-8-4-8-9V6l8-3Z"
+              />
+
+              <path
+                d="M9 12h6"
+              />
+
+            </svg>
+
+          </div>
+
+
+          <h3
+            class="text-xl font-bold mt-6"
+          >
+            Privacy
+          </h3>
+
+
+          <p
+            class="text-sm text-slate-500 leading-7 mt-3"
+          >
+            Personal information should only be collected and
+            processed for appropriate account, transaction,
+            security and service purposes.
+          </p>
+
+        </div>
+
+
+        <!-- MONITORING -->
+
+        <div
+          class="security-card p-7 reveal"
+        >
+
+          <div class="security-icon">
+
+            <svg
+              width="24"
+              height="24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              viewBox="0 0 24 24"
+            >
+
+              <path
+                d="M3 12h4l2-6 4 12 2-6h6"
+              />
+
+            </svg>
+
+          </div>
+
+
+          <h3
+            class="text-xl font-bold mt-6"
+          >
+            Activity monitoring
+          </h3>
+
+
+          <p
+            class="text-sm text-slate-500 leading-7 mt-3"
+          >
+            Security systems can monitor relevant activity and
+            signals to identify suspicious or unusual behavior.
+          </p>
+
+        </div>
+
+
+        <!-- PROVIDERS -->
+
+        <div
+          class="security-card p-7 reveal"
+        >
+
+          <div class="security-icon">
+
+            <svg
+              width="24"
+              height="24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              viewBox="0 0 24 24"
+            >
+
+              <circle
+                cx="6"
+                cy="12"
+                r="3"
+              />
+
+              <circle
+                cx="18"
+                cy="12"
+                r="3"
+              />
+
+              <path
+                d="M9 12h6"
+              />
+
+            </svg>
+
+          </div>
+
+
+          <h3
+            class="text-xl font-bold mt-6"
+          >
+            Provider security
+          </h3>
+
+
+          <p
+            class="text-sm text-slate-500 leading-7 mt-3"
+          >
+            External providers may be involved in payments,
+            blockchain infrastructure and VTU services, so provider
+            controls are an important part of the overall ecosystem.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ==================================================
+       YOUR ROLE
+  =================================================== -->
+
+  <section
+    class="py-24 md:py-32"
+  >
+
+    <div
+      class="max-w-7xl mx-auto px-5 sm:px-7 lg:px-8"
+    >
+
+      <div
+        class="grid lg:grid-cols-2 gap-12 items-center"
+      >
+
+
+        <!-- COPY -->
+
+        <div class="reveal">
+
+          <p
+            class="text-xs uppercase tracking-[.18em] text-blue-400 font-semibold"
+          >
+            Your role
+          </p>
+
+
+          <h2
+            class="text-4xl sm:text-5xl font-black tracking-[-.045em] mt-3"
+          >
+            Security works
+            <span class="blue-text">
+              both ways.
+            </span>
+          </h2>
+
+
+          <p
+            class="text-slate-500 leading-7 mt-5"
+          >
+            The platform can provide security controls, but your
+            account and device also play an important role.
+          </p>
+
+
+          <div
+            class="space-y-5 mt-9"
+          >
+
+
+            <div class="step">
+
+              <div class="step-number">
+                01
+              </div>
+
+              <div>
+
+                <h3
+                  class="font-semibold"
+                >
+                  Protect your login
+                </h3>
+
+                <p
+                  class="text-sm text-slate-600 leading-6 mt-1"
+                >
+                  Use a strong, unique password and protect your
+                  authentication methods.
+                </p>
+
+              </div>
+
+            </div>
+
+
+            <div class="step">
+
+              <div class="step-number">
+                02
+              </div>
+
+              <div>
+
+                <h3
+                  class="font-semibold"
+                >
+                  Verify before sending
+                </h3>
+
+                <p
+                  class="text-sm text-slate-600 leading-6 mt-1"
+                >
+                  Check the recipient, amount, asset and network
+                  before confirming a transaction.
+                </p>
+
+              </div>
+
+            </div>
+
+
+            <div class="step">
+
+              <div class="step-number">
+                03
+              </div>
+
+              <div>
+
+                <h3
+                  class="font-semibold"
+                >
+                  Keep codes private
+                </h3>
+
+                <p
+                  class="text-sm text-slate-600 leading-6 mt-1"
+                >
+                  Never share passwords, verification codes or
+                  other authentication information with strangers.
+                </p>
+
+              </div>
+
+            </div>
+
+
+            <div class="step">
+
+              <div class="step-number">
+                04
+              </div>
+
+              <div>
+
+                <h3
+                  class="font-semibold"
+                >
+                  Use official JOYET channels
+                </h3>
+
+                <p
+                  class="text-sm text-slate-600 leading-6 mt-1"
+                >
+                  Be cautious of links, messages or accounts
+                  pretending to represent JOYET.
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- CHECKLIST -->
+
+        <div
+          class="glass rounded-[30px] p-6 sm:p-8 reveal"
+        >
+
+          <p
+            class="text-xs uppercase tracking-[.16em] text-slate-600 font-semibold"
+          >
+            Before you confirm
+          </p>
+
+
+          <h3
+            class="text-2xl font-bold mt-3"
+          >
+            Quick security check
+          </h3>
+
+
+          <div
+            class="space-y-3 mt-7"
+          >
+
+            <div
+              class="check-card p-4 flex items-center gap-3"
+            >
+
+              <div
+                class="w-8 h-8 rounded-lg bg-blue-500/10 text-blue-300 flex items-center justify-center"
+              >
+                ✓
+              </div>
+
+              <div>
+
+                <div
+                  class="text-sm font-semibold"
+                >
+                  Recipient is correct
+                </div>
+
+                <div
+                  class="text-xs text-slate-600 mt-1"
+                >
+                  Check the destination carefully.
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <div
+              class="check-card p-4 flex items-center gap-3"
+            >
+
+              <div
+                class="w-8 h-8 rounded-lg bg-blue-500/10 text-blue-300 flex items-center justify-center"
+              >
+                ✓
+              </div>
+
+              <div>
+
+                <div
+                  class="text-sm font-semibold"
+                >
+                  Amount is correct
+                </div>
+
+                <div
+                  class="text-xs text-slate-600 mt-1"
+                >
+                  Make sure you know what you're sending.
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <div
+              class="check-card p-4 flex items-center gap-3"
+            >
+
+              <div
+                class="w-8 h-8 rounded-lg bg-blue-500/10 text-blue-300 flex items-center justify-center"
+              >
+                ✓
+              </div>
+
+              <div>
+
+                <div
+                  class="text-sm font-semibold"
+                >
+                  Network is correct
+                </div>
+
+                <div
+                  class="text-xs text-slate-600 mt-1"
+                >
+                  Especially important for crypto deposits.
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <div
+              class="check-card p-4 flex items-center gap-3"
+            >
+
+              <div
+                class="w-8 h-8 rounded-lg bg-blue-500/10 text-blue-300 flex items-center justify-center"
+              >
+                ✓
+              </div>
+
+              <div>
+
+                <div
+                  class="text-sm font-semibold"
+                >
+                  You're using the official app
+                </div>
+
+                <div
+                  class="text-xs text-slate-600 mt-1"
+                >
+                  Download JOYET from an official source.
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ==================================================
+       SECURITY NOTICE
+  =================================================== -->
+
+  <section
+    class="py-20"
+  >
+
+    <div
+      class="max-w-5xl mx-auto px-5 sm:px-7 lg:px-8"
+    >
+
+      <div
+        class="notice p-6 sm:p-8 reveal"
+      >
+
+        <div class="flex gap-4">
+
+          <div
+            class="w-11 h-11 shrink-0 rounded-xl flex items-center justify-center bg-blue-500/10 text-blue-300"
+          >
+
+            <svg
+              width="21"
+              height="21"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              viewBox="0 0 24 24"
+            >
+
+              <path
+                d="M12 3 20 6v6c0 5-3.3 8-8 9-4.7-1-8-4-8-9V6l8-3Z"
+              />
+
+              <path
+                d="m9 12 2 2 4-4"
+              />
+
+            </svg>
+
+          </div>
+
+
+          <div>
+
+            <h3
+              class="font-semibold text-blue-100"
+            >
+              No service can eliminate every risk
+            </h3>
+
+            <p
+              class="text-sm text-slate-500 leading-7 mt-2"
+            >
+              Security is an ongoing process. JOYET can use technical
+              and organizational safeguards, but users should also
+              protect their accounts and devices. Blockchain networks,
+              financial providers, telecommunications providers and
+              other third parties can also introduce risks outside
+              JOYET's direct control.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ==================================================
+       FAQ
+  =================================================== -->
+
+  <section
+    class="py-24 md:py-32"
+  >
+
+    <div
+      class="max-w-4xl mx-auto px-5 sm:px-7"
+    >
+
+      <div
+        class="text-center reveal"
+      >
+
+        <p
+          class="text-xs uppercase tracking-[.18em] text-blue-400 font-semibold"
+        >
+          Security FAQ
+        </p>
+
+
+        <h2
+          class="text-4xl sm:text-5xl font-black tracking-[-.045em] mt-3"
+        >
+          Common security
+          <span class="blue-text">
+            questions.
+          </span>
+        </h2>
+
+      </div>
+
+
+      <div
+        class="space-y-3 mt-12"
+      >
+
+
+        <div
+          class="faq-item reveal"
+        >
+
+          <button
+            class="faq-button"
+          >
+
+            <span
+              class="font-semibold text-sm"
+            >
+              How should I protect my JOYET account?
+            </span>
+
+            <span class="plus">
+              +
+            </span>
+
+          </button>
+
+
+          <div class="faq-answer">
+
+            Use a strong and unique password, protect your
+            authentication methods, keep your device secure and
+            never share verification codes or passwords with other
+            people.
+
+          </div>
+
+        </div>
+
+
+        <div
+          class="faq-item reveal"
+        >
+
+          <button
+            class="faq-button"
+          >
+
+            <span
+              class="font-semibold text-sm"
+            >
+              What should I check before making a crypto deposit?
+            </span>
+
+            <span class="plus">
+              +
+            </span>
+
+          </button>
+
+
+          <div class="faq-answer">
+
+            Check the asset, blockchain network and deposit address
+            shown by JOYET. Sending an unsupported asset or using an
+            incorrect network can cause a transaction to fail or
+            become difficult or impossible to recover.
+
+          </div>
+
+        </div>
+
+
+        <div
+          class="faq-item reveal"
+        >
+
+          <button
+            class="faq-button"
+          >
+
+            <span
+              class="font-semibold text-sm"
+            >
+              Will JOYET ever ask for my password or OTP?
+            </span>
+
+            <span class="plus">
+              +
+            </span>
+
+          </button>
+
+
+          <div class="faq-answer">
+
+            You should never share your password or one-time
+            authentication code with someone claiming to be support.
+            Use official JOYET communication channels if you are
+            unsure about a request.
+
+          </div>
+
+        </div>
+
+
+        <div
+          class="faq-item reveal"
+        >
+
+          <button
+            class="faq-button"
+          >
+
+            <span
+              class="font-semibold text-sm"
+            >
+              Are blockchain transactions reversible?
+            </span>
+
+            <span class="plus">
+              +
+            </span>
+
+          </button>
+
+
+          <div class="faq-answer">
+
+            Blockchain transactions are generally designed to be
+            irreversible once confirmed. Always verify transaction
+            details before sending crypto.
+
+          </div>
+
+        </div>
+
+
+        <div
+          class="faq-item reveal"
+        >
+
+          <button
+            class="faq-button"
+          >
+
+            <span
+              class="font-semibold text-sm"
+            >
+              Can I contact JOYET about a suspicious message?
+            </span>
+
+            <span class="plus">
+              +
+            </span>
+
+          </button>
+
+
+          <div class="faq-answer">
+
+            Yes. Use the official JOYET contact or support channels
+            published on the website or inside the application. Avoid
+            responding to suspicious requests for passwords, OTPs or
+            private information.
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ==================================================
+       CTA
+  =================================================== -->
+
+  <section
+    class="py-24"
+  >
+
+    <div
+      class="max-w-6xl mx-auto px-5 sm:px-7"
+    >
+
+      <div
+        class="glass rounded-[34px] p-8 sm:p-12 md:p-16 text-center reveal"
+      >
+
+        <p
+          class="text-xs uppercase tracking-[.18em] text-blue-300 font-semibold"
+        >
+          JOYET
+        </p>
+
+
+        <h2
+          class="text-4xl sm:text-5xl font-black tracking-[-.05em] mt-4"
+        >
+          Simple to use.
+          <span class="blue-text">
+            Designed with security in mind.
+          </span>
+        </h2>
+
+
+        <p
+          class="text-slate-400 max-w-2xl mx-auto leading-7 mt-5"
+        >
+          Explore the JOYET app and see how crypto deposits,
+          balances, transfers and everyday services come together.
+        </p>
+
+
+        <div
+          class="flex justify-center flex-wrap gap-3 mt-8"
+        >
+
+          <a
+            href="download.html"
+            class="primary-btn"
+          >
+            Get the JOYET app
+          </a>
+
+
+          <a
+            href="privacy.html"
+            class="secondary-btn"
+          >
+            Read privacy policy
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ==================================================
+       FOOTER
+  =================================================== -->
+
+  <footer
+    class="border-t border-white/[.035] pt-14 pb-8"
+  >
+
+    <div
+      class="max-w-7xl mx-auto px-5 sm:px-7 lg:px-8"
+    >
+
+      <div
+        class="grid md:grid-cols-[1.2fr_1fr_1fr_1fr] gap-10"
+      >
+
+        <!-- BRAND -->
+
+        <div>
+
+          <a
+            href="index.html"
+            class="text-3xl font-black tracking-[-.06em]"
+          >
+            JOYET
+          </a>
+
+
+          <p
+            class="text-sm text-slate-600 leading-6 mt-4 max-w-sm"
+          >
+            A crypto-funded payment and digital-services platform
+            built for everyday use.
+          </p>
+
+        </div>
+
+
+        <!-- PRODUCT -->
+
+        <div>
+
+          <div
+            class="text-xs uppercase tracking-[.15em] text-slate-600 font-semibold"
+          >
+            Product
+          </div>
+
+
+          <div class="space-y-3 mt-5">
+
+            <a
+              href="index.html#how-it-works"
+              class="block text-sm text-slate-500 hover:text-slate-300"
+            >
+              How it works
+            </a>
+
+            <a
+              href="services.html"
+              class="block text-sm text-slate-500 hover:text-slate-300"
+            >
+              Services
+            </a>
+
+            <a
+              href="download.html"
+              class="block text-sm text-slate-500 hover:text-slate-300"
+            >
+              Get the app
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <!-- COMPANY -->
+
+        <div>
+
+          <div
+            class="text-xs uppercase tracking-[.15em] text-slate-600 font-semibold"
+          >
+            Company
+          </div>
+
+
+          <div class="space-y-3 mt-5">
+
+            <a
+              href="about.html"
+              class="block text-sm text-slate-500 hover:text-slate-300"
+            >
+              About
+            </a>
+
+            <a
+              href="security.html"
+              class="block text-sm text-slate-300"
+            >
+              Security
+            </a>
+
+            <a
+              href="contact.html"
+              class="block text-sm text-slate-500 hover:text-slate-300"
+            >
+              Contact
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <!-- LEGAL -->
+
+        <div>
+
+          <div
+            class="text-xs uppercase tracking-[.15em] text-slate-600 font-semibold"
+          >
+            Legal
+          </div>
+
+
+          <div class="space-y-3 mt-5">
+
+            <a
+              href="terms.html"
+              class="block text-sm text-slate-500 hover:text-slate-300"
+            >
+              Terms
+            </a>
+
+            <a
+              href="privacy.html"
+              class="block text-sm text-slate-500 hover:text-slate-300"
+            >
+              Privacy
+            </a>
+
+            <a
+              href="faq.html"
+              class="block text-sm text-slate-500 hover:text-slate-300"
+            >
+              FAQ
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div
+        class="h-px bg-white/[.035] my-10"
+      ></div>
+
+
+      <div
+        class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4"
+      >
+
+        <p
+          class="text-xs text-slate-700"
+        >
+          © 2026 JOYET. All rights reserved.
+        </p>
+
+
+        <p
+          class="text-xs text-slate-700 max-w-xl"
+        >
+          Security measures and service availability may vary as
+          the JOYET platform and its provider ecosystem evolve.
+        </p>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+</div>
+
+
+<script>
+
+  /*
+    MOBILE MENU
+  */
+
+  const menuButton =
+    document.getElementById(
+      "menuButton"
+    );
+
+  const mobileMenu =
+    document.getElementById(
+      "mobileMenu"
+    );
+
+
+  menuButton?.addEventListener(
+    "click",
+    () => {
+
+      mobileMenu.classList.toggle(
+        "open"
+      );
+
+    }
+  );
+
+
+  document
+    .querySelectorAll(
+      "#mobileMenu a"
+    )
+    .forEach(link => {
+
+      link.addEventListener(
+        "click",
+        () => {
+
+          mobileMenu.classList.remove(
+            "open"
+          );
+
+        }
+      );
+
+    });
+
+
+  /*
+    FAQ
+  */
+
+  document
+    .querySelectorAll(
+      ".faq-button"
+    )
+    .forEach(button => {
+
+      button.addEventListener(
+        "click",
+        () => {
+
+          const item =
+            button.closest(
+              ".faq-item"
+            );
+
+
+          document
+            .querySelectorAll(
+              ".faq-item"
+            )
+            .forEach(other => {
+
+              if (
+                other !== item
+              ) {
+
+                other.classList.remove(
+                  "open"
+                );
+
+              }
+
+            });
+
+
+          item.classList.toggle(
+            "open"
+          );
+
+        }
+      );
+
+    });
+
+
+  /*
+    SCROLL REVEAL
+  */
+
+  const observer =
+    new IntersectionObserver(
+      entries => {
+
+        entries.forEach(
+          entry => {
+
+            if (
+              entry.isIntersecting
+            ) {
+
+              entry.target.classList.add(
+                "visible"
+              );
+
+              observer.unobserve(
+                entry.target
+              );
+
+            }
+
+          }
+        );
+
+      },
+      {
+        threshold:
+          .10
+      }
+    );
+
+
+  document
+    .querySelectorAll(
+      ".reveal"
+    )
+    .forEach(
+      element => {
+        observer.observe(element);
+      }
+    );
+
+</script>
+
+</body>
+</html>
