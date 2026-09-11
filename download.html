@@ -1,0 +1,2172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="theme-color"
+    content="#070A10"
+  >
+
+  <title>Get the JOYET App</title>
+
+  <meta
+    name="description"
+    content="Download the JOYET app. Deposit crypto, manage your JOYET balance, send money and pay for everyday digital services."
+  >
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            joyet: "#3B82F6",
+            joyetLight: "#60A5FA",
+            joyetSky: "#38BDF8",
+            ink: "#070A10",
+            ink2: "#0A0F17",
+            panel: "#0E141D"
+          }
+        }
+      }
+    };
+  </script>
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+
+      font-family: "Inter", sans-serif;
+
+      color: #F8FAFC;
+
+      min-height: 100vh;
+
+      background:
+        radial-gradient(
+          circle at 12% 5%,
+          rgba(59,130,246,.12),
+          transparent 29%
+        ),
+        radial-gradient(
+          circle at 90% 70%,
+          rgba(56,189,248,.07),
+          transparent 27%
+        ),
+        #070A10;
+
+      overflow-x: hidden;
+    }
+
+    .page {
+      position: relative;
+      z-index: 1;
+    }
+
+    .navbar {
+      background:
+        rgba(7,10,16,.70);
+
+      backdrop-filter:
+        blur(22px);
+
+      -webkit-backdrop-filter:
+        blur(22px);
+
+      border-bottom:
+        1px solid
+        rgba(255,255,255,.035);
+    }
+
+    .glass {
+      background:
+        rgba(14,20,29,.72);
+
+      backdrop-filter:
+        blur(24px);
+
+      -webkit-backdrop-filter:
+        blur(24px);
+
+      box-shadow:
+        0 30px 90px rgba(0,0,0,.28),
+        inset 0 1px rgba(255,255,255,.02);
+    }
+
+    .blue-text {
+      background:
+        linear-gradient(
+          90deg,
+          #60A5FA,
+          #38BDF8
+        );
+
+      -webkit-background-clip:
+        text;
+
+      background-clip:
+        text;
+
+      color:
+        transparent;
+    }
+
+    .primary-btn {
+      display:
+        inline-flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      gap:
+        9px;
+
+      height:
+        50px;
+
+      padding:
+        0 21px;
+
+      border-radius:
+        14px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #3B82F6,
+          #2563EB
+        );
+
+      color:
+        #fff;
+
+      font-size:
+        14px;
+
+      font-weight:
+        700;
+
+      box-shadow:
+        0 18px 42px
+        rgba(37,99,235,.23);
+
+      transition:
+        .2s ease;
+    }
+
+    .primary-btn:hover {
+      transform:
+        translateY(-2px);
+
+      box-shadow:
+        0 25px 55px
+        rgba(37,99,235,.31);
+    }
+
+    .secondary-btn {
+      display:
+        inline-flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      gap:
+        9px;
+
+      height:
+        50px;
+
+      padding:
+        0 21px;
+
+      border-radius:
+        14px;
+
+      background:
+        rgba(255,255,255,.035);
+
+      color:
+        #CBD5E1;
+
+      font-size:
+        14px;
+
+      font-weight:
+        600;
+
+      transition:
+        .2s ease;
+    }
+
+    .secondary-btn:hover {
+      background:
+        rgba(255,255,255,.06);
+
+      color:
+        #fff;
+    }
+
+    .hero-orb {
+      position:
+        absolute;
+
+      width:
+        620px;
+
+      height:
+        620px;
+
+      border-radius:
+        999px;
+
+      right:
+        -220px;
+
+      top:
+        -260px;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(59,130,246,.18),
+          transparent 68%
+        );
+
+      pointer-events:
+        none;
+    }
+
+    .phone {
+
+      position:
+        relative;
+
+      width:
+        310px;
+
+      height:
+        625px;
+
+      border-radius:
+        44px;
+
+      padding:
+        10px;
+
+      background:
+        linear-gradient(
+          145deg,
+          #142133,
+          #080C13
+        );
+
+      box-shadow:
+        0 65px 140px rgba(0,0,0,.55),
+        inset 0 0 0 1px rgba(255,255,255,.06);
+
+    }
+
+    .phone::before {
+
+      content:
+        "";
+
+      position:
+        absolute;
+
+      width:
+        98px;
+
+      height:
+        25px;
+
+      top:
+        12px;
+
+      left:
+        50%;
+
+      transform:
+        translateX(-50%);
+
+      border-radius:
+        999px;
+
+      background:
+        #020307;
+
+      z-index:
+        10;
+
+    }
+
+    .phone-screen {
+
+      width:
+        100%;
+
+      height:
+        100%;
+
+      overflow:
+        hidden;
+
+      border-radius:
+        35px;
+
+      background:
+        linear-gradient(
+          180deg,
+          #08101A,
+          #070C13
+        );
+
+      padding:
+        28px 17px 18px;
+    }
+
+    .app-balance {
+
+      margin-top:
+        23px;
+
+      border-radius:
+        24px;
+
+      padding:
+        21px;
+
+      background:
+        radial-gradient(
+          circle at 88% 10%,
+          rgba(96,165,250,.25),
+          transparent 30%
+        ),
+        linear-gradient(
+          145deg,
+          #102039,
+          #09131E
+        );
+
+      box-shadow:
+        inset 0 1px
+        rgba(255,255,255,.025);
+    }
+
+    .phone-action {
+
+      border-radius:
+        16px;
+
+      padding:
+        12px 7px;
+
+      background:
+        rgba(255,255,255,.028);
+
+      text-align:
+        center;
+    }
+
+    .phone-icon {
+
+      width:
+        40px;
+
+      height:
+        40px;
+
+      border-radius:
+        12px;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      margin:
+        auto;
+
+      color:
+        #60A5FA;
+
+      background:
+        rgba(59,130,246,.09);
+    }
+
+    .floating-card {
+
+      position:
+        absolute;
+
+      border-radius:
+        18px;
+
+      background:
+        rgba(14,20,29,.90);
+
+      backdrop-filter:
+        blur(18px);
+
+      -webkit-backdrop-filter:
+        blur(18px);
+
+      box-shadow:
+        0 25px 70px
+        rgba(0,0,0,.35),
+        inset 0 1px
+        rgba(255,255,255,.025);
+    }
+
+    .floating-top {
+      top:
+        85px;
+
+      left:
+        -105px;
+
+      width:
+        195px;
+    }
+
+    .floating-bottom {
+      right:
+        -100px;
+
+      bottom:
+        90px;
+
+      width:
+        205px;
+    }
+
+    .feature-card {
+
+      border-radius:
+        23px;
+
+      background:
+        rgba(255,255,255,.025);
+
+      transition:
+        .23s ease;
+    }
+
+    .feature-card:hover {
+
+      transform:
+        translateY(-5px);
+
+      background:
+        rgba(255,255,255,.037);
+
+      box-shadow:
+        0 25px 60px
+        rgba(0,0,0,.20);
+    }
+
+    .feature-icon {
+
+      width:
+        48px;
+
+      height:
+        48px;
+
+      border-radius:
+        15px;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      background:
+        rgba(59,130,246,.08);
+
+      color:
+        #60A5FA;
+    }
+
+    .store-card {
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      gap:
+        13px;
+
+      padding:
+        15px 17px;
+
+      border-radius:
+        17px;
+
+      background:
+        rgba(255,255,255,.035);
+
+      color:
+        #E2E8F0;
+
+      transition:
+        .2s ease;
+    }
+
+    .store-card:hover {
+
+      background:
+        rgba(255,255,255,.055);
+
+      transform:
+        translateY(-2px);
+    }
+
+    .reveal {
+
+      opacity:
+        0;
+
+      transform:
+        translateY(20px);
+
+      transition:
+        opacity .7s ease,
+        transform .7s ease;
+    }
+
+    .reveal.visible {
+
+      opacity:
+        1;
+
+      transform:
+        translateY(0);
+    }
+
+    .mobile-menu {
+      display:
+        none;
+    }
+
+    .mobile-menu.open {
+      display:
+        block;
+    }
+
+    @media(max-width:1024px) {
+
+      .floating-card {
+        display:
+          none;
+      }
+
+      .phone {
+        width:
+          280px;
+
+        height:
+          565px;
+      }
+    }
+
+    @media(max-width:768px) {
+
+      .desktop-links {
+        display:
+          none;
+      }
+
+      .mobile-menu-btn {
+        display:
+          flex;
+      }
+
+      .hero-orb {
+        width:
+          400px;
+
+        height:
+          400px;
+
+        right:
+          -210px;
+      }
+
+    }
+
+    @media(min-width:769px) {
+
+      .mobile-menu-btn {
+        display:
+          none;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+<div class="page">
+
+
+  <!-- ==================================================
+       NAVBAR
+  =================================================== -->
+
+  <header
+    class="navbar fixed top-0 left-0 right-0 z-50"
+  >
+
+    <div
+      class="max-w-7xl mx-auto px-5 sm:px-7 lg:px-8"
+    >
+
+      <div
+        class="h-[76px] flex items-center justify-between"
+      >
+
+        <a
+          href="index.html"
+          class="text-3xl font-black tracking-[-.06em]"
+        >
+          JOYET
+        </a>
+
+
+        <nav
+          class="desktop-links hidden md:flex items-center gap-8"
+        >
+
+          <a
+            href="index.html#how-it-works"
+            class="text-sm text-slate-400 hover:text-white transition"
+          >
+            How it works
+          </a>
+
+          <a
+            href="services.html"
+            class="text-sm text-slate-400 hover:text-white transition"
+          >
+            Services
+          </a>
+
+          <a
+            href="security.html"
+            class="text-sm text-slate-400 hover:text-white transition"
+          >
+            Security
+          </a>
+
+          <a
+            href="faq.html"
+            class="text-sm text-slate-400 hover:text-white transition"
+          >
+            FAQ
+          </a>
+
+        </nav>
+
+
+        <div class="flex items-center gap-3">
+
+          <a
+            href="download.html"
+            class="primary-btn"
+          >
+            Get the app
+          </a>
+
+
+          <button
+            id="menuButton"
+            class="mobile-menu-btn w-11 h-11 rounded-xl bg-white/[.035] items-center justify-center text-slate-300"
+            aria-label="Open menu"
+          >
+
+            <svg
+              width="20"
+              height="20"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              viewBox="0 0 24 24"
+            >
+              <path d="M4 7h16"/>
+              <path d="M4 12h16"/>
+              <path d="M4 17h16"/>
+            </svg>
+
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <div
+        id="mobileMenu"
+        class="mobile-menu pb-5"
+      >
+
+        <div
+          class="glass rounded-2xl p-3"
+        >
+
+          <a
+            href="index.html#how-it-works"
+            class="block px-4 py-3 text-sm text-slate-400"
+          >
+            How it works
+          </a>
+
+          <a
+            href="services.html"
+            class="block px-4 py-3 text-sm text-slate-400"
+          >
+            Services
+          </a>
+
+          <a
+            href="security.html"
+            class="block px-4 py-3 text-sm text-slate-400"
+          >
+            Security
+          </a>
+
+          <a
+            href="faq.html"
+            class="block px-4 py-3 text-sm text-slate-400"
+          >
+            FAQ
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <!-- ==================================================
+       HERO
+  =================================================== -->
+
+  <section
+    class="relative pt-36 md:pt-44 pb-24 overflow-hidden"
+  >
+
+    <div class="hero-orb"></div>
+
+
+    <div
+      class="max-w-7xl mx-auto px-5 sm:px-7 lg:px-8"
+    >
+
+      <div
+        class="grid lg:grid-cols-[1.05fr_.95fr] gap-14 items-center"
+      >
+
+
+        <!-- COPY -->
+
+        <div class="reveal">
+
+          <div
+            class="inline-flex items-center gap-2 px-3 py-2 rounded-full"
+            style="
+              background:rgba(59,130,246,.07);
+              color:#93C5FD;
+            "
+          >
+
+            <span
+              class="w-1.5 h-1.5 rounded-full bg-blue-400"
+            ></span>
+
+            JOYET is app-first
+
+          </div>
+
+
+          <h1
+            class="text-5xl sm:text-6xl md:text-7xl font-black leading-[.98] tracking-[-.065em] mt-7"
+          >
+
+            Your crypto.
+            <span class="blue-text">
+              Your JOYET.
+            </span>
+            Your everyday money.
+
+          </h1>
+
+
+          <p
+            class="text-lg sm:text-xl text-slate-400 leading-8 mt-7 max-w-2xl"
+          >
+            Take JOYET with you. Deposit crypto, manage your
+            balance, send money and pay for everyday digital
+            services from one simple app.
+          </p>
+
+
+          <div
+            class="flex flex-wrap gap-3 mt-9"
+          >
+
+            <!-- CHANGE THESE LINKS WHEN APP STORE / PLAY STORE URLS ARE READY -->
+
+            <a
+              href="#app-links"
+              class="primary-btn"
+            >
+
+              Download JOYET
+
+              <svg
+                width="16"
+                height="16"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                viewBox="0 0 24 24"
+              >
+                <path d="M12 4v12"/>
+                <path d="m6 11 6 6 6-6"/>
+                <path d="M5 20h14"/>
+              </svg>
+
+            </a>
+
+
+            <a
+              href="index.html"
+              class="secondary-btn"
+            >
+              Learn about JOYET
+            </a>
+
+          </div>
+
+
+          <div
+            class="flex flex-wrap gap-5 mt-8"
+          >
+
+            <span class="flex items-center gap-2 text-xs text-slate-600">
+
+              <span
+                class="w-1.5 h-1.5 rounded-full bg-blue-400"
+              ></span>
+
+              Crypto deposits
+
+            </span>
+
+
+            <span class="flex items-center gap-2 text-xs text-slate-600">
+
+              <span
+                class="w-1.5 h-1.5 rounded-full bg-blue-400"
+              ></span>
+
+              Transfers
+
+            </span>
+
+
+            <span class="flex items-center gap-2 text-xs text-slate-600">
+
+              <span
+                class="w-1.5 h-1.5 rounded-full bg-blue-400"
+              ></span>
+
+              VTU services
+
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <!-- PHONE -->
+
+        <div
+          class="relative flex justify-center lg:justify-end reveal"
+        >
+
+          <div class="relative">
+
+            <div class="phone">
+
+              <div class="phone-screen">
+
+
+                <!-- APP HEADER -->
+
+                <div
+                  class="flex items-center justify-between"
+                >
+
+                  <div>
+
+                    <div
+                      class="text-[8px] text-slate-600"
+                    >
+                      Welcome back
+                    </div>
+
+                    <div
+                      class="text-xs font-bold mt-1"
+                    >
+                      JOYET
+                    </div>
+
+                  </div>
+
+
+                  <div
+                    class="w-8 h-8 rounded-lg flex items-center justify-center text-[10px] font-bold"
+                    style="
+                      background:rgba(59,130,246,.10);
+                      color:#93C5FD;
+                    "
+                  >
+                    J
+                  </div>
+
+                </div>
+
+
+                <!-- BALANCE -->
+
+                <div class="app-balance">
+
+                  <div
+                    class="text-[9px] text-slate-500"
+                  >
+                    Available balance
+                  </div>
+
+
+                  <div
+                    class="text-3xl font-black tracking-[-.05em] mt-2"
+                  >
+                    ₦248,500
+                  </div>
+
+
+                  <div
+                    class="text-[8px] text-slate-600 mt-1"
+                  >
+                    JOYET balance
+                  </div>
+
+
+                  <div
+                    class="grid grid-cols-2 gap-2 mt-5"
+                  >
+
+                    <div
+                      class="rounded-xl bg-white/[.05] text-center py-2"
+                    >
+
+                      <div class="text-[11px] text-blue-300">
+                        ↓
+                      </div>
+
+                      <div class="text-[8px] text-slate-600 mt-1">
+                        Deposit
+                      </div>
+
+                    </div>
+
+
+                    <div
+                      class="rounded-xl bg-white/[.05] text-center py-2"
+                    >
+
+                      <div class="text-[11px] text-blue-300">
+                        ↑
+                      </div>
+
+                      <div class="text-[8px] text-slate-600 mt-1">
+                        Send
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+
+                <!-- SERVICES -->
+
+                <div
+                  class="grid grid-cols-4 gap-2 mt-4"
+                >
+
+                  <div class="phone-action">
+
+                    <div class="phone-icon">
+
+                      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24">
+                        <rect x="7" y="2.5" width="10" height="19" rx="2"/>
+                        <path d="M10 18h4"/>
+                      </svg>
+
+                    </div>
+
+                    <div
+                      class="text-[8px] text-slate-500 mt-2"
+                    >
+                      Airtime
+                    </div>
+
+                  </div>
+
+
+                  <div class="phone-action">
+
+                    <div class="phone-icon">
+
+                      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24">
+                        <path d="M4 8h16"/>
+                        <path d="M7 5h10"/>
+                        <path d="M6 8v11h12V8"/>
+                      </svg>
+
+                    </div>
+
+                    <div
+                      class="text-[8px] text-slate-500 mt-2"
+                    >
+                      Data
+                    </div>
+
+                  </div>
+
+
+                  <div class="phone-action">
+
+                    <div class="phone-icon">
+
+                      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24">
+                        <path d="m13 2-8 12h7l-1 8 8-12h-7l1-8Z"/>
+                      </svg>
+
+                    </div>
+
+                    <div
+                      class="text-[8px] text-slate-500 mt-2"
+                    >
+                      Power
+                    </div>
+
+                  </div>
+
+
+                  <div class="phone-action">
+
+                    <div class="phone-icon">
+
+                      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24">
+                        <rect x="3" y="5" width="18" height="14" rx="3"/>
+                        <path d="M8 9h8"/>
+                      </svg>
+
+                    </div>
+
+                    <div
+                      class="text-[8px] text-slate-500 mt-2"
+                    >
+                      Cable
+                    </div>
+
+                  </div>
+
+                </div>
+
+
+                <!-- RECENT ACTIVITY -->
+
+                <div class="mt-5">
+
+                  <div
+                    class="flex items-center justify-between mb-3"
+                  >
+
+                    <div
+                      class="text-[10px] font-semibold"
+                    >
+                      Recent activity
+                    </div>
+
+                    <div
+                      class="text-[8px] text-blue-400"
+                    >
+                      View all
+                    </div>
+
+                  </div>
+
+
+                  <div
+                    class="rounded-2xl bg-white/[.025] p-3"
+                  >
+
+                    <div
+                      class="flex items-center gap-2.5"
+                    >
+
+                      <div
+                        class="w-8 h-8 rounded-lg bg-blue-500/10 text-blue-300 flex items-center justify-center"
+                      >
+                        ↓
+                      </div>
+
+                      <div class="flex-1">
+
+                        <div
+                          class="text-[9px] font-semibold"
+                        >
+                          Crypto deposit
+                        </div>
+
+                        <div
+                          class="text-[7px] text-slate-600 mt-1"
+                        >
+                          Today
+                        </div>
+
+                      </div>
+
+                      <div
+                        class="text-[9px] font-semibold text-blue-300"
+                      >
+                        +₦84,200
+                      </div>
+
+                    </div>
+
+
+                    <div
+                      class="h-px bg-white/[.035] my-3"
+                    ></div>
+
+
+                    <div
+                      class="flex items-center gap-2.5"
+                    >
+
+                      <div
+                        class="w-8 h-8 rounded-lg bg-white/[.035] text-slate-400 flex items-center justify-center"
+                      >
+                        ↑
+                      </div>
+
+                      <div class="flex-1">
+
+                        <div
+                          class="text-[9px] font-semibold"
+                        >
+                          Bank transfer
+                        </div>
+
+                        <div
+                          class="text-[7px] text-slate-600 mt-1"
+                        >
+                          Yesterday
+                        </div>
+
+                      </div>
+
+                      <div
+                        class="text-[9px] font-semibold"
+                      >
+                        -₦25,000
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <!-- FLOATING DEPOSIT -->
+
+            <div
+              class="floating-card floating-top p-4"
+            >
+
+              <div
+                class="flex items-center gap-3"
+              >
+
+                <div
+                  class="w-9 h-9 rounded-xl bg-blue-500/10 text-blue-300 flex items-center justify-center"
+                >
+                  ↓
+                </div>
+
+                <div>
+
+                  <div class="text-[9px] text-slate-600">
+                    Crypto deposit
+                  </div>
+
+                  <div
+                    class="font-bold text-sm mt-1"
+                  >
+                    Balance funded
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <!-- FLOATING SERVICE -->
+
+            <div
+              class="floating-card floating-bottom p-4"
+            >
+
+              <div
+                class="flex items-center gap-3"
+              >
+
+                <div
+                  class="w-9 h-9 rounded-xl bg-white/[.035] text-blue-300 flex items-center justify-center"
+                >
+                  ↑
+                </div>
+
+                <div>
+
+                  <div class="text-[9px] text-slate-600">
+                    Everyday payments
+                  </div>
+
+                  <div
+                    class="font-bold text-sm mt-1"
+                  >
+                    From one balance
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ==================================================
+       APP LINKS
+  =================================================== -->
+
+  <section
+    id="app-links"
+    class="py-20 md:py-24"
+  >
+
+    <div
+      class="max-w-5xl mx-auto px-5 sm:px-7 lg:px-8"
+    >
+
+      <div
+        class="glass rounded-[30px] p-7 sm:p-10 md:p-12 reveal"
+      >
+
+        <div
+          class="text-center max-w-2xl mx-auto"
+        >
+
+          <div
+            class="w-14 h-14 mx-auto rounded-2xl flex items-center justify-center"
+            style="
+              background:rgba(59,130,246,.10);
+              color:#60A5FA;
+            "
+          >
+
+            <svg
+              width="26"
+              height="26"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.7"
+              viewBox="0 0 24 24"
+            >
+
+              <rect
+                x="6"
+                y="2.5"
+                width="12"
+                height="19"
+                rx="2.5"
+              />
+
+              <path d="M10 18h4"/>
+
+            </svg>
+
+          </div>
+
+
+          <h2
+            class="text-3xl sm:text-4xl font-black tracking-[-.04em] mt-6"
+          >
+            JOYET in your pocket.
+          </h2>
+
+
+          <p
+            class="text-slate-500 leading-7 mt-4"
+          >
+            We're building the JOYET mobile experience around
+            one simple idea: make your crypto useful wherever
+            everyday payments happen.
+          </p>
+
+
+          <div
+            class="grid sm:grid-cols-2 gap-3 max-w-md mx-auto mt-8"
+          >
+
+            <!-- APP STORE -->
+
+            <a
+              href="#"
+              onclick="showComingSoon(event,'App Store')"
+              class="store-card"
+            >
+
+              <div
+                class="w-10 h-10 rounded-xl bg-white/[.04] flex items-center justify-center text-slate-300"
+              >
+
+                <svg
+                  width="21"
+                  height="21"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+
+                  <path
+                    d="M17.1 12.6c0-2.5 2-3.7 2.1-3.8-1.1-1.7-2.9-2-3.5-2-1.5-.2-2.9.9-3.6.9-.7 0-1.8-.9-3-.9-1.5 0-2.9.9-3.7 2.3-1.6 2.7-.4 6.7 1.1 8.8.8 1 1.7 2.1 2.9 2.1 1.2 0 1.7-.8 3.2-.8 1.5 0 1.9.8 3.2.8 1.3 0 2.1-1 2.9-2.1.9-1.2 1.3-2.5 1.3-2.5-.1 0-2.5-1-2.5-3.8ZM14.7 5.3c.7-.9 1.2-2.1 1.1-3.3-1.1 0-2.4.7-3.1 1.5-.7.8-1.3 2-1.1 3.2 1.2.1 2.4-.6 3.1-1.4Z"
+                  />
+
+                </svg>
+
+              </div>
+
+
+              <div class="text-left">
+
+                <div
+                  class="text-[10px] text-slate-600"
+                >
+                  Coming soon on
+                </div>
+
+                <div
+                  class="font-semibold text-sm mt-1"
+                >
+                  App Store
+                </div>
+
+              </div>
+
+            </a>
+
+
+            <!-- PLAY STORE -->
+
+            <a
+              href="#"
+              onclick="showComingSoon(event,'Google Play')"
+              class="store-card"
+            >
+
+              <div
+                class="w-10 h-10 rounded-xl bg-white/[.04] flex items-center justify-center"
+              >
+
+                <svg
+                  width="21"
+                  height="21"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                >
+
+                  <path
+                    d="M3 4.6v14.8c0 .7.8 1.1 1.4.7L16 13.1 4.4 4c-.6-.5-1.4 0-1.4.6Z"
+                    fill="#60A5FA"
+                  />
+
+                  <path
+                    d="m16 10.5-2.8-2.2-9.4-5.7c-.5-.3-1 .1-1 .7v1.3l11.7 9.1 1.5-1.2c.5-.4.5-1.5 0-2Z"
+                    fill="#38BDF8"
+                  />
+
+                  <path
+                    d="m2.8 20.4 10.4-6.2 2.8-2.1c.5-.4.5-1.5 0-2l-1.5-1.2-11.7 9.1v1.7c0 .7.5 1.1 1 .7Z"
+                    fill="#2563EB"
+                  />
+
+                </svg>
+
+              </div>
+
+
+              <div class="text-left">
+
+                <div
+                  class="text-[10px] text-slate-600"
+                >
+                  Coming soon on
+                </div>
+
+                <div
+                  class="font-semibold text-sm mt-1"
+                >
+                  Google Play
+                </div>
+
+              </div>
+
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ==================================================
+       FEATURES
+  =================================================== -->
+
+  <section
+    class="py-24 md:py-32"
+  >
+
+    <div
+      class="max-w-7xl mx-auto px-5 sm:px-7 lg:px-8"
+    >
+
+      <div
+        class="max-w-2xl reveal"
+      >
+
+        <p
+          class="text-xs uppercase tracking-[.18em] text-blue-400 font-semibold"
+        >
+          Built for everyday use
+        </p>
+
+
+        <h2
+          class="text-4xl sm:text-5xl font-black tracking-[-.045em] mt-3"
+        >
+          More than a
+          <span class="blue-text">
+            crypto deposit.
+          </span>
+        </h2>
+
+
+        <p
+          class="text-slate-500 leading-7 mt-5"
+        >
+          JOYET is built around what happens after your crypto
+          arrives — giving your balance practical uses.
+        </p>
+
+      </div>
+
+
+      <div
+        class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-12"
+      >
+
+        <div
+          class="feature-card p-6 reveal"
+        >
+
+          <div class="feature-icon">
+            ↓
+          </div>
+
+          <h3
+            class="font-bold text-lg mt-5"
+          >
+            Deposit crypto
+          </h3>
+
+          <p
+            class="text-sm text-slate-500 leading-6 mt-2"
+          >
+            Fund your JOYET balance using supported crypto
+            assets.
+          </p>
+
+        </div>
+
+
+        <div
+          class="feature-card p-6 reveal"
+        >
+
+          <div class="feature-icon">
+            ↑
+          </div>
+
+          <h3
+            class="font-bold text-lg mt-5"
+          >
+            Send money
+          </h3>
+
+          <p
+            class="text-sm text-slate-500 leading-6 mt-2"
+          >
+            Send from your JOYET balance to supported bank
+            accounts or other JOYET users.
+          </p>
+
+        </div>
+
+
+        <div
+          class="feature-card p-6 reveal"
+        >
+
+          <div class="feature-icon">
+            <svg width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+              <rect x="7" y="2.5" width="10" height="19" rx="2"/>
+              <path d="M10 18h4"/>
+            </svg>
+          </div>
+
+          <h3
+            class="font-bold text-lg mt-5"
+          >
+            Airtime
+          </h3>
+
+          <p
+            class="text-sm text-slate-500 leading-6 mt-2"
+          >
+            Turn your balance into airtime for supported
+            networks.
+          </p>
+
+        </div>
+
+
+        <div
+          class="feature-card p-6 reveal"
+        >
+
+          <div class="feature-icon">
+            <svg width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+              <path d="M4 8h16"/>
+              <path d="M7 5h10"/>
+              <path d="M6 8v11h12V8"/>
+            </svg>
+          </div>
+
+          <h3
+            class="font-bold text-lg mt-5"
+          >
+            Mobile data
+          </h3>
+
+          <p
+            class="text-sm text-slate-500 leading-6 mt-2"
+          >
+            Buy mobile data directly from your JOYET balance.
+          </p>
+
+        </div>
+
+
+        <div
+          class="feature-card p-6 reveal"
+        >
+
+          <div class="feature-icon">
+
+            <svg width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+              <path d="m13 2-8 12h7l-1 8 8-12h-7l1-8Z"/>
+            </svg>
+
+          </div>
+
+          <h3
+            class="font-bold text-lg mt-5"
+          >
+            Electricity
+          </h3>
+
+          <p
+            class="text-sm text-slate-500 leading-6 mt-2"
+          >
+            Pay supported electricity services from your
+            available balance.
+          </p>
+
+        </div>
+
+
+        <div
+          class="feature-card p-6 reveal"
+        >
+
+          <div class="feature-icon">
+
+            <svg width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+              <rect x="3" y="5" width="18" height="14" rx="3"/>
+              <path d="M8 9h8"/>
+            </svg>
+
+          </div>
+
+          <h3
+            class="font-bold text-lg mt-5"
+          >
+            Cable TV
+          </h3>
+
+          <p
+            class="text-sm text-slate-500 leading-6 mt-2"
+          >
+            Manage supported cable subscriptions from one
+            balance.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ==================================================
+       CTA
+  =================================================== -->
+
+  <section
+    class="py-24"
+  >
+
+    <div
+      class="max-w-6xl mx-auto px-5 sm:px-7"
+    >
+
+      <div
+        class="rounded-[34px] p-8 sm:p-12 md:p-16 text-center reveal"
+        style="
+          background:
+            radial-gradient(
+              circle at 50% 0%,
+              rgba(59,130,246,.18),
+              transparent 45%
+            ),
+            linear-gradient(
+              145deg,
+              #0D1929,
+              #0A1019
+            );
+
+          box-shadow:
+            0 35px 100px
+            rgba(0,0,0,.30),
+
+            inset 0 1px
+            rgba(255,255,255,.025);
+        "
+      >
+
+        <p
+          class="text-xs uppercase tracking-[.18em] text-blue-300 font-semibold"
+        >
+          Get started with JOYET
+        </p>
+
+
+        <h2
+          class="text-4xl sm:text-5xl font-black tracking-[-.05em] mt-4"
+        >
+          Carry your balance
+          <span class="blue-text">
+            everywhere.
+          </span>
+        </h2>
+
+
+        <p
+          class="text-slate-400 max-w-2xl mx-auto leading-7 mt-5"
+        >
+          Deposit crypto. Manage your balance. Send money.
+          Pay for the things you use every day.
+        </p>
+
+
+        <a
+          href="#app-links"
+          class="primary-btn mt-8"
+        >
+          Get the app
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ==================================================
+       FOOTER
+  =================================================== -->
+
+  <footer
+    class="border-t border-white/[.035] pt-14 pb-8"
+  >
+
+    <div
+      class="max-w-7xl mx-auto px-5 sm:px-7 lg:px-8"
+    >
+
+      <div
+        class="grid md:grid-cols-[1.2fr_1fr_1fr_1fr] gap-10"
+      >
+
+        <div>
+
+          <a
+            href="index.html"
+            class="text-3xl font-black tracking-[-.06em]"
+          >
+            JOYET
+          </a>
+
+          <p
+            class="text-sm text-slate-600 leading-6 mt-4 max-w-sm"
+          >
+            A crypto-funded payment and digital-services
+            platform built for everyday use.
+          </p>
+
+        </div>
+
+
+        <div>
+
+          <div
+            class="text-xs uppercase tracking-[.15em] text-slate-600 font-semibold"
+          >
+            Product
+          </div>
+
+          <div class="space-y-3 mt-5">
+
+            <a
+              href="index.html#how-it-works"
+              class="block text-sm text-slate-500 hover:text-slate-300"
+            >
+              How it works
+            </a>
+
+            <a
+              href="services.html"
+              class="block text-sm text-slate-500 hover:text-slate-300"
+            >
+              Services
+            </a>
+
+            <a
+              href="download.html"
+              class="block text-sm text-slate-500 hover:text-slate-300"
+            >
+              Get the app
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <div>
+
+          <div
+            class="text-xs uppercase tracking-[.15em] text-slate-600 font-semibold"
+          >
+            Company
+          </div>
+
+          <div class="space-y-3 mt-5">
+
+            <a
+              href="about.html"
+              class="block text-sm text-slate-500 hover:text-slate-300"
+            >
+              About
+            </a>
+
+            <a
+              href="security.html"
+              class="block text-sm text-slate-500 hover:text-slate-300"
+            >
+              Security
+            </a>
+
+            <a
+              href="contact.html"
+              class="block text-sm text-slate-500 hover:text-slate-300"
+            >
+              Contact
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <div>
+
+          <div
+            class="text-xs uppercase tracking-[.15em] text-slate-600 font-semibold"
+          >
+            Legal
+          </div>
+
+          <div class="space-y-3 mt-5">
+
+            <a
+              href="terms.html"
+              class="block text-sm text-slate-500 hover:text-slate-300"
+            >
+              Terms
+            </a>
+
+            <a
+              href="privacy.html"
+              class="block text-sm text-slate-500 hover:text-slate-300"
+            >
+              Privacy
+            </a>
+
+            <a
+              href="faq.html"
+              class="block text-sm text-slate-500 hover:text-slate-300"
+            >
+              FAQ
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div
+        class="h-px bg-white/[.035] my-10"
+      ></div>
+
+
+      <div
+        class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4"
+      >
+
+        <p
+          class="text-xs text-slate-700"
+        >
+          © 2026 JOYET. All rights reserved.
+        </p>
+
+
+        <p
+          class="text-xs text-slate-700 max-w-xl"
+        >
+          App availability, supported assets, payment services
+          and features may vary by location and provider.
+        </p>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+</div>
+
+
+<!-- ==================================================
+     TOAST
+=================================================== -->
+
+<div
+  id="toast"
+  class="fixed bottom-6 right-6 z-[100] translate-y-4 opacity-0 pointer-events-none transition duration-300"
+>
+
+  <div
+    class="glass rounded-2xl px-5 py-4 text-sm text-slate-200"
+  >
+
+    <span id="toastText">
+      Coming soon
+    </span>
+
+  </div>
+
+</div>
+
+
+<script>
+
+  /*
+    MOBILE MENU
+  */
+
+  const menuButton =
+    document.getElementById(
+      "menuButton"
+    );
+
+  const mobileMenu =
+    document.getElementById(
+      "mobileMenu"
+    );
+
+
+  menuButton?.addEventListener(
+    "click",
+    () => {
+
+      mobileMenu.classList.toggle(
+        "open"
+      );
+
+    }
+  );
+
+
+  document
+    .querySelectorAll("#mobileMenu a")
+    .forEach(link => {
+
+      link.addEventListener(
+        "click",
+        () => {
+
+          mobileMenu.classList.remove(
+            "open"
+          );
+
+        }
+      );
+
+    });
+
+
+  /*
+    COMING SOON TOAST
+  */
+
+  const toast =
+    document.getElementById(
+      "toast"
+    );
+
+  const toastText =
+    document.getElementById(
+      "toastText"
+    );
+
+  let toastTimer;
+
+
+  function showComingSoon(
+    event,
+    store
+  ) {
+
+    event.preventDefault();
+
+
+    toastText.textContent =
+      `${store} download will be available soon.`;
+
+
+    toast.classList.remove(
+      "opacity-0",
+      "translate-y-4"
+    );
+
+    toast.classList.add(
+      "opacity-100",
+      "translate-y-0"
+    );
+
+
+    clearTimeout(
+      toastTimer
+    );
+
+
+    toastTimer =
+      setTimeout(() => {
+
+        toast.classList.add(
+          "opacity-0",
+          "translate-y-4"
+        );
+
+        toast.classList.remove(
+          "opacity-100",
+          "translate-y-0"
+        );
+
+      }, 3000);
+
+  }
+
+
+  /*
+    SCROLL REVEAL
+  */
+
+  const observer =
+    new IntersectionObserver(
+      entries => {
+
+        entries.forEach(
+          entry => {
+
+            if (
+              entry.isIntersecting
+            ) {
+
+              entry.target.classList.add(
+                "visible"
+              );
+
+              observer.unobserve(
+                entry.target
+              );
+
+            }
+
+          }
+        );
+
+      },
+      {
+        threshold: .1
+      }
+    );
+
+
+  document
+    .querySelectorAll(".reveal")
+    .forEach(element => {
+
+      observer.observe(
+        element
+      );
+
+    });
+
+</script>
+
+</body>
+</html>
