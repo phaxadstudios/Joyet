@@ -1,15 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#070A10" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#070A10">
 
   <title>Login — JOYET</title>
-  <meta
-    name="description"
-    content="Log in to your JOYET account and manage your crypto-funded balance, transfers, airtime, data and digital services."
-  />
 
   <script src="https://cdn.tailwindcss.com"></script>
 
@@ -24,98 +20,60 @@
             ink: "#070A10",
             ink2: "#0A0F17",
             panel: "#0E141D"
-          },
-          boxShadow: {
-            glow: "0 0 70px rgba(59,130,246,.16)",
-            soft: "0 30px 100px rgba(0,0,0,.45)"
           }
         }
       }
     };
   </script>
 
-  <link
-    rel="preconnect"
-    href="https://fonts.googleapis.com"
-  />
-  <link
-    rel="preconnect"
-    href="https://fonts.gstatic.com"
-    crossorigin
-  />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
     rel="stylesheet"
-  />
+  >
 
   <style>
     * {
       box-sizing: border-box;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
-
     body {
       margin: 0;
-      font-family: "Inter", sans-serif;
-      background:
-        radial-gradient(circle at 20% 20%, rgba(59,130,246,.13), transparent 30%),
-        radial-gradient(circle at 80% 80%, rgba(56,189,248,.08), transparent 28%),
-        #070A10;
-      color: #F8FAFC;
       min-height: 100vh;
-      overflow-x: hidden;
-    }
+      font-family: "Inter", sans-serif;
+      color: #F8FAFC;
 
-    .noise {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      opacity: .025;
-      z-index: 0;
-      background-image:
-        url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.95' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
-    }
-
-    .orb {
-      position: fixed;
-      width: 420px;
-      height: 420px;
-      border-radius: 999px;
-      filter: blur(90px);
-      pointer-events: none;
-      z-index: 0;
-      opacity: .22;
-    }
-
-    .orb.one {
-      top: -180px;
-      left: -120px;
-      background: rgba(59,130,246,.35);
-    }
-
-    .orb.two {
-      right: -160px;
-      bottom: -170px;
-      background: rgba(56,189,248,.22);
+      background:
+        radial-gradient(
+          circle at 10% 10%,
+          rgba(59,130,246,.15),
+          transparent 30%
+        ),
+        radial-gradient(
+          circle at 90% 90%,
+          rgba(56,189,248,.08),
+          transparent 28%
+        ),
+        #070A10;
     }
 
     .glass {
-      background: rgba(14, 20, 29, .78);
-      backdrop-filter: blur(24px);
-      -webkit-backdrop-filter: blur(24px);
+      background: rgba(14,20,29,.82);
+      backdrop-filter: blur(25px);
+      -webkit-backdrop-filter: blur(25px);
+
       box-shadow:
-        0 35px 90px rgba(0,0,0,.38),
-        inset 0 1px 0 rgba(255,255,255,.025);
+        0 35px 100px rgba(0,0,0,.45),
+        inset 0 1px rgba(255,255,255,.025);
     }
 
-    .input-wrap {
+    .field-wrap {
       position: relative;
     }
 
-    .input-icon {
+    .field-icon {
       position: absolute;
       left: 17px;
       top: 50%;
@@ -127,39 +85,50 @@
     .field {
       width: 100%;
       height: 56px;
-      border-radius: 16px;
-      background: rgba(255,255,255,.035);
-      border: 1px solid rgba(255,255,255,.055);
-      color: #F8FAFC;
-      outline: none;
-      padding: 0 18px 0 48px;
-      font-size: 15px;
-      transition: .2s ease;
-    }
 
-    .field:focus {
-      border-color: rgba(59,130,246,.6);
-      background: rgba(59,130,246,.055);
-      box-shadow: 0 0 0 4px rgba(59,130,246,.10);
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.055);
+
+      background: rgba(255,255,255,.035);
+
+      color: #F8FAFC;
+
+      outline: none;
+
+      padding: 0 50px 0 48px;
+
+      font-size: 14px;
+
+      transition: .2s ease;
     }
 
     .field::placeholder {
       color: #64748B;
     }
 
-    .password-field {
-      padding-right: 52px;
+    .field:focus {
+      background: rgba(59,130,246,.045);
+
+      border-color:
+        rgba(59,130,246,.65);
+
+      box-shadow:
+        0 0 0 4px rgba(59,130,246,.09);
     }
 
     .password-toggle {
       position: absolute;
-      right: 14px;
+      right: 12px;
       top: 50%;
       transform: translateY(-50%);
-      border: none;
+
+      border: 0;
       background: transparent;
+
       color: #64748B;
+
       cursor: pointer;
+
       padding: 8px;
     }
 
@@ -168,55 +137,54 @@
     }
 
     .login-btn {
-      position: relative;
       width: 100%;
       height: 56px;
+
       border: 0;
       border-radius: 16px;
-      background: linear-gradient(135deg, #3B82F6, #2563EB);
-      color: white;
-      font-weight: 700;
-      font-size: 15px;
-      cursor: pointer;
-      box-shadow: 0 18px 40px rgba(37,99,235,.22);
-      transition: .2s ease;
-      overflow: hidden;
-    }
 
-    .login-btn::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        110deg,
-        transparent 20%,
-        rgba(255,255,255,.18) 45%,
-        transparent 70%
-      );
-      transform: translateX(-120%);
-      transition: .55s ease;
+      background:
+        linear-gradient(
+          135deg,
+          #3B82F6,
+          #2563EB
+        );
+
+      color: white;
+
+      font-size: 15px;
+      font-weight: 700;
+
+      cursor: pointer;
+
+      box-shadow:
+        0 18px 40px rgba(37,99,235,.22);
+
+      transition: .2s ease;
     }
 
     .login-btn:hover {
       transform: translateY(-1px);
-      box-shadow: 0 22px 48px rgba(37,99,235,.28);
-    }
 
-    .login-btn:hover::before {
-      transform: translateX(120%);
+      box-shadow:
+        0 24px 50px rgba(37,99,235,.30);
     }
 
     .login-btn:disabled {
-      opacity: .65;
+      opacity: .6;
       cursor: not-allowed;
       transform: none;
     }
 
     .status {
       display: none;
-      border-radius: 14px;
+
       padding: 13px 15px;
-      margin-bottom: 16px;
+
+      margin-bottom: 18px;
+
+      border-radius: 14px;
+
       font-size: 13px;
       line-height: 1.5;
     }
@@ -226,152 +194,191 @@
     }
 
     .status.error {
-      background: rgba(239,68,68,.08);
       color: #FCA5A5;
-      border: 1px solid rgba(239,68,68,.12);
+
+      background:
+        rgba(239,68,68,.08);
+
+      border:
+        1px solid rgba(239,68,68,.12);
     }
 
     .status.success {
-      background: rgba(59,130,246,.08);
       color: #93C5FD;
-      border: 1px solid rgba(59,130,246,.12);
+
+      background:
+        rgba(59,130,246,.08);
+
+      border:
+        1px solid rgba(59,130,246,.12);
     }
 
-    .mini-card {
-      background: rgba(255,255,255,.026);
-      border: 1px solid rgba(255,255,255,.04);
+    .feature-card {
+      background: rgba(255,255,255,.025);
+      border: 1px solid rgba(255,255,255,.035);
       border-radius: 18px;
-    }
-
-    .dot-grid {
-      background-image: radial-gradient(
-        rgba(148,163,184,.16) 1px,
-        transparent 1px
-      );
-      background-size: 20px 20px;
-    }
-
-    @media (max-width: 768px) {
-      .orb {
-        width: 260px;
-        height: 260px;
-        filter: blur(70px);
-      }
     }
   </style>
 </head>
 
 <body>
-  <div class="noise"></div>
-  <div class="orb one"></div>
-  <div class="orb two"></div>
 
-  <main class="relative z-10 min-h-screen flex items-center justify-center px-5 py-10">
+  <main class="min-h-screen flex items-center justify-center px-5 py-10">
 
-    <div class="w-full max-w-6xl grid lg:grid-cols-[1fr_460px] gap-10 lg:gap-16 items-center">
+    <div class="w-full max-w-6xl grid lg:grid-cols-[1fr_460px] gap-12 items-center">
 
-      <!-- LEFT SIDE -->
+      <!-- LEFT -->
       <section class="hidden lg:block">
+
         <a
           href="index.html"
-          class="inline-flex items-center gap-3 mb-12"
+          class="inline-block mb-12 text-3xl font-black tracking-[-.06em]"
         >
-          <div
-            class="w-10 h-10 rounded-xl flex items-center justify-center"
-            style="background:linear-gradient(135deg,#3B82F6,#60A5FA); box-shadow:0 10px 30px rgba(59,130,246,.22);"
-          >
-            <span class="text-white font-black text-lg">J</span>
-          </div>
-
-          <span class="text-2xl font-black tracking-[-.05em]">
-            JOYET
-          </span>
+          JOYET
         </a>
 
         <div class="max-w-xl">
+
           <div
             class="inline-flex items-center gap-2 px-3 py-2 rounded-full mb-7"
-            style="background:rgba(59,130,246,.07); color:#93C5FD;"
+            style="
+              background:rgba(59,130,246,.07);
+              color:#93C5FD;
+            "
           >
             <span class="w-1.5 h-1.5 rounded-full bg-blue-400"></span>
-            Your digital balance, simplified
+            Welcome back
           </div>
 
-          <h1 class="text-5xl xl:text-6xl font-black leading-[1.03] tracking-[-.055em]">
-            Welcome back to
+          <h1
+            class="text-5xl xl:text-6xl font-black leading-[1.03] tracking-[-.055em]"
+          >
+            Crypto made
             <span
               class="block mt-2 text-transparent bg-clip-text"
-              style="background-image:linear-gradient(90deg,#60A5FA,#38BDF8);"
+              style="
+                background-image:
+                  linear-gradient(
+                    90deg,
+                    #60A5FA,
+                    #38BDF8
+                  );
+              "
             >
-              JOYET.
+              useful.
             </span>
           </h1>
 
-          <p class="mt-7 text-lg text-slate-400 max-w-lg leading-8">
-            Deposit crypto, keep your balance in JOYET, and use it for
-            transfers, airtime, mobile data, bills and more.
+          <p class="mt-7 text-lg text-slate-400 leading-8 max-w-lg">
+            Access your JOYET balance and use it for transfers,
+            airtime, data, bills and other everyday services.
           </p>
 
-          <div class="grid sm:grid-cols-2 gap-4 mt-10 max-w-xl">
+          <div class="grid grid-cols-2 gap-4 mt-10">
 
-            <div class="mini-card p-5">
-              <div class="w-10 h-10 rounded-xl flex items-center justify-center bg-blue-500/10 text-blue-300 mb-4">
-                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+            <div class="feature-card p-5">
+
+              <div
+                class="w-10 h-10 rounded-xl flex items-center justify-center mb-4"
+                style="
+                  background:rgba(59,130,246,.10);
+                  color:#60A5FA;
+                "
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  viewBox="0 0 24 24"
+                >
                   <path d="M12 3v18M3 12h18"/>
                 </svg>
               </div>
 
-              <div class="font-semibold mb-1">
+              <div class="font-semibold">
                 One balance
               </div>
 
-              <div class="text-sm text-slate-500 leading-6">
-                Keep your digital value in one place.
-              </div>
+              <p class="text-sm text-slate-500 mt-2 leading-6">
+                Your digital value in one place.
+              </p>
+
             </div>
 
-            <div class="mini-card p-5">
-              <div class="w-10 h-10 rounded-xl flex items-center justify-center bg-sky-500/10 text-sky-300 mb-4">
-                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
-                  <rect x="3" y="5" width="18" height="14" rx="3"/>
+            <div class="feature-card p-5">
+
+              <div
+                class="w-10 h-10 rounded-xl flex items-center justify-center mb-4"
+                style="
+                  background:rgba(56,189,248,.08);
+                  color:#38BDF8;
+                "
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  viewBox="0 0 24 24"
+                >
+                  <rect
+                    x="3"
+                    y="5"
+                    width="18"
+                    height="14"
+                    rx="3"
+                  />
                   <path d="M3 10h18"/>
                 </svg>
               </div>
 
-              <div class="font-semibold mb-1">
-                Everyday services
+              <div class="font-semibold">
+                Everyday payments
               </div>
 
-              <div class="text-sm text-slate-500 leading-6">
-                Turn your balance into useful payments.
-              </div>
+              <p class="text-sm text-slate-500 mt-2 leading-6">
+                Use your balance for useful services.
+              </p>
+
             </div>
 
           </div>
+
         </div>
       </section>
 
 
-      <!-- LOGIN CARD -->
+      <!-- LOGIN -->
       <section class="w-full">
 
         <div class="lg:hidden text-center mb-8">
+
           <a
             href="index.html"
-            class="inline-block text-3xl font-black tracking-[-.06em]"
+            class="text-3xl font-black tracking-[-.06em]"
           >
             JOYET
           </a>
 
           <p class="text-sm text-slate-500 mt-3">
-            Your digital balance, simplified.
+            Crypto made useful.
           </p>
+
         </div>
 
-        <div class="glass rounded-[30px] p-6 sm:p-8 md:p-10">
+
+        <div
+          class="glass rounded-[30px] p-6 sm:p-9"
+        >
 
           <div class="mb-8">
-            <p class="text-xs uppercase tracking-[.18em] text-blue-400 font-semibold mb-3">
+
+            <p
+              class="text-xs uppercase tracking-[.18em] text-blue-400 font-semibold mb-3"
+            >
               Account access
             </p>
 
@@ -379,29 +386,44 @@
               Log in
             </h2>
 
-            <p class="text-slate-500 mt-2 text-sm leading-6">
-              Enter your details to access your JOYET account.
+            <p class="text-sm text-slate-500 mt-2">
+              Welcome back. Enter your details below.
             </p>
+
           </div>
 
 
-          <!-- STATUS -->
-          <div id="statusMessage" class="status"></div>
+          <div id="status" class="status"></div>
 
 
-          <!-- FORM -->
           <form id="loginForm" class="space-y-5">
 
+            <!-- EMAIL -->
             <div>
-              <label class="block text-sm font-medium text-slate-300 mb-2">
+
+              <label class="block text-sm text-slate-300 font-medium mb-2">
                 Email address
               </label>
 
-              <div class="input-wrap">
-                <div class="input-icon">
-                  <svg width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
-                    <rect x="3" y="5" width="18" height="14" rx="3"></rect>
-                    <path d="m4 7 8 6 8-6"></path>
+              <div class="field-wrap">
+
+                <div class="field-icon">
+                  <svg
+                    width="19"
+                    height="19"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    viewBox="0 0 24 24"
+                  >
+                    <rect
+                      x="3"
+                      y="5"
+                      width="18"
+                      height="14"
+                      rx="3"
+                    />
+                    <path d="m4 7 8 6 8-6"/>
                   </svg>
                 </div>
 
@@ -413,37 +435,57 @@
                   autocomplete="email"
                   required
                 />
+
               </div>
+
             </div>
 
 
+            <!-- PASSWORD -->
             <div>
+
               <div class="flex items-center justify-between mb-2">
-                <label class="text-sm font-medium text-slate-300">
+
+                <label class="text-sm text-slate-300 font-medium">
                   Password
                 </label>
 
                 <a
-                  href="#"
-                  id="forgotPassword"
+                  href="forgot-password.html"
                   class="text-xs font-medium text-blue-400 hover:text-blue-300 transition"
                 >
                   Forgot password?
                 </a>
+
               </div>
 
-              <div class="input-wrap">
-                <div class="input-icon">
-                  <svg width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
-                    <rect x="4" y="10" width="16" height="10" rx="2"></rect>
-                    <path d="M8 10V7a4 4 0 0 1 8 0v3"></path>
+
+              <div class="field-wrap">
+
+                <div class="field-icon">
+                  <svg
+                    width="19"
+                    height="19"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    viewBox="0 0 24 24"
+                  >
+                    <rect
+                      x="4"
+                      y="10"
+                      width="16"
+                      height="10"
+                      rx="2"
+                    />
+                    <path d="M8 10V7a4 4 0 0 1 8 0v3"/>
                   </svg>
                 </div>
 
                 <input
                   id="password"
                   type="password"
-                  class="field password-field"
+                  class="field"
                   placeholder="Enter your password"
                   autocomplete="current-password"
                   required
@@ -451,39 +493,47 @@
 
                 <button
                   type="button"
-                  class="password-toggle"
                   id="togglePassword"
+                  class="password-toggle"
                   aria-label="Show password"
                 >
-                  <svg id="eyeOpen" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
-                    <path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z"/>
+                  <svg
+                    width="19"
+                    height="19"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z"
+                    />
                     <circle cx="12" cy="12" r="2.5"/>
                   </svg>
-
-                  <svg id="eyeClosed" class="hidden" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
-                    <path d="m3 3 18 18"/>
-                    <path d="M10.6 10.6a2 2 0 0 0 2.8 2.8"/>
-                    <path d="M9.9 5.2A10.4 10.4 0 0 1 12 5c6 0 9.5 7 9.5 7a17.4 17.4 0 0 1-3 3.8"/>
-                    <path d="M6.4 6.4C3.8 8.2 2.5 12 2.5 12s3.5 6 9.5 6c1.6 0 3-.4 4.2-1"/>
-                  </svg>
                 </button>
+
               </div>
+
             </div>
 
 
-            <div class="flex items-center gap-3 pt-1">
+            <!-- REMEMBER -->
+
+            <div class="flex items-center gap-3">
+
               <input
                 id="remember"
                 type="checkbox"
-                class="w-4 h-4 accent-blue-500 rounded"
-              />
+                class="w-4 h-4 accent-blue-500"
+              >
 
               <label
                 for="remember"
-                class="text-sm text-slate-500 cursor-pointer"
+                class="text-sm text-slate-500"
               >
                 Remember me
               </label>
+
             </div>
 
 
@@ -492,184 +542,148 @@
               type="submit"
               class="login-btn"
             >
-              <span id="loginButtonText">Log in to JOYET</span>
+              <span id="loginText">
+                Log in to JOYET
+              </span>
             </button>
 
           </form>
 
 
           <div class="flex items-center gap-4 my-8">
+
             <div class="h-px flex-1 bg-white/[.045]"></div>
+
             <span class="text-xs text-slate-600">
-              Secure access
+              New to JOYET?
             </span>
+
             <div class="h-px flex-1 bg-white/[.045]"></div>
+
           </div>
 
 
           <p class="text-center text-sm text-slate-500">
-            Don't have a JOYET account?
+
+            Don't have an account?
+
             <a
               href="register.html"
-              class="font-semibold text-blue-400 hover:text-blue-300 transition"
+              class="font-semibold text-blue-400 hover:text-blue-300"
             >
-              Create one
+              Create account
             </a>
+
           </p>
 
         </div>
 
 
-        <div class="flex items-center justify-center gap-6 mt-6 text-xs text-slate-600">
-          <a href="index.html" class="hover:text-slate-400 transition">
-            Home
-          </a>
-
-          <span>•</span>
-
-          <a href="#" class="hover:text-slate-400 transition">
-            Privacy
-          </a>
-
-          <span>•</span>
-
-          <a href="#" class="hover:text-slate-400 transition">
-            Terms
+        <div
+          class="text-center mt-6 text-xs text-slate-600"
+        >
+          <a href="index.html" class="hover:text-slate-400">
+            Back to JOYET
           </a>
         </div>
 
       </section>
 
     </div>
+
   </main>
 
 
-  <script type="module">
-    /*
-      Firebase Authentication can be connected here.
+  <script>
 
-      Example structure:
+    const form =
+      document.getElementById("loginForm");
 
-      import { initializeApp } from "https://www.gstatic.com/firebasejs/...";
-      import {
-        getAuth,
-        signInWithEmailAndPassword,
-        sendPasswordResetEmail
-      } from "https://www.gstatic.com/firebasejs/...";
+    const password =
+      document.getElementById("password");
 
-      const firebaseConfig = {
-        ...
-      };
+    const toggle =
+      document.getElementById("togglePassword");
 
-      const app = initializeApp(firebaseConfig);
-      const auth = getAuth(app);
+    const status =
+      document.getElementById("status");
 
-      Then replace the demo submit section below with:
-      await signInWithEmailAndPassword(auth, email, password);
-    */
+    const button =
+      document.getElementById("loginButton");
 
-
-    const loginForm = document.getElementById("loginForm");
-    const loginButton = document.getElementById("loginButton");
-    const loginButtonText = document.getElementById("loginButtonText");
-
-    const passwordInput = document.getElementById("password");
-    const togglePassword = document.getElementById("togglePassword");
-    const eyeOpen = document.getElementById("eyeOpen");
-    const eyeClosed = document.getElementById("eyeClosed");
-
-    const statusMessage = document.getElementById("statusMessage");
-    const forgotPassword = document.getElementById("forgotPassword");
+    const buttonText =
+      document.getElementById("loginText");
 
 
     function showStatus(message, type = "error") {
-      statusMessage.textContent = message;
-      statusMessage.className = `status show ${type}`;
+
+      status.textContent = message;
+
+      status.className =
+        "status show " + type;
     }
 
 
-    function clearStatus() {
-      statusMessage.textContent = "";
-      statusMessage.className = "status";
-    }
+    toggle.addEventListener("click", () => {
 
+      password.type =
+        password.type === "password"
+          ? "text"
+          : "password";
 
-    togglePassword.addEventListener("click", () => {
-      const isPassword = passwordInput.type === "password";
-
-      passwordInput.type = isPassword ? "text" : "password";
-
-      eyeOpen.classList.toggle("hidden", isPassword);
-      eyeClosed.classList.toggle("hidden", !isPassword);
-
-      togglePassword.setAttribute(
-        "aria-label",
-        isPassword ? "Hide password" : "Show password"
-      );
     });
 
 
-    forgotPassword.addEventListener("click", (event) => {
+    form.addEventListener("submit", (event) => {
+
       event.preventDefault();
 
-      const email = document.getElementById("email").value.trim();
+      const email =
+        document.getElementById("email").value.trim();
 
-      if (!email) {
+      const passwordValue =
+        password.value.trim();
+
+
+      if (!email || !passwordValue) {
+
         showStatus(
-          "Enter your email address first, then we can start the password reset process.",
-          "error"
+          "Please enter your email and password."
         );
+
         return;
       }
 
-      showStatus(
-        "Password reset is ready to be connected to Firebase Authentication.",
-        "success"
-      );
-    });
 
+      button.disabled = true;
 
-    loginForm.addEventListener("submit", async (event) => {
-      event.preventDefault();
+      buttonText.textContent =
+        "Logging in…";
 
-      clearStatus();
-
-      const email = document.getElementById("email").value.trim();
-      const password = passwordInput.value.trim();
-
-      if (!email || !password) {
-        showStatus("Please enter your email and password.");
-        return;
-      }
-
-      loginButton.disabled = true;
-      loginButtonText.textContent = "Signing you in…";
 
       /*
-        TEMPORARY UI FLOW
+        FRONTEND ONLY.
 
-        Connect Firebase Authentication here.
-
-        Example:
-
-        try {
-          await signInWithEmailAndPassword(auth, email, password);
-          window.location.href = "dashboard.html";
-        } catch (error) {
-          showStatus(error.message);
-        }
+        Replace this section with your real
+        authentication logic later.
       */
 
       setTimeout(() => {
-        loginButton.disabled = false;
-        loginButtonText.textContent = "Log in to JOYET";
+
+        button.disabled = false;
+
+        buttonText.textContent =
+          "Log in to JOYET";
 
         showStatus(
-          "The login interface is ready. Connect this form to your Firebase Authentication setup.",
+          "Login is currently a frontend demo.",
           "success"
         );
+
       }, 700);
+
     });
+
   </script>
 
 </body>
